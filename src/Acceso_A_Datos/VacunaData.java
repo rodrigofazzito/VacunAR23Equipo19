@@ -5,9 +5,15 @@ import Entidades.Vacuna;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
+
+
 
 /* Rodrigo Fazzito */
 public class VacunaData {
@@ -30,8 +36,32 @@ public class VacunaData {
             ps.executeUpdate();
             ps.close();
         } catch (SQLException ex) {
-            System.out.println("error al acceder a la tabla laboratorio" + ex.getMessage());
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla laboratorio " + ex.getMessage());
+            System.out.println("error al acceder a la tabla vacuna" + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla vacuna " + ex.getMessage());
         }
+    
 }
+         public List<Vacuna> listaVacunas(){
+             String sql="Select marca, medida,fechaCaduca,nroSerieDosis,cuitLaboratorio from vacuna where colocada=1";
+              ArrayList<Vacuna> vacunas = new ArrayList<>();
+             try {                               
+                  PreparedStatement ps= con.prepareStatement(sql);
+                  ResultSet rs = ps.executeQuery();
+                   while(rs.next()){
+                Vacuna vacu = new Vacuna();
+                vacu.setMarca(rs.getString("marca"));
+                vacu.setMedida(rs.getDouble("medida"));
+                vacu.setFechaCaduc(rs.getDate("fechaCaduca").toLocalDate());
+                vacu.setNumSerieDosis(rs.getInt("nroSerieDosis"));
+                vacu.getLaboratorio().setCuit(rs.getInt("cuitLaboratorio"));
+                vacunas.add(vacu);
+            }
+            ps.close();
+                 
+             } catch (SQLException ex) {
+                 JOptionPane.showMessageDialog(null, "No se pudo acceder a la tabla vacuna");
+             }
+            return vacunas;
+         }
+        
 }
