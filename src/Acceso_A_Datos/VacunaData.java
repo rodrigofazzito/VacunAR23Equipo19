@@ -8,7 +8,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -42,10 +41,10 @@ public class VacunaData {
     
 }
          public List<Vacuna> listaVacunas(){
-             String sql="Select marca, medida,fechaCaduca,nroSerieDosis,cuitLaboratorio from vacuna where colocada=1";
+             String sql="Select marca,medida,fechaCaduca,nroSerieDosis,cuitLaboratorio from vacuna where colocada=1";
               ArrayList<Vacuna> vacunas = new ArrayList<>();
-             try {                               
-                  PreparedStatement ps= con.prepareStatement(sql);
+             try {
+                  PreparedStatement ps = con.prepareStatement(sql);
                   ResultSet rs = ps.executeQuery();
                    while(rs.next()){
                 Vacuna vacu = new Vacuna();

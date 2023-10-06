@@ -5,17 +5,25 @@
  */
 package Vistas;
 
+
+import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Rodrigo Fazzito
  */
 public class Principal extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Principal
-     */
+    
+        
+    
     public Principal() {
         initComponents();
+        
+         
+        
+        
     }
 
     /**
@@ -33,12 +41,14 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 977, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 691, Short.MAX_VALUE)
         );
+
+        getAccessibleContext().setAccessibleName("JFrame");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -76,8 +86,27 @@ public class Principal extends javax.swing.JFrame {
                 new Principal().setVisible(true);
             }
         });
+    
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Ingresar;
+    private javax.swing.JButton Ingresar1;
+    private javax.swing.JPasswordField contra;
+    private javax.swing.JPasswordField contra1;
+    private javax.swing.JInternalFrame jInternalFrame1;
+    private javax.swing.JInternalFrame jInternalFrame2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JTextField mail;
+    private javax.swing.JTextField mail1;
     // End of variables declaration//GEN-END:variables
+
+
+
+
+    
+
 }

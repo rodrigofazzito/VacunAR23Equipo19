@@ -11,7 +11,7 @@ public class CitaVacunacion {
     private int CodRefuerzo;
     private String HoraCita;
     private String CentroVacuna;
-    private LocalDate fechaColoca;
+    private LocalDate fechaColoca;//+2 month
 
     public CitaVacunacion() {
     }

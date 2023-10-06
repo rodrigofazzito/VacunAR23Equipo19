@@ -9,7 +9,6 @@ public class Ciudadano {
     private int Celular;
     private String Patologia;
     private String AmbitoTrabajo;
-
     public Ciudadano() {
     }
 
