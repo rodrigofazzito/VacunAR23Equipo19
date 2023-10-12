@@ -7,26 +7,20 @@ public class Ciudadano {
     private String NombreComp;
     private String Email;
     private int Celular;
-    private String Patologia;
-    private String AmbitoTrabajo;
+    private String nota;
+    private boolean esencial;
+    private boolean sintomas;
     public Ciudadano() {
     }
 
-    public Ciudadano(int Dni, String NombreComp, String Email, int Celular, String Patologia, String AmbitoTrabajo) {
+    public Ciudadano(int Dni, String NombreComp, String Email, int Celular, String nota, boolean esencial, boolean sintomas) {
         this.Dni = Dni;
         this.NombreComp = NombreComp;
         this.Email = Email;
         this.Celular = Celular;
-        this.Patologia = Patologia;
-        this.AmbitoTrabajo = AmbitoTrabajo;
-    }
-
-    public Ciudadano(String NombreComp, String Email, int Celular, String Patologia, String AmbitoTrabajo) {
-        this.NombreComp = NombreComp;
-        this.Email = Email;
-        this.Celular = Celular;
-        this.Patologia = Patologia;
-        this.AmbitoTrabajo = AmbitoTrabajo;
+        this.nota = nota;
+        this.esencial = esencial;
+        this.sintomas = sintomas;
     }
 
     public int getDni() {
@@ -61,25 +55,33 @@ public class Ciudadano {
         this.Celular = Celular;
     }
 
-    public String getPatologia() {
-        return Patologia;
+    public String getNota() {
+        return nota;
     }
 
-    public void setPatologia(String Patologia) {
-        this.Patologia = Patologia;
+    public void setNota(String nota) {
+        this.nota = nota;
     }
 
-    public String getAmbitoTrabajo() {
-        return AmbitoTrabajo;
+    public boolean isEsencial() {
+        return esencial;
     }
 
-    public void setAmbitoTrabajo(String AmbitoTrabajo) {
-        this.AmbitoTrabajo = AmbitoTrabajo;
+    public void setEsencial(boolean esencial) {
+        this.esencial = esencial;
+    }
+
+    public boolean isSintomas() {
+        return sintomas;
+    }
+
+    public void setSintomas(boolean sintomas) {
+        this.sintomas = sintomas;
     }
 
     @Override
     public String toString() {
-        return "Ciudadano{" + "Dni=" + Dni + ", NombreComp=" + NombreComp + ", Email=" + Email + ", Celular=" + Celular + ", Patologia=" + Patologia + ", AmbitoTrabajo=" + AmbitoTrabajo + '}';
+        return "Ciudadano{" + "Dni=" + Dni + ", NombreComp=" + NombreComp + ", Email=" + Email + ", Celular=" + Celular + ", nota=" + nota + ", esencial=" + esencial + ", sintomas=" + sintomas + '}';
     }
 
 

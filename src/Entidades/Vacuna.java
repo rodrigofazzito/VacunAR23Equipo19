@@ -5,39 +5,31 @@ import java.time.LocalDate;
 
 /* Rodrigo Fazzito */
 public class Vacuna {
-    private int NumSerieDosis;
+    private int NumSerie;
     private String Marca;
     private Double Medida;
-    private LocalDate FechaCaduc;
+    private LocalDate FechaCaduca;
     private boolean Colocada;
     Laboratorio laboratorio;
 
     public Vacuna() {
     }
 
-    public Vacuna(int NumSerieDosis, String Marca, Double Medida, LocalDate FechaCaduc, boolean Colocada, Laboratorio laboratorio) {
-        this.NumSerieDosis = NumSerieDosis;
+    public Vacuna(int NumSerie, String Marca, Double Medida, LocalDate FechaCaduca, boolean Colocada, Laboratorio laboratorio) {
+        this.NumSerie = NumSerie;
         this.Marca = Marca;
         this.Medida = Medida;
-        this.FechaCaduc = FechaCaduc;
+        this.FechaCaduca = FechaCaduca;
         this.Colocada = Colocada;
         this.laboratorio = laboratorio;
     }
 
-    public Vacuna(String Marca, Double Medida, LocalDate FechaCaduc, boolean Colocada, Laboratorio laboratorio) {
-        this.Marca = Marca;
-        this.Medida = Medida;
-        this.FechaCaduc = FechaCaduc;
-        this.Colocada = Colocada;
-        this.laboratorio = laboratorio;
+    public int getNumSerie() {
+        return NumSerie;
     }
 
-    public int getNumSerieDosis() {
-        return NumSerieDosis;
-    }
-
-    public void setNumSerieDosis(int NumSerieDosis) {
-        this.NumSerieDosis = NumSerieDosis;
+    public void setNumSerie(int NumSerie) {
+        this.NumSerie = NumSerie;
     }
 
     public String getMarca() {
@@ -56,12 +48,12 @@ public class Vacuna {
         this.Medida = Medida;
     }
 
-    public LocalDate getFechaCaduc() {
-        return FechaCaduc;
+    public LocalDate getFechaCaduca() {
+        return FechaCaduca;
     }
 
-    public void setFechaCaduc(LocalDate FechaCaduc) {
-        this.FechaCaduc = FechaCaduc;
+    public void setFechaCaduca(LocalDate FechaCaduca) {
+        this.FechaCaduca = FechaCaduca;
     }
 
     public boolean isColocada() {
@@ -82,9 +74,9 @@ public class Vacuna {
 
     @Override
     public String toString() {
-        return "Vacuna{" + "NumSerieDosis=" + NumSerieDosis + ", Marca=" + Marca + ", Medida=" + Medida + ", FechaCaduc=" + FechaCaduc + ", Colocada=" + Colocada + ", laboratorio=" + laboratorio + '}';
+        return "Vacuna{" + "NumSerie=" + NumSerie + ", Marca=" + Marca + ", Medida=" + Medida + ", FechaCaduca=" + FechaCaduca + ", Colocada=" + Colocada + ", laboratorio=" + laboratorio + '}';
     }
 
-    
+   
     
 }

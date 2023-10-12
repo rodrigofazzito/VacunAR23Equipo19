@@ -142,7 +142,7 @@ public class Paciente extends javax.swing.JInternalFrame {
                                     .addComponent(jButton2)
                                     .addComponent(jButton1))
                                 .addGap(70, 70, 70)))))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(209, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,7 +186,7 @@ public class Paciente extends javax.swing.JInternalFrame {
                         .addComponent(jCheckBox5)
                         .addComponent(jCheckBox6)
                         .addComponent(jCheckBox7)))
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addContainerGap(178, Short.MAX_VALUE))
         );
 
         pack();

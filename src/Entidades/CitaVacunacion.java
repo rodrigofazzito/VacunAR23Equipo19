@@ -5,36 +5,69 @@ import java.time.LocalDate;
 
 /* Rodrigo Fazzito */
 public class CitaVacunacion {
+    private int Codcita;
     Ciudadano ciudadano;
     Vacuna vacuna;
-    private int Codcita;
-    private int CodRefuerzo;
+    private int dosis;
     private String HoraCita;
     private String CentroVacuna;
-    private LocalDate fechaColoca;//+2 month
+    private LocalDate fechaColoca;
+    private boolean cancelada;
+    
 
     public CitaVacunacion() {
     }
 
-    public CitaVacunacion(Ciudadano ciudadano, Vacuna vacuna, int Codcita, int CodRefuerzo, String HoraCita, String CentroVacuna, LocalDate fechaColoca) {
+    public CitaVacunacion(int Codcita, Ciudadano ciudadano, Vacuna vacuna, int dosis, String HoraCita, String CentroVacuna, LocalDate fechaColoca) {
+        this.Codcita = Codcita;
         this.ciudadano = ciudadano;
         this.vacuna = vacuna;
-        this.Codcita = Codcita;
-        this.CodRefuerzo = CodRefuerzo;
+        this.dosis = dosis;
         this.HoraCita = HoraCita;
         this.CentroVacuna = CentroVacuna;
         this.fechaColoca = fechaColoca;
     }
 
-    public CitaVacunacion(Ciudadano ciudadano, Vacuna vacuna, int CodRefuerzo, String HoraCita, String CentroVacuna, LocalDate fechaColoca) {
+    public CitaVacunacion(Ciudadano ciudadano, Vacuna vacuna, int dosis, String HoraCita, String CentroVacuna, LocalDate fechaColoca, boolean cancelada) {
         this.ciudadano = ciudadano;
         this.vacuna = vacuna;
-        this.CodRefuerzo = CodRefuerzo;
+        this.dosis = dosis;
+        this.HoraCita = HoraCita;
+        this.CentroVacuna = CentroVacuna;
+        this.fechaColoca = fechaColoca;
+        this.cancelada = cancelada;
+    }
+
+    public CitaVacunacion(int Codcita, Ciudadano ciudadano, Vacuna vacuna, int dosis, String HoraCita, String CentroVacuna, LocalDate fechaColoca, boolean cancelada) {
+        this.Codcita = Codcita;
+        this.ciudadano = ciudadano;
+        this.vacuna = vacuna;
+        this.dosis = dosis;
+        this.HoraCita = HoraCita;
+        this.CentroVacuna = CentroVacuna;
+        this.fechaColoca = fechaColoca;
+        this.cancelada = cancelada;
+    }
+
+    public CitaVacunacion(Ciudadano ciudadano, Vacuna vacuna, int dosis, String HoraCita, String CentroVacuna, LocalDate fechaColoca) {
+        this.ciudadano = ciudadano;
+        this.vacuna = vacuna;
+        this.dosis = dosis;
         this.HoraCita = HoraCita;
         this.CentroVacuna = CentroVacuna;
         this.fechaColoca = fechaColoca;
     }
-    
+
+   
+
+    public int getCodcita() {
+        return Codcita;
+    }
+
+    public void setCodcita(int Codcita) {
+        this.Codcita = Codcita;
+    }
+
     public Ciudadano getCiudadano() {
         return ciudadano;
     }
@@ -51,20 +84,12 @@ public class CitaVacunacion {
         this.vacuna = vacuna;
     }
 
-    public int getCodcita() {
-        return Codcita;
+    public int getDosis() {
+        return dosis;
     }
 
-    public void setCodcita(int Codcita) {
-        this.Codcita = Codcita;
-    }
-
-    public int getCodRefuerzo() {
-        return CodRefuerzo;
-    }
-
-    public void setCodRefuerzo(int CodRefuerzo) {
-        this.CodRefuerzo = CodRefuerzo;
+    public void setDosis(int dosis) {
+        this.dosis = dosis;
     }
 
     public String getHoraCita() {
@@ -91,11 +116,18 @@ public class CitaVacunacion {
         this.fechaColoca = fechaColoca;
     }
 
+    public boolean isCancelada() {
+        return cancelada;
+    }
+
+    public void setCancelada(boolean cancelada) {
+        this.cancelada = cancelada;
+    }
+
     @Override
     public String toString() {
-        return "CitaVacunacion{" + "ciudadano=" + ciudadano + ", vacuna=" + vacuna + ", Codcita=" + Codcita + ", CodRefuerzo=" + CodRefuerzo + ", HoraCita=" + HoraCita + ", CentroVacuna=" + CentroVacuna + ", fechaColoca=" + fechaColoca + '}';
+        return "CitaVacunacion{" + "Codcita=" + Codcita + ", ciudadano=" + ciudadano + ", vacuna=" + vacuna + ", dosis=" + dosis + ", HoraCita=" + HoraCita + ", CentroVacuna=" + CentroVacuna + ", fechaColoca=" + fechaColoca + ", cancelada=" + cancelada + '}';
     }
-    
 
     
 }

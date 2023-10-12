@@ -20,28 +20,24 @@ public class CiudadanoData {
         con = Conexion.getConexion();
     }
    public void GuardarCiudadano(Ciudadano ciudadano){
-       String sql = "INSERT INTO ciudadano(dni,nombreCompleto,email,celular,patologia,ambitoTrabajo)values(?,?,?,?,?,?)";
+       String sql = "INSERT INTO ciudadano(dni,nombreCompleto,email,celular,nota,esencial,sintomas)values(?,?,?,?,?,?,?)";
        try {
-            PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps=con.prepareStatement(sql,Statement.NO_GENERATED_KEYS);
             ps.setInt(1, ciudadano.getDni());
             ps.setString(2, ciudadano.getNombreComp());
             ps.setString(3, ciudadano.getEmail());
             ps.setInt(4, ciudadano.getCelular());
-            ps.setString(5, ciudadano.getPatologia());
-            ps.setString(6, ciudadano.getAmbitoTrabajo());
+            ps.setString(5, ciudadano.getNota());
+            ps.setBoolean(6, ciudadano.isEsencial());
+            ps.setBoolean(7, ciudadano.isSintomas());
             ps.executeUpdate();
-            ResultSet rs = ps.getGeneratedKeys();
-            if(rs.next()){
-                ciudadano.setDni(rs.getInt(1));
-                ps.close();
-            }
         } catch (SQLException ex) {
             System.out.println("error al acceder a la tabla ciudadano"+ ex.getMessage());
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla ciudadano " + ex.getMessage());
         }
    } 
        public Ciudadano buscarCiudadano(int dni){
-        String sql = "select nombreCompleto,email,celular,patologia,ambitoTrabajo from ciudadano where dni = ?";
+        String sql = "select nombreCompleto,email,celular,nota,esencial,sintomas from ciudadano where dni = ?";
         Ciudadano ciudadano = null;
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -53,17 +49,18 @@ public class CiudadanoData {
                 ciudadano.setNombreComp(rs.getString("nombreCompleto"));
                 ciudadano.setEmail(rs.getString("email"));
                 ciudadano.setCelular(rs.getInt("celular"));
-                ciudadano.setPatologia(rs.getString("patologia"));
-                ciudadano.setAmbitoTrabajo(rs.getString("ambitoTrabajo"));
+                ciudadano.setNota(rs.getString("nota"));
+                ciudadano.setEsencial(rs.getBoolean("esencial"));
+                ciudadano.setSintomas(rs.getBoolean("sintomas"));
             }
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla ciudadano");
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla ciudadano*-*");
         }
         return ciudadano;
     }
        public List<Ciudadano> listarciudadanos(){
-        String sql = "select dni,nombreCompleto,email,celular,patologia,ambitoTrabajo from ciudadano";
+        String sql = "select * from ciudadano";
         ArrayList<Ciudadano> ciudadanos = new ArrayList<>();
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -74,15 +71,15 @@ public class CiudadanoData {
                 ciudadano.setNombreComp(rs.getString("nombreCompleto"));
                 ciudadano.setEmail(rs.getString("email"));
                 ciudadano.setCelular(rs.getInt("celular"));
-                ciudadano.setPatologia(rs.getString("patologia"));
-                ciudadano.setAmbitoTrabajo(rs.getString("ambitoTrabajo"));
+                ciudadano.setNota(rs.getString("nota"));
+                ciudadano.setEsencial(rs.getBoolean("esencial"));
+                ciudadano.setSintomas(rs.getBoolean("sintomas"));
                 ciudadanos.add(ciudadano);
             }
             ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "No se pudo acceder a la tabla alumno");
         }
-        //JOptionPane.showMessageDialog(null, alumnos);
         return ciudadanos;
     }
 }
