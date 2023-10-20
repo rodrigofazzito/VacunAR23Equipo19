@@ -74,7 +74,7 @@ public class Vacuna {
 
     @Override
     public String toString() {
-        return "Vacuna{" + "NumSerie=" + NumSerie + ", Marca=" + Marca + ", Medida=" + Medida + ", FechaCaduca=" + FechaCaduca + ", Colocada=" + Colocada + ", laboratorio=" + laboratorio + '}';
+        return  Marca ;
     }
 
    

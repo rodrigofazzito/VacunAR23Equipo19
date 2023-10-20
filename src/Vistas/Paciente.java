@@ -5,6 +5,8 @@
  */
 package Vistas;
 
+import java.awt.Color;
+
 /**
  *
  * @author familia maida
@@ -27,197 +29,246 @@ public class Paciente extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jBannerPaciente = new javax.swing.JLabel();
+        jDni = new javax.swing.JLabel();
+        jNombre = new javax.swing.JLabel();
+        jEmail = new javax.swing.JLabel();
+        jCelular = new javax.swing.JLabel();
+        jCEsencial = new javax.swing.JCheckBox();
+        jCPaciente = new javax.swing.JCheckBox();
+        jCEnfermo = new javax.swing.JCheckBox();
+        jTDni = new javax.swing.JTextField();
+        jTCelular = new javax.swing.JTextField();
+        jTNombre = new javax.swing.JTextField();
+        jTEmail = new javax.swing.JTextField();
+        jBBuscar = new javax.swing.JButton();
+        jBGuardar = new javax.swing.JButton();
+        jX = new javax.swing.JLabel();
+        jBanerLogoVacunar = new javax.swing.JLabel();
+        jFondoVacunar = new javax.swing.JLabel();
+        jAsterisco1 = new javax.swing.JLabel();
+        jAsterisco2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jCheckBox5 = new javax.swing.JCheckBox();
-        jCheckBox6 = new javax.swing.JCheckBox();
-        jCheckBox7 = new javax.swing.JCheckBox();
-        jLabel8 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
 
-        jLabel1.setText("Paciente");
+        setBorder(null);
+        setAlignmentX(200.0F);
+        setAlignmentY(40.0F);
+        setOpaque(false);
+        setPreferredSize(new java.awt.Dimension(870, 570));
+        setVerifyInputWhenFocusTarget(false);
 
-        jLabel2.setText("Dni:");
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setMinimumSize(new java.awt.Dimension(880, 590));
+        jPanel1.setPreferredSize(new java.awt.Dimension(880, 580));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setText("Nombre Completo:");
+        jBannerPaciente.setBackground(new java.awt.Color(180, 0, 0));
+        jBannerPaciente.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jBannerPaciente.setForeground(new java.awt.Color(255, 255, 255));
+        jBannerPaciente.setText(" Paciente");
+        jBannerPaciente.setOpaque(true);
+        jBannerPaciente.setPreferredSize(new java.awt.Dimension(167, 47));
+        jBannerPaciente.setRequestFocusEnabled(false);
+        jPanel1.add(jBannerPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 770, 50));
 
-        jLabel4.setText("Email:");
+        jDni.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jDni.setForeground(new java.awt.Color(180, 0, 0));
+        jDni.setText("DNI:");
+        jPanel1.add(jDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 40, 40));
 
-        jLabel5.setText("Celular:");
+        jNombre.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jNombre.setForeground(new java.awt.Color(180, 0, 0));
+        jNombre.setText("Nombre Completo:");
+        jPanel1.add(jNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, 20));
 
-        jLabel6.setText("Ambito Laboral:");
+        jEmail.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jEmail.setForeground(new java.awt.Color(180, 0, 0));
+        jEmail.setText("E-Mail:");
+        jPanel1.add(jEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, -1, -1));
 
-        jCheckBox1.setText("Prof.Salud");
+        jCelular.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jCelular.setForeground(new java.awt.Color(180, 0, 0));
+        jCelular.setText("Celular:");
+        jPanel1.add(jCelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 240, -1, -1));
 
-        jCheckBox2.setText("Fd.Seguridad");
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+        jCEsencial.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jCEsencial.setForeground(new java.awt.Color(180, 0, 0));
+        jCEsencial.setText("Esencial");
+        jCEsencial.setOpaque(false);
+        jPanel1.add(jCEsencial, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, -1, -1));
+
+        jCPaciente.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jCPaciente.setForeground(new java.awt.Color(180, 0, 0));
+        jCPaciente.setText("Pcte de Riesgo");
+        jCPaciente.setOpaque(false);
+        jCPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
+                jCPacienteActionPerformed(evt);
             }
         });
+        jPanel1.add(jCPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, -1, -1));
 
-        jCheckBox3.setText("Comercio");
+        jCEnfermo.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jCEnfermo.setForeground(new java.awt.Color(180, 0, 0));
+        jCEnfermo.setText("Enf. en Curso");
+        jCEnfermo.setOpaque(false);
+        jPanel1.add(jCEnfermo, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 320, -1, -1));
 
-        jCheckBox4.setText("Otros");
+        jTDni.setForeground(new java.awt.Color(180, 0, 0));
+        jTDni.setOpaque(false);
+        jTDni.setSelectedTextColor(new java.awt.Color(180, 0, 0));
+        jTDni.setSelectionColor(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jTDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 220, 40));
 
-        jCheckBox5.setText("dolor de garganta");
+        jTCelular.setForeground(new java.awt.Color(180, 0, 0));
+        jTCelular.setOpaque(false);
+        jTCelular.setSelectedTextColor(new java.awt.Color(180, 0, 0));
+        jTCelular.setSelectionColor(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jTCelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 230, 200, 40));
 
-        jCheckBox6.setText("Resfrio");
+        jTNombre.setForeground(new java.awt.Color(180, 0, 0));
+        jTNombre.setOpaque(false);
+        jTNombre.setSelectedTextColor(new java.awt.Color(180, 0, 0));
+        jTNombre.setSelectionColor(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jTNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 480, 40));
 
-        jCheckBox7.setText("ninguno");
+        jTEmail.setForeground(new java.awt.Color(180, 0, 0));
+        jTEmail.setOpaque(false);
+        jTEmail.setSelectedTextColor(new java.awt.Color(180, 0, 0));
+        jTEmail.setSelectionColor(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jTEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 330, 40));
 
-        jLabel8.setText("Sintomas:");
+        jBBuscar.setBackground(new java.awt.Color(255, 255, 255));
+        jBBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/lupa_R-50.png"))); // NOI18N
+        jBBuscar.setToolTipText("Buscar");
+        jBBuscar.setOpaque(false);
+        jPanel1.add(jBBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 60, 60));
 
-        jButton1.setText("buscar");
+        jBGuardar.setBackground(new java.awt.Color(255, 255, 255));
+        jBGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/disco-flexible-50.png"))); // NOI18N
+        jBGuardar.setToolTipText("Guardar");
+        jBGuardar.setOpaque(false);
+        jBGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBGuardarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jBGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 130, 60, 60));
 
-        jButton2.setText("Guardar");
+        jX.setBackground(new java.awt.Color(180, 0, 0));
+        jX.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jX.setForeground(new java.awt.Color(255, 255, 255));
+        jX.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jX.setText("X");
+        jX.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jX.setOpaque(true);
+        jX.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jXMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jXMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jXMouseExited(evt);
+            }
+        });
+        jPanel1.add(jX, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 0, 50, 50));
+
+        jBanerLogoVacunar.setBackground(new java.awt.Color(180, 0, 0));
+        jBanerLogoVacunar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/Vacunar-Logo-45.png"))); // NOI18N
+        jBanerLogoVacunar.setOpaque(true);
+        jPanel1.add(jBanerLogoVacunar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
+
+        jFondoVacunar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/Vacunar-Logotipo.png"))); // NOI18N
+        jPanel1.add(jFondoVacunar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, 450, 120));
+
+        jAsterisco1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jAsterisco1.setForeground(new java.awt.Color(180, 0, 0));
+        jAsterisco1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jAsterisco1.setText("*");
+        jPanel1.add(jAsterisco1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 230, 20, 40));
+
+        jAsterisco2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jAsterisco2.setForeground(new java.awt.Color(180, 0, 0));
+        jAsterisco2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jAsterisco2.setText("*");
+        jPanel1.add(jAsterisco2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 230, 20, 40));
+
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(180, 0, 0));
+        jLabel1.setText("(*) Campos Opcionales");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 500, 200, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(219, 219, 219)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel8)))
-                        .addGap(24, 24, 24)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jCheckBox5)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jCheckBox6))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jCheckBox1)
-                                        .addGap(43, 43, 43)
-                                        .addComponent(jCheckBox2)))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jCheckBox3)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jCheckBox4))
-                                    .addComponent(jCheckBox7)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addGap(1, 1, 1)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                                                .addComponent(jTextField3))))
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(104, 104, 104)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton2)
-                                    .addComponent(jButton1))
-                                .addGap(70, 70, 70)))))
-                .addContainerGap(209, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 871, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jButton2)))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jCheckBox1)
-                    .addComponent(jCheckBox2)
-                    .addComponent(jCheckBox3)
-                    .addComponent(jCheckBox4))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel7)
-                        .addComponent(jCheckBox5)
-                        .addComponent(jCheckBox6)
-                        .addComponent(jCheckBox7)))
-                .addContainerGap(178, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 556, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+    private void jCPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCPacienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
+    }//GEN-LAST:event_jCPacienteActionPerformed
+
+    private void jXMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jXMouseClicked
+        // Boton Cerrar
+        this.dispose();
+    }//GEN-LAST:event_jXMouseClicked
+
+    private void jXMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jXMouseEntered
+        // Efecto de posicion
+
+        jX.setBackground(new Color(180, 0, 0));
+        jX.setForeground(Color.WHITE);
+
+    }//GEN-LAST:event_jXMouseEntered
+
+    private void jXMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jXMouseExited
+        // Tremarcado de boton X
+
+        jX.setBackground(Color.white);
+        jX.setForeground(new Color(180, 0, 0));
+    }//GEN-LAST:event_jXMouseExited
+
+    private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBGuardarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
-    private javax.swing.JCheckBox jCheckBox6;
-    private javax.swing.JCheckBox jCheckBox7;
+    private javax.swing.JLabel jAsterisco1;
+    private javax.swing.JLabel jAsterisco2;
+    private javax.swing.JButton jBBuscar;
+    private javax.swing.JButton jBGuardar;
+    private javax.swing.JLabel jBanerLogoVacunar;
+    private javax.swing.JLabel jBannerPaciente;
+    private javax.swing.JCheckBox jCEnfermo;
+    private javax.swing.JCheckBox jCEsencial;
+    private javax.swing.JCheckBox jCPaciente;
+    private javax.swing.JLabel jCelular;
+    private javax.swing.JLabel jDni;
+    private javax.swing.JLabel jEmail;
+    private javax.swing.JLabel jFondoVacunar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JLabel jNombre;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTCelular;
+    private javax.swing.JTextField jTDni;
+    private javax.swing.JTextField jTEmail;
+    private javax.swing.JTextField jTNombre;
+    private javax.swing.JLabel jX;
     // End of variables declaration//GEN-END:variables
 }

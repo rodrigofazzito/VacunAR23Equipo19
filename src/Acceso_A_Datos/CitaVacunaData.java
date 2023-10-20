@@ -2,14 +2,12 @@
 package Acceso_A_Datos;
 
 import Entidades.CitaVacunacion;
-import Entidades.Ciudadano;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -42,7 +40,7 @@ public class CitaVacunaData {
                 ps.close();
             }
         } catch (SQLException ex) {
-            System.out.println("error al acceder a la tabla cita" + ex.getMessage());
+
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla cita " + ex.getMessage());
         }
     }

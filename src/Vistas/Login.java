@@ -5,6 +5,8 @@
  */
 package Vistas;
 
+import java.awt.Color;
+import java.time.LocalDate;
 import javax.swing.JOptionPane;
 
 /**
@@ -30,101 +32,144 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLMail = new javax.swing.JLabel();
+        jLPass = new javax.swing.JLabel();
         contra = new javax.swing.JPasswordField();
         mail = new javax.swing.JTextField();
-        Ingresar = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        jFondoVacunar = new javax.swing.JLabel();
+        jBIngresar = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jX1 = new javax.swing.JLabel();
+        jBannerHora = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
         setBackground(new java.awt.Color(0, 51, 204));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setIconImages(null);
-        setResizable(false);
+        setLocationByPlatform(true);
+        setSize(new java.awt.Dimension(1080, 720));
 
-        jPanel1.setBackground(new java.awt.Color(0, 204, 255));
-        jPanel1.setOpaque(false);
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1080, 720));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("e-mail");
+        jLMail.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLMail.setForeground(new java.awt.Color(180, 0, 0));
+        jLMail.setText("E-Mail:");
+        jPanel1.add(jLMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 410, 71, -1));
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Contraseña");
+        jLPass.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLPass.setForeground(new java.awt.Color(180, 0, 0));
+        jLPass.setText("Contraseña:");
+        jPanel1.add(jLPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 460, 110, -1));
+        jPanel1.add(contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 450, 217, 30));
+        jPanel1.add(mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 400, 217, 30));
 
-        Ingresar.setText("Ingresar");
-        Ingresar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IngresarActionPerformed(evt);
+        jFondoVacunar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/Vacunar-Logotipo.png"))); // NOI18N
+        jPanel1.add(jFondoVacunar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 450, 120));
+
+        jBIngresar.setBackground(new java.awt.Color(255, 255, 255));
+        jBIngresar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jBIngresar.setForeground(new java.awt.Color(180, 0, 0));
+        jBIngresar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jBIngresar.setText("Ingresar");
+        jBIngresar.setToolTipText("Ingresar");
+        jBIngresar.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 153, 153), new java.awt.Color(0, 0, 0)));
+        jBIngresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBIngresar.setMaximumSize(new java.awt.Dimension(30, 30));
+        jBIngresar.setMinimumSize(new java.awt.Dimension(30, 30));
+        jBIngresar.setOpaque(true);
+        jBIngresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBIngresarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jBIngresarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jBIngresarMouseExited(evt);
             }
         });
+        jPanel1.add(jBIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 450, 130, 30));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(contra, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mail, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(112, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Ingresar)
-                .addGap(30, 30, 30))
+        jPanel2.setBackground(new java.awt.Color(180, 0, 0));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 140, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(44, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(mail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(contra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Ingresar)
-                .addGap(18, 18, 18))
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 720, Short.MAX_VALUE)
         );
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen.png"))); // NOI18N
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 720));
+
+        jPanel3.setBackground(new java.awt.Color(224, 0, 0));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 780, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 500, 780, -1));
+
+        jX1.setBackground(new java.awt.Color(255, 255, 255));
+        jX1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jX1.setForeground(new java.awt.Color(180, 0, 0));
+        jX1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jX1.setText("X");
+        jX1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jX1.setMaximumSize(new java.awt.Dimension(30, 30));
+        jX1.setMinimumSize(new java.awt.Dimension(30, 30));
+        jX1.setOpaque(true);
+        jX1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jX1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jX1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jX1MouseExited(evt);
+            }
+        });
+        jPanel1.add(jX1, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 0, 70, 60));
+
+        jBannerHora.setBackground(new java.awt.Color(224, 0, 0));
+        jBannerHora.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jBannerHora.setForeground(new java.awt.Color(255, 255, 255));
+        jBannerHora.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jBannerHora.setOpaque(true);
+        jPanel1.add(jBannerHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 500, 320, 100));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(117, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 551, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1090, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void IngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarActionPerformed
-        String meil = "Medical@gmail.com";
+    private void jBIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBIngresarMouseClicked
+       
+              String meil = "Medical@gmail.com";
         String contrasenia = "medico12";
         Principal prin = new Principal();
         if (mail.getText().equalsIgnoreCase(meil)) {
@@ -144,7 +189,37 @@ public class Login extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "E-mail ingresado no corresponde");
         }
-    }//GEN-LAST:event_IngresarActionPerformed
+                             
+    }//GEN-LAST:event_jBIngresarMouseClicked
+
+    private void jBIngresarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBIngresarMouseEntered
+     jBIngresar.setBackground(new Color(180, 0, 0));
+     jBIngresar.setForeground(Color.WHITE);
+    }//GEN-LAST:event_jBIngresarMouseEntered
+
+    private void jBIngresarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBIngresarMouseExited
+        // Tremarcado de boton X
+
+        jBIngresar.setBackground(Color.white);
+        jBIngresar.setForeground(new Color(180, 0, 0));
+    }//GEN-LAST:event_jBIngresarMouseExited
+
+    private void jX1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jX1MouseClicked
+       // Boton Cerrar
+        System.exit(0);
+    }//GEN-LAST:event_jX1MouseClicked
+
+    private void jX1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jX1MouseEntered
+         // Efecto de posicion
+
+        jX1.setBackground(new Color(180, 0, 0));
+        jX1.setForeground(Color.WHITE);
+    }//GEN-LAST:event_jX1MouseEntered
+
+    private void jX1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jX1MouseExited
+       jX1.setBackground(Color.white);
+       jX1.setForeground(new Color(180, 0, 0));
+    }//GEN-LAST:event_jX1MouseExited
 
     /**
      * @param args the command line arguments
@@ -182,12 +257,26 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Ingresar;
     private javax.swing.JPasswordField contra;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jBIngresar;
+    private javax.swing.JLabel jBannerHora;
+    private javax.swing.JLabel jFondoVacunar;
+    private javax.swing.JLabel jLMail;
+    private javax.swing.JLabel jLPass;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel jX1;
     private javax.swing.JTextField mail;
     // End of variables declaration//GEN-END:variables
+
+ private void SetDate() { // Fecha en Barra 
+       
+         LocalDate now = LocalDate.now();
+        int anio = now.getYear();
+        int dia = now.getDayOfMonth();
+        int mes = now.getMonthValue();
+        String[] meses = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
+        jBannerHora.setText("Hoy es " + dia + " de " + meses[mes - 1] + " de " + anio);
+    }
 }
