@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 
 
 
-/* Rodrigo Fazzito */
+/* grupo19 */
 public class VacunaData {
 
     private Connection con = null;
@@ -31,10 +31,11 @@ public class VacunaData {
             ps.setDouble(2, vacuna.getMedida());
             ps.setDate(3, Date.valueOf(vacuna.getFechaCaduca()));
             ps.setBoolean(4, vacuna.isColocada());
-            ps.setInt(5, vacuna.getNumSerie());
+            ps.setLong(5, vacuna.getNumSerie()); 
             ps.setInt(6, vacuna.getLaboratorio().getIdLaboratorio());
             ps.executeUpdate();
             ps.close();
+            System.out.println("Vacuna guardada con exito");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla vacuna " + ex.getMessage());
         }
@@ -51,7 +52,7 @@ public class VacunaData {
                 vacu.setMedida(rs.getDouble("medida"));
                 vacu.setFechaCaduca(rs.getDate("fechaCaduca").toLocalDate());
                 vacu.setColocada(rs.getBoolean("colocada"));
-                vacu.setNumSerie(rs.getInt("nroSerie"));
+                vacu.setNumSerie(rs.getLong("nroSerie"));
                 vacu.setLaboratorio(labData.buscarLaboratorio(rs.getInt("idLaboratorio")));
                 vacunas.add(vacu);
             }
@@ -88,7 +89,7 @@ public class VacunaData {
            try{
                PreparedStatement ps = con.prepareStatement(sql);
                ps.setBoolean(1, vac.isColocada());
-               ps.setInt(2,vac.getNumSerie());
+               ps.setLong(2,vac.getNumSerie());
                ps.executeUpdate();
            }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla vacuna");
@@ -101,10 +102,53 @@ public class VacunaData {
                ps.setString(1, vac.getMarca());
                ps.setDouble(2, vac.getMedida());
                ps.setDate(3, Date.valueOf(vac.getFechaCaduca()));
-               ps.setInt(4, vac.getNumSerie());
+               ps.setLong(4, vac.getNumSerie());
                ps.executeUpdate();
            }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla vacuna");
         }return vac;
        }
+       public List<Vacuna> listarVacunaxSerie(long numSerie) {
+    String sql = "select numSerie, marca, medida, fechaCaduca, colocada, idLaboratorio from vacuna where numSerie = ?";
+    List<Vacuna> vacunas = new ArrayList<>();
+
+    try {
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setLong(1, numSerie);
+        ResultSet rs = ps.executeQuery();
+
+        while (rs.next()) {
+            Vacuna vacuna = new Vacuna();
+            vacuna.setNumSerie(rs.getLong("numSerie"));
+            vacuna.setMarca(rs.getString("marca"));
+            vacuna.setMedida(rs.getDouble("medida"));
+            vacuna.setFechaCaduca(rs.getDate("fechaCaduca").toLocalDate());
+            vacuna.setColocada(rs.getBoolean("colocada"));
+            vacuna.setLaboratorio(labData.buscarLaboratorio(rs.getInt("idLaboratorio")));
+            vacunas.add(vacuna);
+        }
+        
+        ps.close();
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Error al acceder a la tabla vacuna");
+    }
+    
+    return vacunas;
+}
+public boolean existeNumeroSerie(long numSerie) {
+    String sql = "select count(*) from vacuna where nroSerie = ?";
+    try {
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setLong(1, numSerie);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            int count = rs.getInt(1);
+            return count > 0;
+        }
+        ps.close();
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Error al verificar la existencia del número de serie: " + ex.getMessage());
+    }
+    return false;
+}
 }

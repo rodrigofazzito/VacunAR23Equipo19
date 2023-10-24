@@ -56,7 +56,6 @@ hilo.start();
     private void initComponents() {
 
         Fondo = new javax.swing.JPanel();
-        jEscritorio = new javax.swing.JPanel();
         jBanner = new javax.swing.JPanel();
         bVacuna = new javax.swing.JPanel();
         jVacuna = new javax.swing.JLabel();
@@ -67,10 +66,13 @@ hilo.start();
         bLabo = new javax.swing.JPanel();
         jLabo = new javax.swing.JLabel();
         jHora = new javax.swing.JLabel();
+        bTurnos = new javax.swing.JPanel();
+        jTurnos = new javax.swing.JLabel();
         jBannerBajo = new javax.swing.JLabel();
         jBannerHora = new javax.swing.JLabel();
         Bx = new javax.swing.JPanel();
         jX = new javax.swing.JLabel();
+        jEscritorio = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -82,21 +84,6 @@ hilo.start();
         Fondo.setMinimumSize(new java.awt.Dimension(1080, 720));
         Fondo.setPreferredSize(new java.awt.Dimension(1080, 720));
         Fondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jEscritorio.setOpaque(false);
-
-        javax.swing.GroupLayout jEscritorioLayout = new javax.swing.GroupLayout(jEscritorio);
-        jEscritorio.setLayout(jEscritorioLayout);
-        jEscritorioLayout.setHorizontalGroup(
-            jEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 880, Short.MAX_VALUE)
-        );
-        jEscritorioLayout.setVerticalGroup(
-            jEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 580, Short.MAX_VALUE)
-        );
-
-        Fondo.add(jEscritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 880, 580));
 
         jBanner.setBackground(new java.awt.Color(180, 0, 0));
         jBanner.setPreferredSize(new java.awt.Dimension(200, 550));
@@ -115,6 +102,9 @@ hilo.start();
         jVacuna.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jVacuna.setOpaque(true);
         jVacuna.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jVacunaMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jVacunaMouseEntered(evt);
             }
@@ -197,6 +187,9 @@ hilo.start();
         jCita.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jCita.setOpaque(true);
         jCita.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCitaMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jCitaMouseEntered(evt);
             }
@@ -237,6 +230,9 @@ hilo.start();
         jLabo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabo.setOpaque(true);
         jLabo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLaboMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLaboMouseEntered(evt);
             }
@@ -249,25 +245,63 @@ hilo.start();
         bLabo.setLayout(bLaboLayout);
         bLaboLayout.setHorizontalGroup(
             bLaboLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bLaboLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabo, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bLaboLayout.createSequentialGroup()
+                .addGap(0, 12, Short.MAX_VALUE)
+                .addComponent(jLabo, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         bLaboLayout.setVerticalGroup(
             bLaboLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bLaboLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabo, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bLaboLayout.createSequentialGroup()
+                .addGap(0, 14, Short.MAX_VALUE)
+                .addComponent(jLabo))
         );
 
-        jBanner.add(bLabo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 327, -1, -1));
+        jBanner.add(bLabo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, -1, 50));
 
         jHora.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jHora.setForeground(new java.awt.Color(255, 255, 255));
         jHora.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jBanner.add(jHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 640, 150, 50));
+
+        bTurnos.setBackground(new java.awt.Color(180, 0, 0));
+        bTurnos.setForeground(new java.awt.Color(255, 255, 255));
+        bTurnos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        bTurnos.setPreferredSize(new java.awt.Dimension(200, 63));
+
+        jTurnos.setBackground(new java.awt.Color(180, 0, 0));
+        jTurnos.setFont(new java.awt.Font("Bauhaus 93", 0, 24)); // NOI18N
+        jTurnos.setForeground(new java.awt.Color(255, 255, 255));
+        jTurnos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jTurnos.setText("TURNOS");
+        jTurnos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jTurnos.setOpaque(true);
+        jTurnos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTurnosMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jTurnosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jTurnosMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout bTurnosLayout = new javax.swing.GroupLayout(bTurnos);
+        bTurnos.setLayout(bTurnosLayout);
+        bTurnosLayout.setHorizontalGroup(
+            bTurnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bTurnosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTurnos, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        bTurnosLayout.setVerticalGroup(
+            bTurnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTurnos, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        jBanner.add(bTurnos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 327, -1, 50));
 
         Fondo.add(jBanner, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 740));
 
@@ -335,6 +369,21 @@ hilo.start();
         );
 
         Fondo.add(Bx, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 40));
+
+        jEscritorio.setOpaque(false);
+
+        javax.swing.GroupLayout jEscritorioLayout = new javax.swing.GroupLayout(jEscritorio);
+        jEscritorio.setLayout(jEscritorioLayout);
+        jEscritorioLayout.setHorizontalGroup(
+            jEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 880, Short.MAX_VALUE)
+        );
+        jEscritorioLayout.setVerticalGroup(
+            jEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 580, Short.MAX_VALUE)
+        );
+
+        Fondo.add(jEscritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 880, 580));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -438,7 +487,53 @@ hilo.start();
         paciente.moveToFront();
         
         
+        
     }//GEN-LAST:event_jPacienteMouseClicked
+
+    private void jLaboMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLaboMouseClicked
+        // boton laboratorio
+        Laboratorios laboratorios = new Laboratorios();
+        laboratorios.setVisible(true);
+        jEscritorio.add(laboratorios);
+        laboratorios.moveToFront();
+        
+    }//GEN-LAST:event_jLaboMouseClicked
+
+    private void jCitaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCitaMouseClicked
+        //boton cita
+
+        Citas citas = new Citas();
+        citas.setVisible(true);
+        jEscritorio.add(citas);
+        citas.moveToFront();
+    }//GEN-LAST:event_jCitaMouseClicked
+
+    private void jTurnosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTurnosMouseClicked
+        // boton laboratorio
+        Turnos turnos = new Turnos();
+        turnos.setVisible(true);
+        jEscritorio.add(turnos);
+        turnos.moveToFront();
+    }//GEN-LAST:event_jTurnosMouseClicked
+
+    private void jTurnosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTurnosMouseEntered
+        //Cambio de Color por posicion
+        jTurnos.setBackground(Color.white);
+        jTurnos.setForeground(new Color(180, 0, 0));
+    }//GEN-LAST:event_jTurnosMouseEntered
+
+    private void jTurnosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTurnosMouseExited
+        // Cambio de Color por posicion al salir
+        jTurnos.setBackground(new Color(180, 0, 0));
+        jTurnos.setForeground(Color.WHITE);
+    }//GEN-LAST:event_jTurnosMouseExited
+
+    private void jVacunaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jVacunaMouseClicked
+        Vacunas vacunas = new Vacunas();
+        vacunas.setVisible(true);
+        jEscritorio.add(vacunas);
+        vacunas.moveToFront();
+    }//GEN-LAST:event_jVacunaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -481,15 +576,17 @@ hilo.start();
     private javax.swing.JPanel bCita;
     private javax.swing.JPanel bLabo;
     private javax.swing.JPanel bPaciente;
+    private javax.swing.JPanel bTurnos;
     private javax.swing.JPanel bVacuna;
     private javax.swing.JPanel jBanner;
     private javax.swing.JLabel jBannerBajo;
     private javax.swing.JLabel jBannerHora;
     private javax.swing.JLabel jCita;
-    private javax.swing.JPanel jEscritorio;
+    public javax.swing.JPanel jEscritorio;
     private javax.swing.JLabel jHora;
     private javax.swing.JLabel jLabo;
     private javax.swing.JLabel jPaciente;
+    private javax.swing.JLabel jTurnos;
     private javax.swing.JLabel jVacuna;
     private javax.swing.JLabel jX;
     // End of variables declaration//GEN-END:variables

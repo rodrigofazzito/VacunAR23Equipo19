@@ -1,10 +1,8 @@
 package vacunar23;
 
-import Entidades.CitaVacunacion;
-import Entidades.Ciudadano;
-import Vistas.Citas;
 import Vistas.Login;
-import javax.swing.JOptionPane;
+
+
 
 
 
@@ -15,6 +13,7 @@ public class VacunAR23 {
     public static void main(String[] args) {
         Login log = new Login();
         log.setVisible(true);
+
        
         
 //        Login log = new Login();

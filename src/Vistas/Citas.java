@@ -67,6 +67,7 @@ public class Citas extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jScrollBar1 = new javax.swing.JScrollBar();
+        jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTdni = new javax.swing.JTextField();
@@ -86,6 +87,18 @@ public class Citas extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         jTvacunatorio = new javax.swing.JTextField();
         jNota = new javax.swing.JLabel();
+        jBAsistido1 = new javax.swing.JLabel();
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         setResizable(true);
         setAlignmentX(200.0F);
@@ -100,7 +113,7 @@ public class Citas extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(180, 0, 0));
         jLabel1.setText("DNI:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 80, -1, 57));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, 57));
 
         jTdni.setBackground(new java.awt.Color(255, 255, 255));
         jTdni.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
@@ -114,24 +127,19 @@ public class Citas extends javax.swing.JInternalFrame {
                 jTdniKeyPressed(evt);
             }
         });
-        jPanel1.add(jTdni, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 80, 228, -1));
+        jPanel1.add(jTdni, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 60, 228, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(180, 0, 0));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Vacuna:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 84, 33));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 84, 33));
 
         jComboVacuna.setBackground(new java.awt.Color(255, 255, 255));
         jComboVacuna.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jComboVacuna.setForeground(new java.awt.Color(180, 0, 0));
         jComboVacuna.setNextFocusableComponent(jX);
-        jComboVacuna.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboVacunaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jComboVacuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 420, 175, 33));
+        jPanel1.add(jComboVacuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, 175, 33));
 
         jCheckBox2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jCheckBox2.setForeground(new java.awt.Color(180, 0, 0));
@@ -142,24 +150,24 @@ public class Citas extends javax.swing.JInternalFrame {
                 jCheckBox2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 440, -1, -1));
+        jPanel1.add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 500, -1, -1));
 
         jList2.setBackground(new java.awt.Color(255, 255, 255));
         jList2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jList2.setForeground(new java.awt.Color(180, 0, 0));
         jScrollPane1.setViewportView(jList2);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, 280, 220));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 160, 360, 210));
 
         jCargarCita.setBackground(new java.awt.Color(255, 255, 255));
         jCargarCita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/disco-flexible-50.png"))); // NOI18N
-        jCargarCita.setToolTipText("Buscar");
+        jCargarCita.setToolTipText("Guardar");
         jCargarCita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCargarCitaActionPerformed(evt);
             }
         });
-        jPanel1.add(jCargarCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 440, 60, 60));
+        jPanel1.add(jCargarCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 430, 60, 60));
 
         jBanerLogoVacunar.setBackground(new java.awt.Color(180, 0, 0));
         jBanerLogoVacunar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/Vacunar-Logo-45.png"))); // NOI18N
@@ -196,7 +204,7 @@ public class Citas extends javax.swing.JInternalFrame {
         jPanel1.add(jX, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 0, 50, 50));
 
         jFondoVacunar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/Vacunar-Logotipo.png"))); // NOI18N
-        jPanel1.add(jFondoVacunar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 450, 130));
+        jPanel1.add(jFondoVacunar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 450, 130));
 
         jCalendar.setBackground(new java.awt.Color(255, 255, 255));
         jCalendar.setForeground(new java.awt.Color(0, 0, 0));
@@ -206,17 +214,17 @@ public class Citas extends javax.swing.JInternalFrame {
         jCalendar.setTodayButtonVisible(true);
         jCalendar.setWeekOfYearVisible(false);
         jCalendar.setWeekdayForeground(new java.awt.Color(255, 255, 153));
-        jPanel1.add(jCalendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 410, 240));
+        jPanel1.add(jCalendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 400, 230));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(180, 0, 0));
         jLabel5.setText("Seleccione hora");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 150, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, -1, -1));
 
         jSpinner.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jSpinner.setModel(new javax.swing.SpinnerListModel(new String[] {"07:15", "07:30", "07:45", "08:00", "08:15", "08:30", "08:45", "09:00", "09:15", "09:30", "09:45", "10:00", "10:15", "10:30", "10:45", "11:00", "11:15", "11:30", "11:45", "12:00", "12:15", "12:30", "12:45", "13:00", "13:15", "13:30", "13:45", "14:00", "14:15", "14:30", "14:45", "15:00", "15:15", "15:30", "15:45", "16:00", "16:15", "16:30", "16:45", "17:00"}));
         jSpinner.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.gray, java.awt.Color.black));
-        jPanel1.add(jSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 140, 120, 40));
+        jPanel1.add(jSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 120, 120, 40));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(180, 0, 0));
@@ -232,7 +240,33 @@ public class Citas extends javax.swing.JInternalFrame {
 
         jNota.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jNota.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(jNota, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 350, 30));
+        jPanel1.add(jNota, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 350, 30));
+
+        jBAsistido1.setBackground(new java.awt.Color(180, 0, 0));
+        jBAsistido1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jBAsistido1.setForeground(new java.awt.Color(255, 255, 255));
+        jBAsistido1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jBAsistido1.setText("Ver citas");
+        jBAsistido1.setToolTipText("Ver citas");
+        jBAsistido1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBAsistido1.setOpaque(true);
+        jBAsistido1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBAsistido1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jBAsistido1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jBAsistido1MouseExited(evt);
+            }
+        });
+        jBAsistido1.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jBAsistido1ComponentShown(evt);
+            }
+        });
+        jPanel1.add(jBAsistido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 390, 130, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -242,34 +276,32 @@ public class Citas extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboVacunaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboVacunaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboVacunaActionPerformed
-
     private void jXMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jXMouseClicked
 
         // Boton Cerrar
-        System.exit(0);
+        this.dispose();
     }//GEN-LAST:event_jXMouseClicked
 
     private void jXMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jXMouseEntered
         // Efecto de posicion
+        jX.setBackground(Color.white);
+        jX.setForeground(new Color(180, 0, 0));
 
-        jX.setBackground(new Color(180, 0, 0));
-        jX.setForeground(Color.WHITE);
     }//GEN-LAST:event_jXMouseEntered
 
     private void jXMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jXMouseExited
         // Tremarcado de boton X
-
-        jX.setBackground(Color.white);
-        jX.setForeground(new Color(180, 0, 0));
+        jX.setBackground(new Color(180, 0, 0));
+        jX.setForeground(Color.WHITE);
+        
     }//GEN-LAST:event_jXMouseExited
 
     private void jCargarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCargarCitaActionPerformed
@@ -329,8 +361,33 @@ public class Citas extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jCheckBox2ActionPerformed
 
+    private void jBAsistido1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBAsistido1MouseEntered
+        jBAsistido1.setBackground(new Color(180, 0, 0));
+        jBAsistido1.setForeground(Color.WHITE);
+    }//GEN-LAST:event_jBAsistido1MouseEntered
+
+    private void jBAsistido1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBAsistido1MouseExited
+        jBAsistido1.setBackground(Color.white);
+        jBAsistido1.setForeground(new Color(180, 0, 0));
+        
+        
+    }//GEN-LAST:event_jBAsistido1MouseExited
+
+    private void jBAsistido1ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jBAsistido1ComponentShown
+        
+    }//GEN-LAST:event_jBAsistido1ComponentShown
+
+    private void jBAsistido1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBAsistido1MouseClicked
+
+        ListarCitas verCitas = new ListarCitas();
+        verCitas.setVisible(true);
+        //Citas.this.dispose();
+        
+    }//GEN-LAST:event_jBAsistido1MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jBAsistido1;
     private javax.swing.JLabel jBanerLogoVacunar;
     private javax.swing.JLabel jBannerPaciente;
     private com.toedter.calendar.JCalendar jCalendar;
@@ -345,6 +402,7 @@ public class Citas extends javax.swing.JInternalFrame {
     private javax.swing.JList<String> jList2;
     private javax.swing.JLabel jNota;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSpinner jSpinner;

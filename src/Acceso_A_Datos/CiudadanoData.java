@@ -82,4 +82,20 @@ public class CiudadanoData {
         }
         return ciudadanos;
     }
+       public Ciudadano modificarCiudadano(Ciudadano ciu){
+       String sql = "UPDATE Ciudadano set nombreCompleto = ? ,email = ?, celular = ?, esencial = ?  WHERE dni= ?";
+           try {
+               PreparedStatement ps = con.prepareStatement(sql);
+               ps.setString(1, ciu.getNombreComp());
+               ps.setString(2, ciu.getEmail());
+               ps.setInt(3, ciu.getCelular());
+               ps.setBoolean(4, ciu.isEsencial());
+               ps.setInt(5, ciu.getDni());
+               ps.executeUpdate();
+               System.out.println("Ciudadano modificado con exito!");
+           } catch (SQLException ex) {
+               JOptionPane.showMessageDialog(null, "No se pudo acceder a la tabla ciudadano");
+           }
+         return ciu;
+       }
 }

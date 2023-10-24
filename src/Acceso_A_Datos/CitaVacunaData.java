@@ -32,7 +32,7 @@ public class CitaVacunaData {
             ps.setString(3, cita.getCentroVacuna());
             ps.setDate(4, Date.valueOf(cita.getFechaColoca()));
             ps.setInt(5, cita.getDosis());
-            ps.setInt(6, cita.getVacuna().getNumSerie());
+            ps.setLong(6, cita.getVacuna().getNumSerie());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
@@ -131,4 +131,5 @@ public class CitaVacunaData {
         }
         return citas;
     }
+    
 }

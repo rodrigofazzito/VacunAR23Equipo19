@@ -27,7 +27,7 @@ public class LaboratorioData {
         String sql = "INSERT INTO laboratorio(cuit,nomLaboratorio,pais,domComercial,Stock)values(?,?,?,?,?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, lab.getCuit());
+            ps.setLong(1, lab.getCuit());
             ps.setString(2, lab.getNomLaboratorio());
             ps.setString(3, lab.getPais());
             ps.setString(4, lab.getDomComercial());
@@ -48,7 +48,7 @@ public class LaboratorioData {
                    while(rs.next()){
                 Laboratorio labo = new Laboratorio();
                 labo.setIdLaboratorio(rs.getInt("idLaboratorio"));
-                labo.setCuit(rs.getInt("cuit"));
+                labo.setCuit(rs.getLong("cuit"));
                 labo.setNomLaboratorio(rs.getString("nomLaboratorio"));
                 labo.setPais(rs.getString("pais"));
                 labo.setDomComercial(rs.getString("domComercial"));
@@ -68,12 +68,12 @@ public class LaboratorioData {
         Laboratorio lab = null;
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, idLab);
+            ps.setLong(1, idLab);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 lab = new Laboratorio();
                 lab.setIdLaboratorio(idLab);
-                lab.setCuit(rs.getInt("cuit"));
+                lab.setCuit(rs.getLong("cuit"));
                 lab.setNomLaboratorio(rs.getString("nomLaboratorio"));
                 lab.setPais(rs.getString("pais"));
                 lab.setDomComercial(rs.getString("domComercial"));
@@ -90,7 +90,7 @@ public class LaboratorioData {
         String sql = "Update laboratorio set cuit = ?, nomLaboratorio = ?, pais = ?,domComercial = ?,Stock = ? where idLaboratorio = ?";
         try {
                 PreparedStatement ps = con.prepareStatement(sql);
-                ps.setInt(1, lab.getCuit());
+                ps.setLong(1, lab.getCuit());
                 ps.setString(2, lab.getNomLaboratorio());
                 ps.setString(3, lab.getPais());
                 ps.setString(4, lab.getDomComercial());
@@ -114,5 +114,28 @@ public class LaboratorioData {
         }
         return lab;
     }
-
+    public List<Laboratorio> BuscarLaboratorioCuit(long cuit){
+    String sql = "select idLaboratorio,nomLaboratorio,pais,domComercial,Stock from laboratorio where cuit = ?";
+        ArrayList<Laboratorio> laboratorios = new ArrayList<>();
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setLong(1, cuit);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Laboratorio lab = new Laboratorio();
+                lab.setCuit(cuit);
+                lab.setIdLaboratorio(rs.getInt("idLaboratorio"));
+                lab.setNomLaboratorio(rs.getString("nomLaboratorio"));
+                lab.setPais(rs.getString("pais"));
+                lab.setDomComercial(rs.getString("domComercial"));
+                lab.setStockVacuna(rs.getInt("Stock"));
+                laboratorios.add(lab);
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla laboratorio");
+        }
+        return laboratorios;
+    }
 }
+

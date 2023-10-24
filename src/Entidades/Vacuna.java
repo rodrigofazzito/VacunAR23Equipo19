@@ -5,17 +5,17 @@ import java.time.LocalDate;
 
 /* Rodrigo Fazzito */
 public class Vacuna {
-    private int NumSerie;
+    private long NumSerie;
     private String Marca;
     private Double Medida;
     private LocalDate FechaCaduca;
     private boolean Colocada;
-    Laboratorio laboratorio;
+    private Laboratorio laboratorio;
 
     public Vacuna() {
     }
 
-    public Vacuna(int NumSerie, String Marca, Double Medida, LocalDate FechaCaduca, boolean Colocada, Laboratorio laboratorio) {
+    public Vacuna(long NumSerie, String Marca, Double Medida, LocalDate FechaCaduca, boolean Colocada, Laboratorio laboratorio) {
         this.NumSerie = NumSerie;
         this.Marca = Marca;
         this.Medida = Medida;
@@ -24,11 +24,11 @@ public class Vacuna {
         this.laboratorio = laboratorio;
     }
 
-    public int getNumSerie() {
+    public long getNumSerie() {
         return NumSerie;
     }
 
-    public void setNumSerie(int NumSerie) {
+    public void setNumSerie(long NumSerie) {
         this.NumSerie = NumSerie;
     }
 
@@ -72,9 +72,15 @@ public class Vacuna {
         this.laboratorio = laboratorio;
     }
 
+    
+   
     @Override
     public String toString() {
-        return  Marca ;
+        return Marca + " " + Medida;
+    }
+
+    public void setMedida(String medidaSeleccionada) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
    

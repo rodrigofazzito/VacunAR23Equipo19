@@ -25,9 +25,9 @@ import javax.swing.JLabel;
  */
 public class Turnos extends javax.swing.JInternalFrame {
 
- Turnos jLBotones = new Turnos();
- private int arcWidth = 20; // Ancho del arco
- private int arcHeight = 20; // Alto del arco
+// Turnos jLBotones = new Turnos();
+// private int arcWidth = 20; // Ancho del arco
+// private int arcHeight = 20; // Alto del arco
  
     public Turnos() {
         initComponents();
@@ -35,44 +35,6 @@ public class Turnos extends javax.swing.JInternalFrame {
         
     }
     
-
- 
-     public Turnos (String text) {
-        super(text);
-        setOpaque(false); // Hace que el JLabel sea transparente
-    }
-
-
-    protected void paintComponent(Graphics g) {
-        if (isOpaque()) {
-            // Si el JLabel es opaco, llenamos el fondo con el color de fondo
-            g.setColor(getBackground());
-            g.fillRoundRect(0, 0, getWidth() - 1, getHeight() - 1, arcWidth, arcHeight);
-        }
-
-        // Dibujamos el texto
-        super.paintComponent(g);
-    }
-
-    /**
-     *
-     * @param g
-     */
-    @Override
-    protected void paintBorder(Graphics g) {
-        // Dibujamos el borde si es necesario
-        g.setColor(getForeground());
-        ((Graphics2D) g).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        g.drawRoundRect(0, 0, getWidth() - 1, getHeight() - 1, arcWidth, arcHeight);
-    }
-
-    public void setArc(int width, int height) {
-        // Establecer el ancho y alto del arco
-        arcWidth = width;
-        arcHeight = height;
-        repaint();
-    }
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -80,22 +42,21 @@ public class Turnos extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jCalendar1 = new com.toedter.calendar.JCalendar();
         jLFechasDeVacunacion = new javax.swing.JLabel();
-        jLnombre = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jDni = new javax.swing.JLabel();
         jBanerLogoVacunar = new javax.swing.JLabel();
         jBannerVacuna = new javax.swing.JLabel();
         jX = new javax.swing.JLabel();
         jFondoVacunar = new javax.swing.JLabel();
         jBCancelar = new javax.swing.JLabel();
         jBAsistido1 = new javax.swing.JLabel();
+        jList1 = new javax.swing.JList<>();
 
-        setResizable(true);
         setPreferredSize(new java.awt.Dimension(880, 590));
+        setVisible(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMinimumSize(new java.awt.Dimension(880, 590));
-        jPanel1.setPreferredSize(new java.awt.Dimension(880, 590));
+        jPanel1.setPreferredSize(new java.awt.Dimension(870, 580));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jCalendar1.setBackground(new java.awt.Color(255, 255, 255));
@@ -113,26 +74,12 @@ public class Turnos extends javax.swing.JInternalFrame {
         jLFechasDeVacunacion.setText("Fecha de vacunacion");
         jPanel1.add(jLFechasDeVacunacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 260, 30));
 
-        jLnombre.setBackground(new java.awt.Color(255, 255, 255));
-        jLnombre.setForeground(new java.awt.Color(180, 0, 0));
-        jLnombre.setToolTipText("Nombre del Paciente");
-        jLnombre.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(180, 0, 0)));
-        jPanel1.add(jLnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 110, 300, 40));
-
-        jList1.setBackground(new java.awt.Color(255, 255, 255));
-        jList1.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(180, 0, 0)));
-        jList1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jList1.setForeground(new java.awt.Color(180, 0, 0));
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jList1.setSelectionBackground(new java.awt.Color(180, 0, 0));
-        jList1.setSelectionForeground(new java.awt.Color(255, 255, 255));
-        jScrollPane2.setViewportView(jList1);
-
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 150, 300, 240));
+        jDni.setBackground(new java.awt.Color(255, 255, 255));
+        jDni.setForeground(new java.awt.Color(180, 0, 0));
+        jDni.setText("DNI");
+        jDni.setToolTipText("Nombre del Paciente");
+        jDni.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(180, 0, 0)));
+        jPanel1.add(jDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 110, 300, 40));
 
         jBanerLogoVacunar.setBackground(new java.awt.Color(180, 0, 0));
         jBanerLogoVacunar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/Vacunar-Logo-45.png"))); // NOI18N
@@ -144,7 +91,7 @@ public class Turnos extends javax.swing.JInternalFrame {
         jBannerVacuna.setForeground(new java.awt.Color(255, 255, 255));
         jBannerVacuna.setText("  Turnos");
         jBannerVacuna.setOpaque(true);
-        jPanel1.add(jBannerVacuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 790, 50));
+        jPanel1.add(jBannerVacuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 780, 50));
 
         jX.setBackground(new java.awt.Color(180, 0, 0));
         jX.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
@@ -164,7 +111,7 @@ public class Turnos extends javax.swing.JInternalFrame {
                 jXMouseExited(evt);
             }
         });
-        jPanel1.add(jX, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 0, 50, 50));
+        jPanel1.add(jX, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 0, 50, 50));
 
         jFondoVacunar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/Vacunar-Logotipo.png"))); // NOI18N
         jPanel1.add(jFondoVacunar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 450, 120));
@@ -201,18 +148,33 @@ public class Turnos extends javax.swing.JInternalFrame {
         });
         jPanel1.add(jBAsistido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 430, 130, 40));
 
+        jList1.setBackground(new java.awt.Color(255, 255, 255));
+        jList1.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(180, 0, 0)));
+        jList1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jList1.setForeground(new java.awt.Color(180, 0, 0));
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jList1.setSelectionBackground(new java.awt.Color(180, 0, 0));
+        jList1.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jList1, new org.netbeans.lib.awtextra.AbsoluteConstraints(571, 159, 290, 240));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 878, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 562, Short.MAX_VALUE))
         );
+
+        getAccessibleContext().setAccessibleDescription("turnos");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -220,7 +182,7 @@ public class Turnos extends javax.swing.JInternalFrame {
     private void jXMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jXMouseClicked
 
         // Boton Cerrar
-        System.exit(0);
+        this.dispose();
     }//GEN-LAST:event_jXMouseClicked
 
     private void jXMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jXMouseEntered
@@ -228,7 +190,6 @@ public class Turnos extends javax.swing.JInternalFrame {
 
         jX.setBackground(new Color(180, 0, 0));
         jX.setForeground(Color.WHITE);
-
     }//GEN-LAST:event_jXMouseEntered
 
     private void jXMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jXMouseExited
@@ -236,32 +197,32 @@ public class Turnos extends javax.swing.JInternalFrame {
 
         jX.setBackground(Color.white);
         jX.setForeground(new Color(180, 0, 0));
-        jLBotones.setArc(30, 30); // Personalizar el ancho y alto del arco
+
     }//GEN-LAST:event_jXMouseExited
+
+    private void jBCancelarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBCancelarMouseEntered
+        jX.setBackground(new Color(180, 0, 0));
+        jX.setForeground(Color.WHITE);
+
+    }//GEN-LAST:event_jBCancelarMouseEntered
+
+    private void jBCancelarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBCancelarMouseExited
+        jX.setBackground(Color.white);
+        jX.setForeground(new Color(180, 0, 0));
+
+    }//GEN-LAST:event_jBCancelarMouseExited
 
     private void jBAsistido1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBAsistido1MouseEntered
         jX.setBackground(new Color(180, 0, 0));
         jX.setForeground(Color.WHITE);
-        jLBotones.setArc(30, 30); // Personalizar el ancho y alto del arco
+
     }//GEN-LAST:event_jBAsistido1MouseEntered
 
     private void jBAsistido1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBAsistido1MouseExited
         jX.setBackground(Color.white);
         jX.setForeground(new Color(180, 0, 0));
-        jLBotones.setArc(30, 30); // Personalizar el ancho y alto del arco
+
     }//GEN-LAST:event_jBAsistido1MouseExited
-
-    private void jBCancelarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBCancelarMouseExited
-        jX.setBackground(Color.white);
-        jX.setForeground(new Color(180, 0, 0));
-         jLBotones.setArc(30, 30); // Personalizar el ancho y alto del arco
-    }//GEN-LAST:event_jBCancelarMouseExited
-
-    private void jBCancelarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBCancelarMouseEntered
-        jX.setBackground(new Color(180, 0, 0));
-        jX.setForeground(Color.WHITE);
-        jLBotones.setArc(30, 30); // Personalizar el ancho y alto del arco
-    }//GEN-LAST:event_jBCancelarMouseEntered
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -270,12 +231,11 @@ public class Turnos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jBanerLogoVacunar;
     private javax.swing.JLabel jBannerVacuna;
     private com.toedter.calendar.JCalendar jCalendar1;
+    private javax.swing.JLabel jDni;
     private javax.swing.JLabel jFondoVacunar;
     private javax.swing.JLabel jLFechasDeVacunacion;
     private javax.swing.JList<String> jList1;
-    private javax.swing.JLabel jLnombre;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel jX;
     // End of variables declaration//GEN-END:variables
  

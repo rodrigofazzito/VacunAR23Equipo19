@@ -4,7 +4,7 @@ package Entidades;
 /* Rodrigo Fazzito */
 public class Laboratorio {
     private int idLaboratorio;
-    private int Cuit;
+    private long Cuit;
     private String NomLaboratorio;
     private String Pais;
     private String DomComercial;
@@ -13,7 +13,7 @@ public class Laboratorio {
     public Laboratorio() {
     }
 
-    public Laboratorio(int Cuit, String NomLaboratorio, String Pais, String DomComercial, int StockVacuna) {
+    public Laboratorio(long Cuit, String NomLaboratorio, String Pais, String DomComercial, int StockVacuna) {
         this.Cuit = Cuit;
         this.NomLaboratorio = NomLaboratorio;
         this.Pais = Pais;
@@ -21,7 +21,7 @@ public class Laboratorio {
         this.StockVacuna = StockVacuna;
     }
 
-    public Laboratorio(int idLaboratorio, int Cuit, String NomLaboratorio, String Pais, String DomComercial, int StockVacuna) {
+    public Laboratorio(int idLaboratorio, long Cuit, String NomLaboratorio, String Pais, String DomComercial, int StockVacuna) {
         this.idLaboratorio = idLaboratorio;
         this.Cuit = Cuit;
         this.NomLaboratorio = NomLaboratorio;
@@ -38,11 +38,11 @@ public class Laboratorio {
         this.idLaboratorio = idLaboratorio;
     }
 
-    public int getCuit() {
+    public long getCuit() {
         return Cuit;
     }
 
-    public void setCuit(int Cuit) {
+    public void setCuit(long Cuit) {
         this.Cuit = Cuit;
     }
 
@@ -80,7 +80,7 @@ public class Laboratorio {
 
     @Override
     public String toString() {
-        return "Laboratorio{" + "idLaboratorio=" + idLaboratorio + ", Cuit=" + Cuit + ", NomLaboratorio=" + NomLaboratorio + ", Pais=" + Pais + ", DomComercial=" + DomComercial + ", StockVacuna=" + StockVacuna + '}';
+        return  NomLaboratorio;
     }
     
     
