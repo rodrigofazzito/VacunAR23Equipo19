@@ -1,6 +1,9 @@
 package vacunar23;
 
+import Acceso_A_Datos.CitaVacunaData;
+import Entidades.CitaVacunacion;
 import Vistas.Login;
+import java.util.List;
 
 
 
@@ -11,9 +14,14 @@ import Vistas.Login;
 public class VacunAR23 {
 
     public static void main(String[] args) {
-        Login log = new Login();
-        log.setVisible(true);
-
+//        Login log = new Login();
+//        log.setVisible(true);
+        CitaVacunacion citaV = new CitaVacunacion();
+        CitaVacunaData cita  = new CitaVacunaData();
+        List<CitaVacunacion> citas = cita.listaCitas();
+        for(CitaVacunacion cit : cita.listaCitas()){
+            System.out.println(cit);
+        }
        
         
 //        Login log = new Login();
