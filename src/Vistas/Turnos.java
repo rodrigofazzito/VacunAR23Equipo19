@@ -40,7 +40,6 @@ public class Turnos extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jCalendar1 = new com.toedter.calendar.JCalendar();
         jLFechasDeVacunacion = new javax.swing.JLabel();
         jDni = new javax.swing.JLabel();
         jBanerLogoVacunar = new javax.swing.JLabel();
@@ -50,6 +49,7 @@ public class Turnos extends javax.swing.JInternalFrame {
         jBCancelar = new javax.swing.JLabel();
         jBAsistido1 = new javax.swing.JLabel();
         jList1 = new javax.swing.JList<>();
+        jCalendar2 = new com.toedter.calendar.JCalendar();
 
         setPreferredSize(new java.awt.Dimension(880, 590));
         setVisible(true);
@@ -58,16 +58,6 @@ public class Turnos extends javax.swing.JInternalFrame {
         jPanel1.setMinimumSize(new java.awt.Dimension(880, 590));
         jPanel1.setPreferredSize(new java.awt.Dimension(870, 580));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jCalendar1.setBackground(new java.awt.Color(255, 255, 255));
-        jCalendar1.setForeground(new java.awt.Color(255, 255, 255));
-        jCalendar1.setDecorationBackgroundColor(new java.awt.Color(180, 0, 0));
-        jCalendar1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jCalendar1.setSundayForeground(new java.awt.Color(255, 153, 153));
-        jCalendar1.setTodayButtonVisible(true);
-        jCalendar1.setWeekOfYearVisible(false);
-        jCalendar1.setWeekdayForeground(new java.awt.Color(255, 255, 153));
-        jPanel1.add(jCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 110, 500, 280));
 
         jLFechasDeVacunacion.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLFechasDeVacunacion.setForeground(new java.awt.Color(180, 0, 0));
@@ -148,7 +138,6 @@ public class Turnos extends javax.swing.JInternalFrame {
         });
         jPanel1.add(jBAsistido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 430, 130, 40));
 
-        jList1.setBackground(new java.awt.Color(255, 255, 255));
         jList1.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(180, 0, 0)));
         jList1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jList1.setForeground(new java.awt.Color(180, 0, 0));
@@ -158,8 +147,14 @@ public class Turnos extends javax.swing.JInternalFrame {
             public String getElementAt(int i) { return strings[i]; }
         });
         jList1.setSelectionBackground(new java.awt.Color(180, 0, 0));
-        jList1.setSelectionForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(jList1, new org.netbeans.lib.awtextra.AbsoluteConstraints(571, 159, 290, 240));
+
+        jCalendar2.setBackground(new java.awt.Color(255, 255, 255));
+        jCalendar2.setDecorationBackgroundColor(new java.awt.Color(180, 0, 0));
+        jCalendar2.setSundayForeground(new java.awt.Color(255, 102, 102));
+        jCalendar2.setTodayButtonVisible(true);
+        jCalendar2.setWeekdayForeground(new java.awt.Color(255, 255, 153));
+        jPanel1.add(jCalendar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 400, 230));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -230,7 +225,7 @@ public class Turnos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jBCancelar;
     private javax.swing.JLabel jBanerLogoVacunar;
     private javax.swing.JLabel jBannerVacuna;
-    private com.toedter.calendar.JCalendar jCalendar1;
+    private com.toedter.calendar.JCalendar jCalendar2;
     private javax.swing.JLabel jDni;
     private javax.swing.JLabel jFondoVacunar;
     private javax.swing.JLabel jLFechasDeVacunacion;

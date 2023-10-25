@@ -2,10 +2,12 @@ package Vistas;
 
 import Acceso_A_Datos.LaboratorioData;
 import Acceso_A_Datos.VacunaData;
+import Entidades.Ciudadano;
 import Entidades.Laboratorio;
 import Entidades.Vacuna;
 import com.toedter.calendar.JTextFieldDateEditor;
 import java.awt.Color;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.List;
@@ -17,13 +19,21 @@ import javax.swing.table.JTableHeader;
 
 public class Vacunas extends javax.swing.JInternalFrame {
 
- private DefaultTableModel modelo=new DefaultTableModel();
+ private DefaultTableModel modelo=new DefaultTableModel(){
+     
+     
+    public boolean isCellEditable(int f, int c) {
+        return false;
+ }
+ };
+ 
     public Vacunas() {
         initComponents();
         armarCabecera();
         cargarComboBox();
         comboBoxMedidas();
         ((JTextFieldDateEditor)(jdcFechaVencimiento.getDateEditor())).setEditable(false); // Deshabilitar edición de fecha , solo deja que el usuario seleccione en el calendario
+        inicializarBotones();
         
 
     }
@@ -51,6 +61,9 @@ public class Vacunas extends javax.swing.JInternalFrame {
         jcMedida = new javax.swing.JComboBox<>();
         jMarca = new javax.swing.JLabel();
         jcbListaLaboratorio = new javax.swing.JComboBox<>();
+        jbModificarVacuna = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jbLimpiar = new javax.swing.JButton();
 
         setAlignmentX(200.0F);
         setAlignmentY(40.0F);
@@ -63,10 +76,8 @@ public class Vacunas extends javax.swing.JInternalFrame {
         jPBackground.setPreferredSize(new java.awt.Dimension(880, 590));
         jPBackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jtablaVacuna.setBackground(new java.awt.Color(255, 255, 255));
         jtablaVacuna.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(180, 0, 0), 1, true));
         jtablaVacuna.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jtablaVacuna.setForeground(new java.awt.Color(0, 0, 0));
         jtablaVacuna.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -80,7 +91,7 @@ public class Vacunas extends javax.swing.JInternalFrame {
         ));
         jtablaVacuna.setGridColor(new java.awt.Color(180, 0, 0));
         jtablaVacuna.setSelectionBackground(new java.awt.Color(180, 0, 0));
-        jtablaVacuna.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        jtablaVacuna.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jtablaVacuna);
 
         jPBackground.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 850, 80));
@@ -105,26 +116,24 @@ public class Vacunas extends javax.swing.JInternalFrame {
         jMedida.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jMedida.setForeground(new java.awt.Color(180, 0, 0));
         jMedida.setText("Medida:");
-        jPBackground.add(jMedida, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, -1, -1));
+        jPBackground.add(jMedida, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
 
         jVencimiento.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jVencimiento.setForeground(new java.awt.Color(180, 0, 0));
         jVencimiento.setText("Vencimiento");
-        jPBackground.add(jVencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 170, -1, 30));
+        jPBackground.add(jVencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, -1, 30));
 
         jNSerie.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jNSerie.setForeground(new java.awt.Color(180, 0, 0));
         jNSerie.setText("Nro Serie:");
-        jPBackground.add(jNSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, -1, 20));
+        jPBackground.add(jNSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 100, -1, 20));
 
         jLaboratorio.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLaboratorio.setForeground(new java.awt.Color(180, 0, 0));
         jLaboratorio.setText("Laboratorio:");
         jPBackground.add(jLaboratorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, 40));
 
-        jtMarca.setBackground(java.awt.Color.white);
         jtMarca.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jtMarca.setForeground(new java.awt.Color(0, 0, 0));
         jtMarca.setDisabledTextColor(new java.awt.Color(180, 0, 0));
         jtMarca.setOpaque(false);
         jtMarca.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -132,25 +141,25 @@ public class Vacunas extends javax.swing.JInternalFrame {
                 jtMarcaKeyTyped(evt);
             }
         });
-        jPBackground.add(jtMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 300, 40));
+        jPBackground.add(jtMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 180, 40));
 
-        jtNroSerie.setBackground(java.awt.Color.white);
         jtNroSerie.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jtNroSerie.setForeground(new java.awt.Color(0, 0, 0));
         jtNroSerie.setOpaque(false);
         jtNroSerie.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtNroSerieKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jtNroSerieKeyTyped(evt);
             }
         });
-        jPBackground.add(jtNroSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, 240, 40));
+        jPBackground.add(jtNroSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, 240, 40));
 
         jdcFechaVencimiento.setBackground(java.awt.Color.white);
         jdcFechaVencimiento.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(180, 0, 0), 1, true));
-        jdcFechaVencimiento.setForeground(new java.awt.Color(0, 0, 0));
         jdcFechaVencimiento.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jdcFechaVencimiento.setOpaque(false);
-        jPBackground.add(jdcFechaVencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 170, 170, 30));
+        jPBackground.add(jdcFechaVencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 180, 170, 30));
 
         jX.setBackground(new java.awt.Color(180, 0, 0));
         jX.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
@@ -180,13 +189,11 @@ public class Vacunas extends javax.swing.JInternalFrame {
         jBanerLogoVacunar.setOpaque(true);
         jPBackground.add(jBanerLogoVacunar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
 
-        jcMedida.setBackground(java.awt.Color.white);
         jcMedida.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jcMedida.setForeground(new java.awt.Color(0, 0, 0));
         jcMedida.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0.3", "0.5", "0.9" }));
-        jcMedida.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(180, 0, 0), 1, true), "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(180, 0, 0))); // NOI18N
+        jcMedida.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(180, 0, 0), 1, true), "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(180, 0, 0))); // NOI18N
         jcMedida.setOpaque(false);
-        jPBackground.add(jcMedida, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 250, 80, 40));
+        jPBackground.add(jcMedida, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 80, 40));
 
         jMarca.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jMarca.setForeground(new java.awt.Color(180, 0, 0));
@@ -194,6 +201,30 @@ public class Vacunas extends javax.swing.JInternalFrame {
         jPBackground.add(jMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 70, 30));
 
         jPBackground.add(jcbListaLaboratorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 230, 40));
+
+        jbModificarVacuna.setText("Modificar");
+        jbModificarVacuna.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbModificarVacunaActionPerformed(evt);
+            }
+        });
+        jPBackground.add(jbModificarVacuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 270, -1, -1));
+
+        jButton1.setText("buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPBackground.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 100, -1, -1));
+
+        jbLimpiar.setText("limpiar");
+        jbLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbLimpiarActionPerformed(evt);
+            }
+        });
+        jPBackground.add(jbLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 330, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -292,10 +323,116 @@ public class Vacunas extends javax.swing.JInternalFrame {
     evt.consume();}
     }//GEN-LAST:event_jtMarcaKeyTyped
 
+    private void jbModificarVacunaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarVacunaActionPerformed
+     
+         
+    String numSerieTexto = jtNroSerie.getText().trim();
+
+    if (numSerieTexto.length() == 11) {
+        try {
+            Long numSerie = Long.parseLong(numSerieTexto);
+
+            VacunaData v = new VacunaData();
+            Vacuna vacuna = v.buscarVacuna(numSerie);
+
+            if (vacuna != null) {
+                // Se encontró una vacuna con el número de serie proporcionado
+                // Actualiza los atributos de la vacuna con los nuevos valores
+                vacuna.setMarca(jtMarca.getText());
+                String medidaSeleccionada = (String) jcMedida.getSelectedItem();
+                double medida = Double.parseDouble(medidaSeleccionada);
+                vacuna.setMedida(medida);
+                java.util.Date fecha = jdcFechaVencimiento.getDate();
+                LocalDate Fech = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                vacuna.setFechaCaduca(Fech);
+                Laboratorio laboratorio = (Laboratorio) jcbListaLaboratorio.getSelectedItem();
+                vacuna.setLaboratorio(laboratorio);
+
+                // Llama al método modificarVacuna para actualizar la vacuna en la base de datos
+                v.modificarVacuna(vacuna);
+
+                // Actualiza los valores de los JComboBox
+                jcMedida.setSelectedItem(String.valueOf(vacuna.getMedida()));
+                jcbListaLaboratorio.setSelectedItem(vacuna.getLaboratorio());
+
+                JOptionPane.showMessageDialog(null, "Vacuna modificada con éxito.");
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "No se encontró una vacuna con ese número de serie.");
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "El número de serie debe ser un valor numérico válido.");
+        }
+    } else {
+        JOptionPane.showMessageDialog(null, "Ingrese un número de serie válido (debe tener 11 caracteres numéricos).");
+    }
+
+         activarOdesactivarBotonGuardarOModificar();
+    
+
+    }//GEN-LAST:event_jbModificarVacunaActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+                                        
+    String numSerieTexto = jtNroSerie.getText().trim();
+
+    if (numSerieTexto.length() == 11) {
+        try {
+            Long numSerie = Long.parseLong(numSerieTexto);
+
+            VacunaData v = new VacunaData();
+            Vacuna vacuna = v.buscarVacuna(numSerie);
+
+            if (vacuna != null) {
+                // Se encontró una vacuna con el número de serie proporcionado
+                jtMarca.setText(vacuna.getMarca());
+                jcMedida.setSelectedItem(String.valueOf(vacuna.getMedida()));
+
+                // Busca el laboratorio correspondiente en el ComboBox
+                for (int i = 0; i < jcbListaLaboratorio.getItemCount(); i++) {
+                    Laboratorio laboratorio = jcbListaLaboratorio.getItemAt(i);
+                    if (laboratorio.getIdLaboratorio() == vacuna.getLaboratorio().getIdLaboratorio()) {
+                        jcbListaLaboratorio.setSelectedItem(laboratorio);
+                        break;
+                    }
+                }
+
+                jdcFechaVencimiento.setDate(Date.valueOf(vacuna.getFechaCaduca()));
+            } else {
+                JOptionPane.showMessageDialog(null, "No se encontró una vacuna con ese número de serie.");
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "El número de serie debe ser un valor numérico válido.");
+        }
+    } else {
+        JOptionPane.showMessageDialog(null, "Ingrese un número de serie válido (debe tener 11 caracteres numéricos).");
+    }
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jbLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimpiarActionPerformed
+        jtMarca.setText("");  // Limpiar campo de texto
+    jtNroSerie.setText("");  // Limpiar campo de texto
+    jdcFechaVencimiento.setDate(null);  // Limpiar campo de fecha
+
+    // Restablecer JComboBox a su valor predeterminado
+    jcMedida.setSelectedItem("0.3");  // Valor predeterminado
+    jcbListaLaboratorio.setSelectedIndex(0);  // Seleccione el primer elemento
+
+    // Limpia la tabla si también estás mostrando datos en una tabla
+    DefaultTableModel modelo = (DefaultTableModel) jtablaVacuna.getModel();
+    modelo.setRowCount(0);  // Eliminar todas las filas de la tabla
+    }//GEN-LAST:event_jbLimpiarActionPerformed
+
+    private void jtNroSerieKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNroSerieKeyReleased
+      activarOdesactivarBotonGuardarOModificar();
+    }//GEN-LAST:event_jtNroSerieKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jBanerLogoVacunar;
     private javax.swing.JLabel jBannerVacuna;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jFondoVacunar;
     private javax.swing.JLabel jLaboratorio;
     private javax.swing.JLabel jMarca;
@@ -306,6 +443,8 @@ public class Vacunas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jVencimiento;
     private javax.swing.JLabel jX;
     private javax.swing.JButton jbGuardarVacuna;
+    private javax.swing.JButton jbLimpiar;
+    private javax.swing.JButton jbModificarVacuna;
     private javax.swing.JComboBox<String> jcMedida;
     private javax.swing.JComboBox<Laboratorio> jcbListaLaboratorio;
     private com.toedter.calendar.JDateChooser jdcFechaVencimiento;
@@ -332,6 +471,7 @@ private void armarCabecera() {
         }
         jcbListaLaboratorio.setModel(comboBoxModel);
 }
+    
    private void Limpiar(){
           jtMarca.setText("");
            jcMedida.setSelectedIndex(0);
@@ -341,6 +481,7 @@ private void armarCabecera() {
           
    }
 private void comboBoxMedidas() {
+    //creamos medidas predefinida en las vacunas donde podra seleccionar en combobox
     String[] medidas = {"0.3", "0.5", "0.9"};
     DefaultComboBoxModel<String> comboBoxModel = new DefaultComboBoxModel<>();
 
@@ -350,6 +491,36 @@ private void comboBoxMedidas() {
 
     jcMedida.setModel(comboBoxModel);
 }
-
+private void inicializarBotones(){
+jbGuardarVacuna.setEnabled(false);
+jbModificarVacuna.setEnabled(false);
 }
+private void activarOdesactivarBotonGuardarOModificar() {
+    try {
+        VacunaData vac =new VacunaData();
+            String nserie = jtNroSerie.getText();
+            if (nserie.isEmpty()) {
+                jbGuardarVacuna.setEnabled(false);
+                jbModificarVacuna.setEnabled(false);
+            } else {
+                Long serie = Long.parseLong(nserie);
+                Vacuna vacuna = vac.buscarVacuna(serie);
+                if (vacuna != null) {
+                    // vacuna encontrada, desactivamos el botón Guardar y activamos el botón Modificar
+                    jbGuardarVacuna.setEnabled(false);
+                    jbModificarVacuna.setEnabled(true);
+                } else {
+                    // No se encontró vacuna, activamos el botón Guardar y desactivamos el botón Modificar
+                    jbGuardarVacuna.setEnabled(true);
+                    jbModificarVacuna.setEnabled(false);
+                }
+            }
+        } catch (NumberFormatException e) {
+            
+            JOptionPane.showMessageDialog(null, "Ingrese un nro de serie valido");
+        }
+    }
+}
+
+
 

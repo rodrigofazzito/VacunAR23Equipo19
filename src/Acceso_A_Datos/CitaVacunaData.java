@@ -59,7 +59,7 @@ public class CitaVacunaData {
                 cita.setHoraCita(rs.getString("fechaHoraCita"));
                 cita.setCentroVacuna(rs.getString("centroVacunacion"));
                 cita.setFechaColoca(rs.getDate("fechaHoraColoca").toLocalDate());
-                cita.setVacuna(vacData.buscarVacuna(rs.getInt("nroSerie")));
+                cita.setVacuna(vacData.buscarVacuna(rs.getLong("nroSerie")));
                 citas.add(cita);
             }
             ps.close();
@@ -121,7 +121,7 @@ public class CitaVacunaData {
                 cita.setHoraCita(rs.getString("fechaHoraCita"));
                 cita.setCentroVacuna(rs.getString("centroVacunacion"));
                 cita.setFechaColoca(rs.getDate("fechaHoraColoca").toLocalDate());
-                cita.setVacuna(vacData.buscarVacuna(rs.getInt("nroSerie")));
+                cita.setVacuna(vacData.buscarVacuna(rs.getLong("nroSerie")));
                 cita.setCancelada(rs.getBoolean("cancelada"));
                 citas.add(cita);
             }

@@ -68,7 +68,7 @@ public Laboratorios() {
                 jPaisKeyTyped(evt);
             }
         });
-        jPanel1.add(jPais, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 180, 200, 30));
+        jPanel1.add(jPais, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 200, 30));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(180, 0, 0));
@@ -80,7 +80,7 @@ public Laboratorios() {
                 jNombreKeyTyped(evt);
             }
         });
-        jPanel1.add(jNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 200, 30));
+        jPanel1.add(jNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 200, 30));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(180, 0, 0));
@@ -94,21 +94,21 @@ public Laboratorios() {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, -1, -1));
 
         jCuit.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jCuitKeyTyped(evt);
             }
         });
-        jPanel1.add(jCuit, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 160, 30));
+        jPanel1.add(jCuit, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 160, 30));
 
         jStock.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jStockKeyTyped(evt);
             }
         });
-        jPanel1.add(jStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 90, 30));
+        jPanel1.add(jStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 90, 30));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(180, 0, 0));
@@ -127,7 +127,7 @@ public Laboratorios() {
                 jGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(jGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, -1, -1));
+        jPanel1.add(jGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(180, 0, 0));
@@ -141,12 +141,10 @@ public Laboratorios() {
                 jLimpiarActionPerformed(evt);
             }
         });
-        jPanel1.add(jLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 310, -1, -1));
-        jPanel1.add(jDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 224, 200, 30));
+        jPanel1.add(jLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 330, -1, -1));
+        jPanel1.add(jDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 200, 30));
 
-        jtLaboratorio.setBackground(new java.awt.Color(255, 255, 255));
         jtLaboratorio.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jtLaboratorio.setForeground(new java.awt.Color(0, 0, 0));
         jtLaboratorio.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -175,7 +173,7 @@ public Laboratorios() {
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 370, 870, 90));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/Vacunar-Logotipo.png"))); // NOI18N
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 510, 120));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 460, 120));
 
         jBannerVacuna.setBackground(new java.awt.Color(180, 0, 0));
         jBannerVacuna.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
