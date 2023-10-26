@@ -481,6 +481,7 @@ hilo.start();
 
     private void jPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPacienteMouseClicked
         // boton paciente
+        jEscritorio.removeAll();
         Paciente paciente = new Paciente();
         paciente.setVisible(true);
         jEscritorio.add(paciente);
@@ -492,6 +493,7 @@ hilo.start();
 
     private void jLaboMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLaboMouseClicked
         // boton laboratorio
+        jEscritorio.removeAll();
         Laboratorios laboratorios = new Laboratorios();
         laboratorios.setVisible(true);
         jEscritorio.add(laboratorios);
@@ -501,7 +503,7 @@ hilo.start();
 
     private void jCitaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCitaMouseClicked
         //boton cita
-
+        jEscritorio.removeAll();
         Citas citas = new Citas();
         citas.setVisible(true);
         jEscritorio.add(citas);
@@ -510,6 +512,7 @@ hilo.start();
 
     private void jTurnosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTurnosMouseClicked
         // boton laboratorio
+        jEscritorio.removeAll();
         Turnos turnos = new Turnos();
         turnos.setVisible(true);
         jEscritorio.add(turnos);
@@ -529,6 +532,7 @@ hilo.start();
     }//GEN-LAST:event_jTurnosMouseExited
 
     private void jVacunaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jVacunaMouseClicked
+        jEscritorio.removeAll();
         Vacunas vacunas = new Vacunas();
         vacunas.setVisible(true);
         jEscritorio.add(vacunas);

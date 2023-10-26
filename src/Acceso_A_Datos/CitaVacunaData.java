@@ -53,6 +53,7 @@ public class CitaVacunaData {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 CitaVacunacion cita = new CitaVacunacion();
+                cita.setCancelada(rs.getBoolean("cancelada"));
                 cita.setCodcita(rs.getInt("codCita"));
                 cita.setCiudadano(ciuData.buscarCiudadano(rs.getInt("persona")));
                 cita.setDosis(rs.getInt("dosis"));

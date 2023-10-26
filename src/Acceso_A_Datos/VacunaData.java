@@ -52,7 +52,7 @@ public class VacunaData {
                 vacu.setMedida(rs.getDouble("medida"));
                 vacu.setFechaCaduca(rs.getDate("fechaCaduca").toLocalDate());
                 vacu.setColocada(rs.getBoolean("colocada"));
-                vacu.setNumSerie(rs.getInt("nroSerie"));
+                vacu.setNumSerie(rs.getLong("nroSerie"));
                 vacu.setLaboratorio(labData.buscarLaboratorio(rs.getInt("idLaboratorio")));
                 vacunas.add(vacu);
             }
@@ -96,14 +96,13 @@ public class VacunaData {
         }return vac;
        }
        public Vacuna modificarVacuna(Vacuna vac){
-           String sql = "Update Vacuna set marca = ? , medida = ? ,fechaCaduca = ? ,idLaboratorio = ?  where nroSerie = ?";
+           String sql = "Update Vacuna set marca = ? , medida = ? ,fechaCaduca = ? where nroSerie = ?";
            try{
                PreparedStatement ps = con.prepareStatement(sql);
                ps.setString(1, vac.getMarca());
                ps.setDouble(2, vac.getMedida());
                ps.setDate(3, Date.valueOf(vac.getFechaCaduca()));
-               ps.setInt(4, vac.getLaboratorio().getIdLaboratorio());
-               ps.setLong(5, vac.getNumSerie());
+               ps.setLong(4, vac.getNumSerie());
                ps.executeUpdate();
            }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla vacuna");
@@ -128,7 +127,6 @@ public class VacunaData {
             vacuna.setLaboratorio(labData.buscarLaboratorio(rs.getInt("idLaboratorio")));
             vacunas.add(vacuna);
         }
-        
         ps.close();
     } catch (SQLException ex) {
         JOptionPane.showMessageDialog(null, "Error al acceder a la tabla vacuna");

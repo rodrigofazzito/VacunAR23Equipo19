@@ -88,6 +88,7 @@ public class Citas extends javax.swing.JInternalFrame {
         jTvacunatorio = new javax.swing.JTextField();
         jNota = new javax.swing.JLabel();
         jBAsistido1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -268,6 +269,14 @@ public class Citas extends javax.swing.JInternalFrame {
         });
         jPanel1.add(jBAsistido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 390, 130, 40));
 
+        jButton1.setText("Limpiar Campos");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 520, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -349,6 +358,7 @@ public class Citas extends javax.swing.JInternalFrame {
                jNota.setText("Dar turno proximo");
            }else{
                jNota.setText("Turno a mes siguiente");
+               setFechaMas();
            }
         }
     }//GEN-LAST:event_jTdniKeyPressed
@@ -385,11 +395,16 @@ public class Citas extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jBAsistido1MouseClicked
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        limpiarCampos();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jBAsistido1;
     private javax.swing.JLabel jBanerLogoVacunar;
     private javax.swing.JLabel jBannerPaciente;
+    private javax.swing.JButton jButton1;
     private com.toedter.calendar.JCalendar jCalendar;
     private javax.swing.JButton jCargarCita;
     private javax.swing.JCheckBox jCheckBox2;
@@ -421,6 +436,7 @@ public class Citas extends javax.swing.JInternalFrame {
        jCalendar.setDate(c.getTime());
        
    }
+   
    public void setFechaMenos(){
        Calendar c = Calendar.getInstance();
        c.setTime(jCalendar.getDate());
@@ -444,6 +460,11 @@ public class Citas extends javax.swing.JInternalFrame {
        jTvacunatorio.setText("");
        jComboVacuna.setSelectedIndex(0);
    }
-   
+   public void setFechaMas(){
+       Calendar c = Calendar.getInstance();
+       c.setTime(jCalendar.getDate());
+       c.add(Calendar.MONTH,1);
+       jCalendar.setDate(c.getTime());
+   }
     
 }

@@ -38,10 +38,11 @@ CitaVacunacion cita = new CitaVacunacion();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTablaCita = new javax.swing.JTable();
         jX = new javax.swing.JLabel();
-        jBannerVacuna = new javax.swing.JLabel();
-        jBanerLogoVacunar = new javax.swing.JLabel();
+        jCitas = new javax.swing.JLabel();
+        jLogoVacunar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -51,6 +52,14 @@ CitaVacunacion cita = new CitaVacunacion();
         jTablaCita.setForeground(new java.awt.Color(0, 0, 0));
         jTablaCita.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
@@ -72,7 +81,7 @@ CitaVacunacion cita = new CitaVacunacion();
         jTablaCita.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTablaCita);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 56, 880, 229));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 56, 880, 210));
 
         jX.setBackground(new java.awt.Color(180, 0, 0));
         jX.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
@@ -94,17 +103,17 @@ CitaVacunacion cita = new CitaVacunacion();
         });
         jPanel1.add(jX, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 0, 50, 50));
 
-        jBannerVacuna.setBackground(new java.awt.Color(180, 0, 0));
-        jBannerVacuna.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jBannerVacuna.setForeground(new java.awt.Color(255, 255, 255));
-        jBannerVacuna.setText("Citas");
-        jBannerVacuna.setOpaque(true);
-        jPanel1.add(jBannerVacuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 780, 50));
+        jCitas.setBackground(new java.awt.Color(180, 0, 0));
+        jCitas.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jCitas.setForeground(new java.awt.Color(255, 255, 255));
+        jCitas.setText("Citas");
+        jCitas.setOpaque(true);
+        jPanel1.add(jCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 780, 50));
 
-        jBanerLogoVacunar.setBackground(new java.awt.Color(180, 0, 0));
-        jBanerLogoVacunar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/Vacunar-Logo-45.png"))); // NOI18N
-        jBanerLogoVacunar.setOpaque(true);
-        jPanel1.add(jBanerLogoVacunar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
+        jLogoVacunar.setBackground(new java.awt.Color(180, 0, 0));
+        jLogoVacunar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/Vacunar-Logo-45.png"))); // NOI18N
+        jLogoVacunar.setOpaque(true);
+        jPanel1.add(jLogoVacunar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -184,8 +193,8 @@ CitaVacunacion cita = new CitaVacunacion();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jBanerLogoVacunar;
-    private javax.swing.JLabel jBannerVacuna;
+    private javax.swing.JLabel jCitas;
+    private javax.swing.JLabel jLogoVacunar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTablaCita;
@@ -203,16 +212,16 @@ private void armarCabecera() {
 private void CargarLista(){
     List<CitaVacunacion> citas = CitaData.listaCitas();
     for(CitaVacunacion cit : citas){
-        String x ;
+        String x = "";
         if(cit.isCancelada() == true){
-            x = "X";
+            x = "Cita Cancelada";
         }else{
-            x = "";
+            x = "Pendiente";
         }
         modelo.addRow(new Object[]{cit.getFechaColoca(),cit.getVacuna().getMarca(),cit.getCiudadano().getNombreComp(),cit.getHoraCita(),x});
         
         
     }
-    
+
 }
 }

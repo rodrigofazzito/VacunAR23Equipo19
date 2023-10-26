@@ -14,15 +14,9 @@ import java.util.List;
 public class VacunAR23 {
 
     public static void main(String[] args) {
-//        Login log = new Login();
-//        log.setVisible(true);
-        CitaVacunacion citaV = new CitaVacunacion();
-        CitaVacunaData cita  = new CitaVacunaData();
-        List<CitaVacunacion> citas = cita.listaCitas();
-        for(CitaVacunacion cit : cita.listaCitas()){
-            System.out.println(cit);
-        }
-       
+        Login log = new Login();
+        log.setVisible(true);
+
         
 //        Login log = new Login();
 //        log.setVisible(true);
