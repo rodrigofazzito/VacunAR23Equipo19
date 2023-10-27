@@ -254,7 +254,7 @@ private void armarCabecera() {
        
     }
 private void iniciaTabla() {
-    ------------------------------------------------------------------CitaVacunaData citaData = new CitaVacunaData();
+    CitaVacunaData citaData = new CitaVacunaData();
     CitaVacunacion centroSeleccionado = jlListaCentrosAplicados.getSelectedValue();
     
     if (centroSeleccionado != null) {
