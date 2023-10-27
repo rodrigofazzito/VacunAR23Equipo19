@@ -312,7 +312,7 @@ public class Vacunas extends javax.swing.JInternalFrame {
             if (jdcFechaVencimiento.getDate() == null) {
                 JOptionPane.showMessageDialog(null, "seleccióne una fecha  en el calendario");
             } else {
-                if (jtMarca.getText().length()<15) {
+                if (jtMarca.getText().length()<30) {
                      vacu.setMarca(jtMarca.getText());
                 }else{
                   JOptionPane.showMessageDialog(null, "ingrese una marca menos de 15 caracter");
@@ -371,9 +371,15 @@ public class Vacunas extends javax.swing.JInternalFrame {
             Vacuna vacuna = v.buscarVacuna(numSerie);
 
             if (vacuna != null) {
-                // Se encontró una vacuna con el número de serie proporcionado
+                
                 // Actualiza los atributos de la vacuna con los nuevos valores
-                vacuna.setMarca(jtMarca.getText());
+                if (jtMarca.getText().length()<30) {
+                    vacuna.setMarca(jtMarca.getText());
+                }else{
+                  JOptionPane.showMessageDialog(null, "ingrese una marca menos de 15 caracter");
+                  return;
+                }
+                
                 String medidaSeleccionada = (String) jcMedida.getSelectedItem();
                 double medida = Double.parseDouble(medidaSeleccionada);
                 vacuna.setMedida(medida);
