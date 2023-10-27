@@ -6,14 +6,14 @@ public class Ciudadano {
     private int Dni;
     private String NombreComp;
     private String Email;
-    private int Celular;
+    private Long Celular;
     private String nota;
     private boolean esencial;
     private boolean sintomas;
     public Ciudadano() {
     }
 
-    public Ciudadano(int Dni, String NombreComp, String Email, int Celular, String nota, boolean esencial, boolean sintomas) {
+    public Ciudadano(int Dni, String NombreComp, String Email, Long Celular, String nota, boolean esencial, boolean sintomas) {
         this.Dni = Dni;
         this.NombreComp = NombreComp;
         this.Email = Email;
@@ -47,11 +47,11 @@ public class Ciudadano {
         this.Email = Email;
     }
 
-    public int getCelular() {
+    public Long getCelular() {
         return Celular;
     }
 
-    public void setCelular(int Celular) {
+    public void setCelular(Long Celular) {
         this.Celular = Celular;
     }
 
@@ -79,6 +79,7 @@ public class Ciudadano {
         this.sintomas = sintomas;
     }
 
+   
     @Override
     public String toString() {
         return "Ciudadano{" + "Dni=" + Dni + ", NombreComp=" + NombreComp + ", Email=" + Email + ", Celular=" + Celular + ", nota=" + nota + ", esencial=" + esencial + ", sintomas=" + sintomas + '}';

@@ -280,44 +280,63 @@ public class Paciente extends javax.swing.JInternalFrame {
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
         try {
-        if (jtDni.getText().isEmpty() || jtNombreCompleto.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Hay campos vacíos");
-        } else {
-            if (jtDni.getText().length() == 8) {
-                int nuevoDni = Integer.parseInt(jtDni.getText());
-                if (nuevoDni != ciu.getDni()) {
-                    ciu.setDni(nuevoDni);
-                    ciu.setNombreComp(jtNombreCompleto.getText());
-                    
-                    // Verificar si jtEmail y jtCelular están vacíos antes de asignarlos
-                    if (!jtEmail.getText().isEmpty()) {
-                        ciu.setEmail(jtEmail.getText());
-                    }
-                    
-                    if (!jtCelular.getText().isEmpty()) {
-                        ciu.setCelular(Integer.parseInt(jtCelular.getText()));
-                    }
-                    
-                    if (jcbEsencial.isSelected()) {
-                        ciu.setEsencial(true);
-                    } else {
-                        ciu.setEsencial(false);
-                    }
-                    
-                    ciuData.GuardarCiudadano(ciu);
-                    jbLimpiarActionPerformed(evt);
-                    JOptionPane.showMessageDialog(null, "Ciudadano cargado con éxito");
-                } else {
-                    JOptionPane.showMessageDialog(null, "Ingrese un DNI diferente");
-                }
+            if (jtDni.getText().isEmpty() || jtNombreCompleto.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Hay campos vacíos");
             } else {
-                JOptionPane.showMessageDialog(null, "El DNI debe tener 8 dígitos");
-                jbLimpiarActionPerformed(evt);
+                if (jtDni.getText().length() == 8 ) {
+                    
+                    int nuevoDni = Integer.parseInt(jtDni.getText());
+                    if (nuevoDni != ciu.getDni()) {
+                        ciu.setDni(nuevoDni);
+                        if (jtNombreCompleto.getText().length()<30) {
+                            ciu.setNombreComp(jtNombreCompleto.getText());
+                        }else{
+                         JOptionPane.showMessageDialog(null, "ingrese un nombre menor de 30 digitos");
+                         return;
+                        }
+                        
+
+                        // Verificar si jtEmail y jtCelular están vacíos antes de asignarlos
+                        if (!jtEmail.getText().isEmpty()) {
+                            if (jtEmail.getText().length() < 30) {
+                                ciu.setEmail(jtEmail.getText());
+                            } else {
+                                JOptionPane.showMessageDialog(null, "ingrese un email menor de 30 digitos");
+                                return;
+                            }
+                        }
+
+                        if (!jtCelular.getText().isEmpty()) {
+                            if (jtCelular.getText().length() < 18) {
+                                ciu.setCelular(Long.parseLong(jtCelular.getText()));
+                            } else {
+                                JOptionPane.showMessageDialog(null, "ingrese un numero menor de 18 digitos");
+                                return;
+                            }
+
+                        }
+
+                        if (jcbEsencial.isSelected()) {
+                            ciu.setEsencial(true);
+                        } else {
+                            ciu.setEsencial(false);
+                        }
+
+                        ciuData.GuardarCiudadano(ciu);
+                        jbLimpiarActionPerformed(evt);
+                        
+                        JOptionPane.showMessageDialog(null, "Ciudadano cargado con éxito");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Ingrese un DNI diferente");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "El DNI debe tener 8 dígitos");
+                    jbLimpiarActionPerformed(evt);
+                }
             }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Error en el guardar ciudadano");
         }
-    } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(null, "Error en el formato del número");
-    }
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jbLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimpiarActionPerformed
@@ -331,7 +350,8 @@ public class Paciente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbLimpiarActionPerformed
 
     private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
-         ciu = new Ciudadano();
+       // Crear una instancia de Ciudadano
+ ciu = new Ciudadano();
 
         try {
             if (jtDni.getText().isEmpty() || jtNombreCompleto.getText().isEmpty()) {
@@ -342,17 +362,35 @@ public class Paciente extends javax.swing.JInternalFrame {
                 // Comprobar si el nuevo DNI es diferente del DNI actual
                 if (nuevoDni != ciu.getDni()) {
                     ciu.setDni(Integer.parseInt(jtDni.getText()));
-                    ciu.setNombreComp(jtNombreCompleto.getText());
+                    
+                      if (jtNombreCompleto.getText().length()<30) {
+                            ciu.setNombreComp(jtNombreCompleto.getText());
+                        }else{
+                         JOptionPane.showMessageDialog(null, "ingrese un nombre menor de 30 digitos");
+                         return;
+                        }
+                        
+                    
 
                     // Validar el campo celular
                     if (jtCelular.getText().isEmpty()) {
                         JOptionPane.showMessageDialog(null, "El campo celular no puede quedar vacío, si no desea numero ingresar 0");
                         return; // Salir del método si el celular está vacío
-                    } else {
-                        ciu.setCelular(Integer.parseInt(jtCelular.getText()));
+                    } else if (jtCelular.getText().length()<18) {
+                        ciu.setCelular(Long.parseLong(jtCelular.getText()));
+                        
+                    }else{
+                    JOptionPane.showMessageDialog(null, "ingrese un numero menor de 18 digitos");
+                    return;
                     }
-
-                    ciu.setEmail(jtEmail.getText());
+                    if (jtEmail.getText().length()<30) {
+                        ciu.setEmail(jtEmail.getText());
+                       
+                    }else{
+                     JOptionPane.showMessageDialog(null, "ingrese un email menor de 30 digitos");
+                     return;
+                    }
+                    
                     ciu.setEsencial(jcbEsencial.isSelected());
 
                     // Llamar al método para modificar al paciente
@@ -366,6 +404,7 @@ public class Paciente extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Error en el formato de los campos");
         }
    
+
     }//GEN-LAST:event_jbModificarActionPerformed
 
     private void jtDniKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtDniKeyTyped

@@ -26,7 +26,7 @@ public class CiudadanoData {
             ps.setInt(1, ciudadano.getDni());
             ps.setString(2, ciudadano.getNombreComp());
             ps.setString(3, ciudadano.getEmail());
-            ps.setInt(4, ciudadano.getCelular());
+            ps.setLong(4, ciudadano.getCelular());
             ps.setString(5, ciudadano.getNota());
             ps.setBoolean(6, ciudadano.isEsencial());
             ps.setBoolean(7, ciudadano.isSintomas());
@@ -48,7 +48,7 @@ public class CiudadanoData {
                 ciudadano.setDni(dni); 
                 ciudadano.setNombreComp(rs.getString("nombreCompleto"));
                 ciudadano.setEmail(rs.getString("email"));
-                ciudadano.setCelular(rs.getInt("celular"));
+                ciudadano.setCelular(rs.getLong("celular"));
                 ciudadano.setNota(rs.getString("nota"));
                 ciudadano.setEsencial(rs.getBoolean("esencial"));
                 ciudadano.setSintomas(rs.getBoolean("sintomas"));
@@ -70,7 +70,7 @@ public class CiudadanoData {
                 ciudadano.setDni(rs.getInt("dni")); 
                 ciudadano.setNombreComp(rs.getString("nombreCompleto"));
                 ciudadano.setEmail(rs.getString("email"));
-                ciudadano.setCelular(rs.getInt("celular"));
+                ciudadano.setCelular(rs.getLong("celular"));
                 ciudadano.setNota(rs.getString("nota"));
                 ciudadano.setEsencial(rs.getBoolean("esencial"));
                 ciudadano.setSintomas(rs.getBoolean("sintomas"));
@@ -88,7 +88,7 @@ public class CiudadanoData {
                PreparedStatement ps = con.prepareStatement(sql);
                ps.setString(1, ciu.getNombreComp());
                ps.setString(2, ciu.getEmail());
-               ps.setInt(3, ciu.getCelular());
+               ps.setLong(3, ciu.getCelular());
                ps.setBoolean(4, ciu.isEsencial());
                ps.setInt(5, ciu.getDni());
                ps.executeUpdate();
