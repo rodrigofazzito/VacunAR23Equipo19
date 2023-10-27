@@ -111,7 +111,7 @@ INSERT INTO `laboratorio` (`idLaboratorio`, `cuit`, `nomLaboratorio`, `pais`, `d
 --
 
 CREATE TABLE `vacuna` (
-  `marca` varchar(120) NOT NULL,
+  `marca` varchar(30) NOT NULL,
   `medida` double NOT NULL,
   `fechaCaduca` date NOT NULL,
   `colocada` tinyint(1) NOT NULL,
