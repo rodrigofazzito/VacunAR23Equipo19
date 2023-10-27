@@ -98,7 +98,7 @@ hilo.start();
         jVacuna.setFont(new java.awt.Font("Bauhaus 93", 0, 24)); // NOI18N
         jVacuna.setForeground(new java.awt.Color(255, 255, 255));
         jVacuna.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jVacuna.setText("VACUNA");
+        jVacuna.setText("VACUNAS");
         jVacuna.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jVacuna.setOpaque(true);
         jVacuna.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -117,20 +117,20 @@ hilo.start();
         bVacuna.setLayout(bVacunaLayout);
         bVacunaLayout.setHorizontalGroup(
             bVacunaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bVacunaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jVacuna, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bVacunaLayout.createSequentialGroup()
+                .addContainerGap(33, Short.MAX_VALUE)
+                .addComponent(jVacuna, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
         );
         bVacunaLayout.setVerticalGroup(
             bVacunaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bVacunaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jVacuna, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                .addComponent(jVacuna, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jBanner.add(bVacuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 179, -1, -1));
+        jBanner.add(bVacuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, -1, 50));
 
         bPaciente.setBackground(new java.awt.Color(180, 0, 0));
         bPaciente.setForeground(new java.awt.Color(255, 255, 255));
@@ -140,7 +140,7 @@ hilo.start();
         jPaciente.setFont(new java.awt.Font("Bauhaus 93", 0, 24)); // NOI18N
         jPaciente.setForeground(new java.awt.Color(255, 255, 255));
         jPaciente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPaciente.setText("PACIENTE");
+        jPaciente.setText("PACIENTES");
         jPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPaciente.setOpaque(true);
         jPaciente.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -160,9 +160,9 @@ hilo.start();
         bPacienteLayout.setHorizontalGroup(
             bPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bPacienteLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap(22, Short.MAX_VALUE)
+                .addComponent(jPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
         bPacienteLayout.setVerticalGroup(
             bPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,7 +172,7 @@ hilo.start();
                 .addContainerGap())
         );
 
-        jBanner.add(bPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 105, 200, -1));
+        jBanner.add(bPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 105, -1, 53));
 
         bCita.setBackground(new java.awt.Color(180, 0, 0));
         bCita.setForeground(new java.awt.Color(255, 255, 255));
@@ -183,7 +183,7 @@ hilo.start();
         jCita.setFont(new java.awt.Font("Bauhaus 93", 0, 24)); // NOI18N
         jCita.setForeground(new java.awt.Color(255, 255, 255));
         jCita.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jCita.setText("CITA");
+        jCita.setText("CITAS");
         jCita.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jCita.setOpaque(true);
         jCita.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -202,20 +202,20 @@ hilo.start();
         bCita.setLayout(bCitaLayout);
         bCitaLayout.setHorizontalGroup(
             bCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bCitaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jCita, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bCitaLayout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addComponent(jCita, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
         bCitaLayout.setVerticalGroup(
             bCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bCitaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jCita, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                .addComponent(jCita, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jBanner.add(bCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 253, -1, -1));
+        jBanner.add(bCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, -1, 50));
 
         bLabo.setBackground(new java.awt.Color(180, 0, 0));
         bLabo.setForeground(new java.awt.Color(255, 255, 255));
@@ -226,7 +226,7 @@ hilo.start();
         jLabo.setFont(new java.awt.Font("Bauhaus 93", 0, 24)); // NOI18N
         jLabo.setForeground(new java.awt.Color(255, 255, 255));
         jLabo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabo.setText("LABORATORIO");
+        jLabo.setText("LABORATORIOS");
         jLabo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabo.setOpaque(true);
         jLabo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -246,17 +246,16 @@ hilo.start();
         bLaboLayout.setHorizontalGroup(
             bLaboLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bLaboLayout.createSequentialGroup()
-                .addGap(0, 12, Short.MAX_VALUE)
-                .addComponent(jLabo, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addComponent(jLabo, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
         );
         bLaboLayout.setVerticalGroup(
             bLaboLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bLaboLayout.createSequentialGroup()
-                .addGap(0, 14, Short.MAX_VALUE)
-                .addComponent(jLabo))
+            .addComponent(jLabo, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        jBanner.add(bLabo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, -1, 50));
+        jBanner.add(bLabo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, -1, 50));
 
         jHora.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jHora.setForeground(new java.awt.Color(255, 255, 255));
@@ -291,17 +290,17 @@ hilo.start();
         bTurnos.setLayout(bTurnosLayout);
         bTurnosLayout.setHorizontalGroup(
             bTurnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bTurnosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTurnos, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bTurnosLayout.createSequentialGroup()
+                .addContainerGap(21, Short.MAX_VALUE)
+                .addComponent(jTurnos, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
         );
         bTurnosLayout.setVerticalGroup(
             bTurnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTurnos, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+            .addComponent(jTurnos, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        jBanner.add(bTurnos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 327, -1, 50));
+        jBanner.add(bTurnos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, -1, 40));
 
         Fondo.add(jBanner, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 740));
 

@@ -73,8 +73,10 @@ public class Vacunas extends javax.swing.JInternalFrame {
         jPBackground.setPreferredSize(new java.awt.Dimension(880, 590));
         jPBackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jtablaVacuna.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(180, 0, 0), 1, true));
+        jtablaVacuna.setBackground(new java.awt.Color(255, 255, 255));
+        jtablaVacuna.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(180, 0, 0)));
         jtablaVacuna.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jtablaVacuna.setForeground(new java.awt.Color(0, 0, 0));
         jtablaVacuna.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -87,20 +89,23 @@ public class Vacunas extends javax.swing.JInternalFrame {
             }
         ));
         jtablaVacuna.setGridColor(new java.awt.Color(180, 0, 0));
+        jtablaVacuna.setOpaque(false);
         jtablaVacuna.setSelectionBackground(new java.awt.Color(180, 0, 0));
         jScrollPane1.setViewportView(jtablaVacuna);
 
-        jPBackground.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 850, 80));
+        jPBackground.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 850, 130));
 
+        jbGuardarVacuna.setBackground(new java.awt.Color(255, 255, 255));
         jbGuardarVacuna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/disco-flexible-50.png"))); // NOI18N
         jbGuardarVacuna.setToolTipText("GUARDAR");
+        jbGuardarVacuna.setBorder(null);
         jbGuardarVacuna.setOpaque(false);
         jbGuardarVacuna.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbGuardarVacunaActionPerformed(evt);
             }
         });
-        jPBackground.add(jbGuardarVacuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 160, 60, 60));
+        jPBackground.add(jbGuardarVacuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 220, 60, 60));
 
         jBannerVacuna.setBackground(new java.awt.Color(180, 0, 0));
         jBannerVacuna.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
@@ -112,35 +117,41 @@ public class Vacunas extends javax.swing.JInternalFrame {
         jMedida.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jMedida.setForeground(new java.awt.Color(180, 0, 0));
         jMedida.setText("Medida:");
-        jPBackground.add(jMedida, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, -1));
+        jPBackground.add(jMedida, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 170, 80, 40));
 
         jVencimiento.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jVencimiento.setForeground(new java.awt.Color(180, 0, 0));
-        jVencimiento.setText("Vencimiento:");
-        jPBackground.add(jVencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, -1, 30));
+        jVencimiento.setText("Vto:");
+        jPBackground.add(jVencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 50, 40));
 
         jNSerie.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jNSerie.setForeground(new java.awt.Color(180, 0, 0));
         jNSerie.setText("Nro Serie:");
-        jPBackground.add(jNSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, -1, 20));
+        jPBackground.add(jNSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, 100, 40));
 
         jLaboratorio.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLaboratorio.setForeground(new java.awt.Color(180, 0, 0));
         jLaboratorio.setText("Laboratorio:");
-        jPBackground.add(jLaboratorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, 40));
+        jPBackground.add(jLaboratorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 110, 40));
 
         jtMarca.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jtMarca.setBorder(null);
         jtMarca.setDisabledTextColor(new java.awt.Color(180, 0, 0));
         jtMarca.setOpaque(false);
+        jtMarca.setSelectedTextColor(new java.awt.Color(180, 0, 0));
+        jtMarca.setSelectionColor(new java.awt.Color(255, 255, 255));
         jtMarca.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jtMarcaKeyTyped(evt);
             }
         });
-        jPBackground.add(jtMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 230, 40));
+        jPBackground.add(jtMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 230, 40));
 
         jtNroSerie.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jtNroSerie.setBorder(null);
         jtNroSerie.setOpaque(false);
+        jtNroSerie.setSelectedTextColor(new java.awt.Color(180, 0, 0));
+        jtNroSerie.setSelectionColor(new java.awt.Color(255, 255, 255));
         jtNroSerie.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jtNroSerieKeyReleased(evt);
@@ -149,14 +160,14 @@ public class Vacunas extends javax.swing.JInternalFrame {
                 jtNroSerieKeyTyped(evt);
             }
         });
-        jPBackground.add(jtNroSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 90, 240, 40));
+        jPBackground.add(jtNroSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 90, 240, 40));
 
         jdcFechaVencimiento.setBackground(java.awt.Color.white);
         jdcFechaVencimiento.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(180, 0, 0), 1, true));
         jdcFechaVencimiento.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jdcFechaVencimiento.setMaxSelectableDate(new java.util.Date(1730260881000L));
         jdcFechaVencimiento.setOpaque(false);
-        jPBackground.add(jdcFechaVencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 170, 170, 30));
+        jPBackground.add(jdcFechaVencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 170, 170, 40));
 
         jX.setBackground(new java.awt.Color(180, 0, 0));
         jX.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
@@ -179,49 +190,68 @@ public class Vacunas extends javax.swing.JInternalFrame {
         jPBackground.add(jX, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 0, 50, 50));
 
         jFondoVacunar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/Vacunar-Logotipo.png"))); // NOI18N
-        jPBackground.add(jFondoVacunar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 450, 120));
+        jPBackground.add(jFondoVacunar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 450, 120));
 
         jBanerLogoVacunar.setBackground(new java.awt.Color(180, 0, 0));
         jBanerLogoVacunar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/Vacunar-Logo-45.png"))); // NOI18N
         jBanerLogoVacunar.setOpaque(true);
         jPBackground.add(jBanerLogoVacunar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
 
+        jcMedida.setBackground(new java.awt.Color(255, 255, 255));
         jcMedida.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jcMedida.setForeground(new java.awt.Color(180, 0, 0));
         jcMedida.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0.3", "0.5", "0.9" }));
-        jcMedida.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(180, 0, 0), 1, true), "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(180, 0, 0))); // NOI18N
+        jcMedida.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(180, 0, 0), 1, true), "", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.ABOVE_BOTTOM, new java.awt.Font("Arial", 1, 12), new java.awt.Color(180, 0, 0))); // NOI18N
         jcMedida.setOpaque(false);
-        jPBackground.add(jcMedida, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 80, 40));
+        jPBackground.add(jcMedida, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 170, 60, 40));
 
         jMarca.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jMarca.setForeground(new java.awt.Color(180, 0, 0));
         jMarca.setText("Marca:");
-        jPBackground.add(jMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 70, 30));
+        jPBackground.add(jMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 70, 40));
 
+        jcbListaLaboratorio.setBackground(new java.awt.Color(255, 255, 255));
+        jcbListaLaboratorio.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jcbListaLaboratorio.setBorder(null);
         jPBackground.add(jcbListaLaboratorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 230, 40));
 
-        jbLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/barrer5050.png"))); // NOI18N
+        jbLimpiar.setBackground(new java.awt.Color(255, 255, 255));
+        jbLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/eliminar-50.png"))); // NOI18N
+        jbLimpiar.setToolTipText("LIMPIAR");
+        jbLimpiar.setBorder(null);
+        jbLimpiar.setOpaque(false);
         jbLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbLimpiarActionPerformed(evt);
             }
         });
-        jPBackground.add(jbLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 290, 70, -1));
+        jPBackground.add(jbLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 220, 50, 60));
 
-        jbModificarVacuna.setText("Modificar");
+        jbModificarVacuna.setBackground(new java.awt.Color(255, 255, 255));
+        jbModificarVacuna.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jbModificarVacuna.setForeground(new java.awt.Color(0, 0, 0));
+        jbModificarVacuna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/Modificar50.png"))); // NOI18N
+        jbModificarVacuna.setToolTipText("MODIFICAR");
+        jbModificarVacuna.setBorder(null);
+        jbModificarVacuna.setOpaque(false);
         jbModificarVacuna.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbModificarVacunaActionPerformed(evt);
             }
         });
-        jPBackground.add(jbModificarVacuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 250, -1, -1));
+        jPBackground.add(jbModificarVacuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 220, 60, 60));
 
-        jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/lupa_R-50.png"))); // NOI18N
+        jbBuscar.setBackground(new java.awt.Color(255, 255, 255));
+        jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/buscar-50.png"))); // NOI18N
+        jbBuscar.setToolTipText("BUSCAR");
+        jbBuscar.setBorder(null);
+        jbBuscar.setOpaque(false);
         jbBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbBuscarActionPerformed(evt);
             }
         });
-        jPBackground.add(jbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 80, -1, -1));
+        jPBackground.add(jbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 80, 60, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

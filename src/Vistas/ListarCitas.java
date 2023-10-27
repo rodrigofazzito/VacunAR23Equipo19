@@ -49,6 +49,8 @@ CitaVacunacion cita = new CitaVacunacion();
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTablaCita.setBackground(new java.awt.Color(255, 255, 255));
+        jTablaCita.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(180, 0, 0)));
+        jTablaCita.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTablaCita.setForeground(new java.awt.Color(0, 0, 0));
         jTablaCita.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -77,7 +79,9 @@ CitaVacunacion cita = new CitaVacunacion();
                 return canEdit [columnIndex];
             }
         });
-        jTablaCita.setGridColor(new java.awt.Color(0, 0, 0));
+        jTablaCita.setGridColor(new java.awt.Color(180, 0, 0));
+        jTablaCita.setSelectionBackground(new java.awt.Color(180, 0, 0));
+        jTablaCita.setSelectionForeground(new java.awt.Color(255, 255, 255));
         jTablaCita.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTablaCita);
 

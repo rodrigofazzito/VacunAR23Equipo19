@@ -49,7 +49,6 @@ public class Turnos extends javax.swing.JInternalFrame {
         jX = new javax.swing.JLabel();
         jFondoVacunar = new javax.swing.JLabel();
         jBCancelar = new javax.swing.JLabel();
-        jBAsistido1 = new javax.swing.JLabel();
         jListTurnos = new javax.swing.JList<>();
         jTdni = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -57,6 +56,7 @@ public class Turnos extends javax.swing.JInternalFrame {
         jListCiudadano = new javax.swing.JList<>();
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        jBAsistido3 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(880, 590));
         setVisible(true);
@@ -66,19 +66,20 @@ public class Turnos extends javax.swing.JInternalFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(870, 580));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLFechasDeVacunacion.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLFechasDeVacunacion.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLFechasDeVacunacion.setForeground(new java.awt.Color(180, 0, 0));
+        jLFechasDeVacunacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLFechasDeVacunacion.setText("Fecha de vacunacion");
-        jPanel1.add(jLFechasDeVacunacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 250, 30));
+        jPanel1.add(jLFechasDeVacunacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 190, 30));
 
         jDni.setBackground(new java.awt.Color(255, 255, 255));
-        jDni.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jDni.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jDni.setForeground(new java.awt.Color(180, 0, 0));
         jDni.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jDni.setText("DNI");
+        jDni.setText("DNI:");
         jDni.setToolTipText("Nombre del Paciente");
         jDni.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(180, 0, 0)));
-        jPanel1.add(jDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 130, 40, 20));
+        jPanel1.add(jDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 120, 50, 30));
         jDni.getAccessibleContext().setAccessibleDescription("Dni paciente");
 
         jBanerLogoVacunar.setBackground(new java.awt.Color(180, 0, 0));
@@ -116,12 +117,14 @@ public class Turnos extends javax.swing.JInternalFrame {
         jFondoVacunar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/Vacunar-Logotipo.png"))); // NOI18N
         jPanel1.add(jFondoVacunar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 450, 120));
 
-        jBCancelar.setBackground(new java.awt.Color(255, 255, 255));
-        jBCancelar.setForeground(new java.awt.Color(180, 0, 0));
+        jBCancelar.setBackground(new java.awt.Color(180, 0, 0));
+        jBCancelar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jBCancelar.setForeground(new java.awt.Color(255, 255, 255));
         jBCancelar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jBCancelar.setText("CANCELAR");
         jBCancelar.setToolTipText("ASISTIDO");
         jBCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBCancelar.setOpaque(true);
         jBCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBCancelarMouseClicked(evt);
@@ -134,25 +137,6 @@ public class Turnos extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(jBCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 430, 130, 40));
-
-        jBAsistido1.setBackground(new java.awt.Color(255, 255, 255));
-        jBAsistido1.setForeground(new java.awt.Color(180, 0, 0));
-        jBAsistido1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jBAsistido1.setText("ASISTIDO");
-        jBAsistido1.setToolTipText("ASISTIDO");
-        jBAsistido1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jBAsistido1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jBAsistido1MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jBAsistido1MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jBAsistido1MouseExited(evt);
-            }
-        });
-        jPanel1.add(jBAsistido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 430, 130, 40));
 
         jListTurnos.setBackground(new java.awt.Color(255, 255, 255));
         jListTurnos.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(180, 0, 0)));
@@ -177,28 +161,33 @@ public class Turnos extends javax.swing.JInternalFrame {
         jTdni.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jTdni.setForeground(new java.awt.Color(0, 0, 0));
         jTdni.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTdni.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jTdni.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(180, 0, 0)));
+        jTdni.setDisabledTextColor(new java.awt.Color(255, 153, 153));
         jTdni.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTdniKeyPressed(evt);
             }
         });
-        jPanel1.add(jTdni, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 130, 250, 20));
+        jPanel1.add(jTdni, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 120, 250, 30));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Buscar por Dni");
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(180, 0, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Buscar por DNI");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 90, 160, 30));
 
+        jCalendario.setBackground(new java.awt.Color(255, 255, 255));
+        jCalendario.setForeground(new java.awt.Color(0, 0, 0));
         jCalendario.setDateFormatString("yyyy-MM-dd");
+        jCalendario.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jCalendario.setMinSelectableDate(new java.util.Date(-62135755138000L));
         jCalendario.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 jCalendarioPropertyChange(evt);
             }
         });
-        jPanel1.add(jCalendario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 220, 40));
+        jPanel1.add(jCalendario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 220, 40));
 
         jListCiudadano.setBackground(new java.awt.Color(255, 255, 255));
         jListCiudadano.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(180, 0, 0)));
@@ -214,14 +203,39 @@ public class Turnos extends javax.swing.JInternalFrame {
         jPanel1.add(jListCiudadano, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 160, 290, 240));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(180, 0, 0));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Turnos del dia seleccionado");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, -1, -1));
 
+        jSeparator1.setBackground(new java.awt.Color(180, 0, 0));
+        jSeparator1.setForeground(new java.awt.Color(180, 0, 0));
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(180, 0, 0)));
         jSeparator1.setEnabled(false);
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(552, 130, 10, 270));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(552, 100, -1, 300));
+
+        jBAsistido3.setBackground(new java.awt.Color(180, 0, 0));
+        jBAsistido3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jBAsistido3.setForeground(new java.awt.Color(255, 255, 255));
+        jBAsistido3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jBAsistido3.setText("ASISTIDO");
+        jBAsistido3.setToolTipText("ASISTIDO");
+        jBAsistido3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBAsistido3.setOpaque(true);
+        jBAsistido3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBAsistido3MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jBAsistido3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jBAsistido3MouseExited(evt);
+            }
+        });
+        jPanel1.add(jBAsistido3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 430, 130, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -248,48 +262,57 @@ public class Turnos extends javax.swing.JInternalFrame {
 
     private void jXMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jXMouseEntered
         // Efecto de posicion
+        jX.setBackground(Color.white);
+        jX.setForeground(new Color(180, 0, 0));
 
-        jX.setBackground(new Color(180, 0, 0));
-        jX.setForeground(Color.WHITE);
     }//GEN-LAST:event_jXMouseEntered
 
     private void jXMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jXMouseExited
         // Tremarcado de boton X
-
-        jX.setBackground(Color.white);
-        jX.setForeground(new Color(180, 0, 0));
+        jX.setBackground(new Color(180, 0, 0));
+        jX.setForeground(Color.WHITE);
 
     }//GEN-LAST:event_jXMouseExited
 
     private void jBCancelarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBCancelarMouseEntered
-        jX.setBackground(new Color(180, 0, 0));
-        jX.setForeground(Color.WHITE);
+        jBCancelar.setBackground(Color.white);
+        jBCancelar.setForeground(new Color(180, 0, 0));
 
     }//GEN-LAST:event_jBCancelarMouseEntered
 
     private void jBCancelarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBCancelarMouseExited
-        jX.setBackground(Color.white);
-        jX.setForeground(new Color(180, 0, 0));
+        jBCancelar.setBackground(new Color(180, 0, 0));
+        jBCancelar.setForeground(Color.WHITE);
 
     }//GEN-LAST:event_jBCancelarMouseExited
 
-    private void jBAsistido1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBAsistido1MouseEntered
-        jX.setBackground(new Color(180, 0, 0));
-        jX.setForeground(Color.WHITE);
-
-    }//GEN-LAST:event_jBAsistido1MouseEntered
-
-    private void jBAsistido1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBAsistido1MouseExited
-        jX.setBackground(Color.white);
-        jX.setForeground(new Color(180, 0, 0));
-
-    }//GEN-LAST:event_jBAsistido1MouseExited
-
     private void jBCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBCancelarMouseClicked
-        if(Integer.parseInt(jTdni.getText()) == 8){
-        cita = (CitaVacunacion) citaData.obtenerCita(Integer.parseInt(jTdni.getText()));
+
         }
     }//GEN-LAST:event_jBCancelarMouseClicked
+
+    private void jCalendarioPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jCalendarioPropertyChange
+        // calendario comparador
+        LimpiarListas();
+        CargarListaTurnos();
+    }//GEN-LAST:event_jCalendarioPropertyChange
+
+    private void jListTurnosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListTurnosValueChanged
+        
+        System.out.println(jListTurnos.getSelectedValue());
+    }//GEN-LAST:event_jListTurnosValueChanged
+
+    private void jBAsistido3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBAsistido3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBAsistido3MouseClicked
+
+    private void jBAsistido3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBAsistido3MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBAsistido3MouseEntered
+
+    private void jBAsistido3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBAsistido3MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBAsistido3MouseExited
 
     private void jTdniKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTdniKeyPressed
         char c = (char) evt.getKeyCode();
@@ -307,7 +330,7 @@ public class Turnos extends javax.swing.JInternalFrame {
                     if (cit.isCancelada() == true) {
                         cancelada = "Cita Cancelada";
                         modelo.addElement(cancelada);
-                        
+
                     }
                 }
                 ciu = ciuData.buscarCiudadano(Integer.parseInt(jTdni.getText()));
@@ -324,25 +347,9 @@ public class Turnos extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jTdniKeyPressed
 
-    private void jCalendarioPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jCalendarioPropertyChange
-        // calendario comparador
-        LimpiarListas();
-        CargarListaTurnos();
-    }//GEN-LAST:event_jCalendarioPropertyChange
-
-    private void jBAsistido1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBAsistido1MouseClicked
-        // Boton asistido baja una vacuna del stock
-        
-    }//GEN-LAST:event_jBAsistido1MouseClicked
-
-    private void jListTurnosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListTurnosValueChanged
-        
-        System.out.println(jListTurnos.getSelectedValue());
-    }//GEN-LAST:event_jListTurnosValueChanged
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jBAsistido1;
+    private javax.swing.JLabel jBAsistido3;
     private javax.swing.JLabel jBCancelar;
     private javax.swing.JLabel jBanerLogoVacunar;
     private javax.swing.JLabel jBannerVacuna;

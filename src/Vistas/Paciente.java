@@ -64,7 +64,6 @@ public class Paciente extends javax.swing.JInternalFrame {
         setFocusCycleRoot(false);
         setFocusable(false);
         setFrameIcon(null);
-        setOpaque(false);
         setPreferredSize(new java.awt.Dimension(870, 570));
         setRequestFocusEnabled(false);
         setVisible(true);
@@ -91,23 +90,23 @@ public class Paciente extends javax.swing.JInternalFrame {
         jNombre.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jNombre.setForeground(new java.awt.Color(180, 0, 0));
         jNombre.setText("Nombre Completo:");
-        jPanel1.add(jNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, 20));
+        jPanel1.add(jNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, 40));
 
         jEmail.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jEmail.setForeground(new java.awt.Color(180, 0, 0));
         jEmail.setText("E-Mail:");
-        jPanel1.add(jEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, -1, -1));
+        jPanel1.add(jEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 232, -1, 40));
 
         jCelular.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jCelular.setForeground(new java.awt.Color(180, 0, 0));
         jCelular.setText("Celular:");
-        jPanel1.add(jCelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 240, -1, -1));
+        jPanel1.add(jCelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 230, -1, 40));
 
         jcbEsencial.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jcbEsencial.setForeground(new java.awt.Color(180, 0, 0));
         jcbEsencial.setText("Esencial");
         jcbEsencial.setOpaque(false);
-        jPanel1.add(jcbEsencial, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, -1, -1));
+        jPanel1.add(jcbEsencial, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, -1, -1));
 
         jtDni.setForeground(new java.awt.Color(180, 0, 0));
         jtDni.setOpaque(false);
@@ -143,7 +142,7 @@ public class Paciente extends javax.swing.JInternalFrame {
                 jtNombreCompletoKeyTyped(evt);
             }
         });
-        jPanel1.add(jtNombreCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 480, 40));
+        jPanel1.add(jtNombreCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 480, 40));
 
         jtEmail.setForeground(new java.awt.Color(180, 0, 0));
         jtEmail.setOpaque(false);
@@ -157,8 +156,9 @@ public class Paciente extends javax.swing.JInternalFrame {
         jPanel1.add(jtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 330, 40));
 
         jBBuscar.setBackground(new java.awt.Color(255, 255, 255));
-        jBBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/lupa_R-50.png"))); // NOI18N
-        jBBuscar.setToolTipText("Buscar");
+        jBBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/buscar-50.png"))); // NOI18N
+        jBBuscar.setToolTipText("BUSCAR");
+        jBBuscar.setBorder(null);
         jBBuscar.setOpaque(false);
         jBBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,14 +169,15 @@ public class Paciente extends javax.swing.JInternalFrame {
 
         jbGuardar.setBackground(new java.awt.Color(255, 255, 255));
         jbGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/disco-flexible-50.png"))); // NOI18N
-        jbGuardar.setToolTipText("Guardar");
+        jbGuardar.setToolTipText("GUARDAR");
+        jbGuardar.setBorder(null);
         jbGuardar.setOpaque(false);
         jbGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(jbGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 130, 60, 60));
+        jPanel1.add(jbGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 140, 60, 60));
 
         jX.setBackground(new java.awt.Color(180, 0, 0));
         jX.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
@@ -204,7 +205,7 @@ public class Paciente extends javax.swing.JInternalFrame {
         jPanel1.add(jBanerLogoVacunar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
 
         jFondoVacunar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/Vacunar-Logotipo.png"))); // NOI18N
-        jPanel1.add(jFondoVacunar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, 450, 120));
+        jPanel1.add(jFondoVacunar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 450, 120));
 
         jAsterisco1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jAsterisco1.setForeground(new java.awt.Color(180, 0, 0));
@@ -224,8 +225,9 @@ public class Paciente extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 500, 200, 30));
 
         jbLimpiar.setBackground(new java.awt.Color(255, 255, 255));
-        jbLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/barrer5050.png"))); // NOI18N
-        jbLimpiar.setToolTipText("Limpiar");
+        jbLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/eliminar-50.png"))); // NOI18N
+        jbLimpiar.setToolTipText("LIMPIAR");
+        jbLimpiar.setBorder(null);
         jbLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbLimpiarActionPerformed(evt);
@@ -233,14 +235,16 @@ public class Paciente extends javax.swing.JInternalFrame {
         });
         jPanel1.add(jbLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 280, 60, 60));
 
-        jbModificar.setText("modificar");
-        jbModificar.setToolTipText("modificar");
+        jbModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/Modificar50.png"))); // NOI18N
+        jbModificar.setToolTipText("MODIFICAR");
+        jbModificar.setBorder(null);
+        jbModificar.setOpaque(false);
         jbModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbModificarActionPerformed(evt);
             }
         });
-        jPanel1.add(jbModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 300, -1, -1));
+        jPanel1.add(jbModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 290, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -255,7 +259,7 @@ public class Paciente extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        setBounds(0, 0, 877, 582);
+        setBounds(0, 0, 877, 574);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jXMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jXMouseClicked
@@ -265,17 +269,17 @@ public class Paciente extends javax.swing.JInternalFrame {
 
     private void jXMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jXMouseEntered
         // Efecto de posicion
+        jX.setBackground(Color.white);
+        jX.setForeground(new Color(180, 0, 0));
 
-        jX.setBackground(new Color(180, 0, 0));
-        jX.setForeground(Color.WHITE);
 
     }//GEN-LAST:event_jXMouseEntered
 
     private void jXMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jXMouseExited
         // Tremarcado de boton X
+        jX.setBackground(new Color(180, 0, 0));
+        jX.setForeground(Color.WHITE);
 
-        jX.setBackground(Color.white);
-        jX.setForeground(new Color(180, 0, 0));
     }//GEN-LAST:event_jXMouseExited
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed

@@ -68,83 +68,98 @@ public Laboratorios() {
                 jPaisKeyTyped(evt);
             }
         });
-        jPanel1.add(jPais, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 180, 200, 30));
+        jPanel1.add(jPais, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 200, 30));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(180, 0, 0));
-        jLabel3.setText("Nombre");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Nombre:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 90, 30));
 
         jNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jNombreKeyTyped(evt);
             }
         });
-        jPanel1.add(jNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 200, 30));
+        jPanel1.add(jNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 310, 30));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(180, 0, 0));
-        jLabel4.setText("País");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("País:");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, 30));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Buscar");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/buscar-50.png"))); // NOI18N
+        jButton1.setToolTipText("BUSCAR");
+        jButton1.setBorder(null);
+        jButton1.setOpaque(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, -1, -1));
 
         jCuit.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jCuitKeyTyped(evt);
             }
         });
-        jPanel1.add(jCuit, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 160, 30));
+        jPanel1.add(jCuit, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 160, 30));
 
         jStock.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jStockKeyTyped(evt);
             }
         });
-        jPanel1.add(jStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 90, 30));
+        jPanel1.add(jStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, 90, 30));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(180, 0, 0));
-        jLabel2.setText("Cuit");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Cuit:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 60, 30));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(180, 0, 0));
-        jLabel5.setText("Dirección");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Dirección:");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 100, 30));
 
         jGuardar.setBackground(new java.awt.Color(255, 255, 255));
-        jGuardar.setText("Guardar");
+        jGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/disco-flexible-50.png"))); // NOI18N
+        jGuardar.setToolTipText("Guardar");
+        jGuardar.setBorder(null);
+        jGuardar.setOpaque(false);
         jGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(jGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, -1, -1));
+        jPanel1.add(jGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 250, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(180, 0, 0));
-        jLabel6.setText("Stock");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Stock:");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 270, -1, 30));
 
         jLimpiar.setBackground(new java.awt.Color(255, 255, 255));
-        jLimpiar.setText("Limpiar");
+        jLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/eliminar-50.png"))); // NOI18N
+        jLimpiar.setToolTipText("LIMPIAR");
+        jLimpiar.setBorder(null);
+        jLimpiar.setOpaque(false);
         jLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jLimpiarActionPerformed(evt);
             }
         });
-        jPanel1.add(jLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 310, -1, -1));
-        jPanel1.add(jDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 224, 200, 30));
+        jPanel1.add(jLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 250, -1, -1));
+        jPanel1.add(jDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 290, 30));
 
         jtLaboratorio.setBackground(new java.awt.Color(255, 255, 255));
+        jtLaboratorio.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(180, 0, 0)));
         jtLaboratorio.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jtLaboratorio.setForeground(new java.awt.Color(0, 0, 0));
         jtLaboratorio.setModel(new javax.swing.table.DefaultTableModel(
@@ -167,15 +182,17 @@ public Laboratorios() {
             }
         });
         jtLaboratorio.setAutoscrolls(false);
-        jtLaboratorio.setGridColor(new java.awt.Color(0, 0, 0));
+        jtLaboratorio.setGridColor(new java.awt.Color(180, 0, 0));
         jtLaboratorio.setOpaque(false);
+        jtLaboratorio.setSelectionBackground(new java.awt.Color(180, 0, 0));
+        jtLaboratorio.setSelectionForeground(new java.awt.Color(255, 255, 255));
         jtLaboratorio.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jtLaboratorio);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 370, 870, 90));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 870, 130));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/Vacunar-Logotipo.png"))); // NOI18N
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 510, 120));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 90, 460, 120));
 
         jBannerVacuna.setBackground(new java.awt.Color(180, 0, 0));
         jBannerVacuna.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N

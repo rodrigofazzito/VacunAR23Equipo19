@@ -259,7 +259,15 @@ public class Citas extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 520, -1, -1));
-        jPanel1.add(jCalendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 410, 240));
+
+        jCalendar.setBackground(new java.awt.Color(255, 255, 255));
+        jCalendar.setDecorationBackgroundColor(new java.awt.Color(180, 0, 0));
+        jCalendar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jCalendar.setSundayForeground(new java.awt.Color(255, 153, 153));
+        jCalendar.setTodayButtonVisible(true);
+        jCalendar.setWeekOfYearVisible(false);
+        jCalendar.setWeekdayForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jCalendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 161, -1, 210));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
