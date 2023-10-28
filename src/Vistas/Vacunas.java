@@ -73,10 +73,8 @@ public class Vacunas extends javax.swing.JInternalFrame {
         jPBackground.setPreferredSize(new java.awt.Dimension(880, 590));
         jPBackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jtablaVacuna.setBackground(new java.awt.Color(255, 255, 255));
         jtablaVacuna.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(180, 0, 0)));
         jtablaVacuna.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jtablaVacuna.setForeground(new java.awt.Color(0, 0, 0));
         jtablaVacuna.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -93,11 +91,11 @@ public class Vacunas extends javax.swing.JInternalFrame {
         jtablaVacuna.setSelectionBackground(new java.awt.Color(180, 0, 0));
         jScrollPane1.setViewportView(jtablaVacuna);
 
-        jPBackground.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 850, 130));
+        jPBackground.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 850, 90));
 
         jbGuardarVacuna.setBackground(new java.awt.Color(255, 255, 255));
         jbGuardarVacuna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/disco-flexible-50.png"))); // NOI18N
-        jbGuardarVacuna.setToolTipText("GUARDAR");
+        jbGuardarVacuna.setToolTipText("Guardar");
         jbGuardarVacuna.setBorder(null);
         jbGuardarVacuna.setOpaque(false);
         jbGuardarVacuna.addActionListener(new java.awt.event.ActionListener() {
@@ -105,7 +103,7 @@ public class Vacunas extends javax.swing.JInternalFrame {
                 jbGuardarVacunaActionPerformed(evt);
             }
         });
-        jPBackground.add(jbGuardarVacuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 220, 60, 60));
+        jPBackground.add(jbGuardarVacuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 250, 60, 60));
 
         jBannerVacuna.setBackground(new java.awt.Color(180, 0, 0));
         jBannerVacuna.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
@@ -190,7 +188,7 @@ public class Vacunas extends javax.swing.JInternalFrame {
         jPBackground.add(jX, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 0, 50, 50));
 
         jFondoVacunar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/Vacunar-Logotipo.png"))); // NOI18N
-        jPBackground.add(jFondoVacunar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 450, 120));
+        jPBackground.add(jFondoVacunar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 450, 120));
 
         jBanerLogoVacunar.setBackground(new java.awt.Color(180, 0, 0));
         jBanerLogoVacunar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/Vacunar-Logo-45.png"))); // NOI18N
@@ -210,14 +208,13 @@ public class Vacunas extends javax.swing.JInternalFrame {
         jMarca.setText("Marca:");
         jPBackground.add(jMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 70, 40));
 
-        jcbListaLaboratorio.setBackground(new java.awt.Color(255, 255, 255));
         jcbListaLaboratorio.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jcbListaLaboratorio.setBorder(null);
         jPBackground.add(jcbListaLaboratorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 230, 40));
 
         jbLimpiar.setBackground(new java.awt.Color(255, 255, 255));
         jbLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/eliminar-50.png"))); // NOI18N
-        jbLimpiar.setToolTipText("LIMPIAR");
+        jbLimpiar.setToolTipText("Limpiar");
         jbLimpiar.setBorder(null);
         jbLimpiar.setOpaque(false);
         jbLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -225,13 +222,12 @@ public class Vacunas extends javax.swing.JInternalFrame {
                 jbLimpiarActionPerformed(evt);
             }
         });
-        jPBackground.add(jbLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 220, 50, 60));
+        jPBackground.add(jbLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 250, 50, 60));
 
         jbModificarVacuna.setBackground(new java.awt.Color(255, 255, 255));
         jbModificarVacuna.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jbModificarVacuna.setForeground(new java.awt.Color(0, 0, 0));
         jbModificarVacuna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/Modificar50.png"))); // NOI18N
-        jbModificarVacuna.setToolTipText("MODIFICAR");
+        jbModificarVacuna.setToolTipText("Modificar");
         jbModificarVacuna.setBorder(null);
         jbModificarVacuna.setOpaque(false);
         jbModificarVacuna.addActionListener(new java.awt.event.ActionListener() {
@@ -239,11 +235,11 @@ public class Vacunas extends javax.swing.JInternalFrame {
                 jbModificarVacunaActionPerformed(evt);
             }
         });
-        jPBackground.add(jbModificarVacuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 220, 60, 60));
+        jPBackground.add(jbModificarVacuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 250, 60, 60));
 
         jbBuscar.setBackground(new java.awt.Color(255, 255, 255));
         jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/buscar-50.png"))); // NOI18N
-        jbBuscar.setToolTipText("BUSCAR");
+        jbBuscar.setToolTipText("Buscar");
         jbBuscar.setBorder(null);
         jbBuscar.setOpaque(false);
         jbBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -261,9 +257,7 @@ public class Vacunas extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();

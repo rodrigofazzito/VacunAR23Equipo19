@@ -157,7 +157,7 @@ public class Paciente extends javax.swing.JInternalFrame {
 
         jBBuscar.setBackground(new java.awt.Color(255, 255, 255));
         jBBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/buscar-50.png"))); // NOI18N
-        jBBuscar.setToolTipText("BUSCAR");
+        jBBuscar.setToolTipText("Buscar");
         jBBuscar.setBorder(null);
         jBBuscar.setOpaque(false);
         jBBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -169,7 +169,7 @@ public class Paciente extends javax.swing.JInternalFrame {
 
         jbGuardar.setBackground(new java.awt.Color(255, 255, 255));
         jbGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/disco-flexible-50.png"))); // NOI18N
-        jbGuardar.setToolTipText("GUARDAR");
+        jbGuardar.setToolTipText("Guardar");
         jbGuardar.setBorder(null);
         jbGuardar.setOpaque(false);
         jbGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -205,7 +205,7 @@ public class Paciente extends javax.swing.JInternalFrame {
         jPanel1.add(jBanerLogoVacunar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
 
         jFondoVacunar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/Vacunar-Logotipo.png"))); // NOI18N
-        jPanel1.add(jFondoVacunar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 450, 120));
+        jPanel1.add(jFondoVacunar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, 450, 120));
 
         jAsterisco1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jAsterisco1.setForeground(new java.awt.Color(180, 0, 0));
@@ -222,11 +222,11 @@ public class Paciente extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(180, 0, 0));
         jLabel1.setText("(*) Campos Opcionales");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 500, 200, 30));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 460, 200, 30));
 
         jbLimpiar.setBackground(new java.awt.Color(255, 255, 255));
         jbLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/eliminar-50.png"))); // NOI18N
-        jbLimpiar.setToolTipText("LIMPIAR");
+        jbLimpiar.setToolTipText("Limpiar");
         jbLimpiar.setBorder(null);
         jbLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -236,7 +236,7 @@ public class Paciente extends javax.swing.JInternalFrame {
         jPanel1.add(jbLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 280, 60, 60));
 
         jbModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/Modificar50.png"))); // NOI18N
-        jbModificar.setToolTipText("MODIFICAR");
+        jbModificar.setToolTipText("Modificar");
         jbModificar.setBorder(null);
         jbModificar.setOpaque(false);
         jbModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -254,12 +254,10 @@ public class Paciente extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 557, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        setBounds(0, 0, 877, 574);
+        setBounds(0, 0, 877, 520);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jXMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jXMouseClicked

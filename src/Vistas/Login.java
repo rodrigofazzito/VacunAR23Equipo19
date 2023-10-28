@@ -37,9 +37,9 @@ public class Login extends javax.swing.JFrame {
         contra = new javax.swing.JPasswordField();
         mail = new javax.swing.JTextField();
         jFondoVacunar = new javax.swing.JLabel();
-        jBIngresar = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+        jBIngresar = new javax.swing.JLabel();
         jX1 = new javax.swing.JLabel();
         jBannerHora = new javax.swing.JLabel();
 
@@ -70,6 +70,23 @@ public class Login extends javax.swing.JFrame {
         jFondoVacunar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/Vacunar-Logotipo.png"))); // NOI18N
         jPanel1.add(jFondoVacunar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 450, 120));
 
+        jPanel2.setBackground(new java.awt.Color(180, 0, 0));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 140, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 720, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 720));
+
+        jPanel3.setBackground(new java.awt.Color(224, 0, 0));
+
         jBIngresar.setBackground(new java.awt.Color(255, 255, 255));
         jBIngresar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jBIngresar.setForeground(new java.awt.Color(180, 0, 0));
@@ -92,34 +109,22 @@ public class Login extends javax.swing.JFrame {
                 jBIngresarMouseExited(evt);
             }
         });
-        jPanel1.add(jBIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 450, 130, 30));
-
-        jPanel2.setBackground(new java.awt.Color(180, 0, 0));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 140, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 720));
-
-        jPanel3.setBackground(new java.awt.Color(224, 0, 0));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 780, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(552, Short.MAX_VALUE)
+                .addComponent(jBIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(98, 98, 98))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jBIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 500, 780, -1));

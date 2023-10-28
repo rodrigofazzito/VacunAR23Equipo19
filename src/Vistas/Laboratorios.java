@@ -91,7 +91,7 @@ public Laboratorios() {
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/buscar-50.png"))); // NOI18N
-        jButton1.setToolTipText("BUSCAR");
+        jButton1.setToolTipText("Buscar");
         jButton1.setBorder(null);
         jButton1.setOpaque(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -147,7 +147,7 @@ public Laboratorios() {
 
         jLimpiar.setBackground(new java.awt.Color(255, 255, 255));
         jLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/eliminar-50.png"))); // NOI18N
-        jLimpiar.setToolTipText("LIMPIAR");
+        jLimpiar.setToolTipText("Limpiar");
         jLimpiar.setBorder(null);
         jLimpiar.setOpaque(false);
         jLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -189,7 +189,7 @@ public Laboratorios() {
         jtLaboratorio.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jtLaboratorio);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 870, 130));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 870, 90));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/Vacunar-Logotipo.png"))); // NOI18N
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 90, 460, 120));
@@ -236,10 +236,10 @@ public Laboratorios() {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 554, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        setBounds(0, 0, 884, 576);
+        setBounds(0, 0, 884, 497);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jGuardarActionPerformed

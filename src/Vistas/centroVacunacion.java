@@ -67,6 +67,7 @@ private DefaultTableModel modeloT =new DefaultTableModel(){
                 {null, null, null},
                 {null, null, null},
                 {null, null, null},
+                {null, null, null},
                 {null, null, null}
             },
             new String [] {
@@ -87,7 +88,7 @@ private DefaultTableModel modeloT =new DefaultTableModel(){
         jtTablaAplicadas.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(jtTablaAplicadas);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 602, 130));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 602, 100));
 
         jScrollPane1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
@@ -103,7 +104,7 @@ private DefaultTableModel modeloT =new DefaultTableModel(){
         });
         jScrollPane1.setViewportView(jlListaCentrosAplicados);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 250, 110));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 250, 100));
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(180, 0, 0));
@@ -143,7 +144,7 @@ private DefaultTableModel modeloT =new DefaultTableModel(){
         jPanel1.add(jX, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 0, 50, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/Vacunar-Logotipo-2.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 260, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 260, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
