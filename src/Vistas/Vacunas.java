@@ -133,7 +133,7 @@ public class Vacunas extends javax.swing.JInternalFrame {
         jPBackground.add(jLaboratorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 110, 40));
 
         jtMarca.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jtMarca.setBorder(null);
+        jtMarca.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.red, new java.awt.Color(0, 0, 0)));
         jtMarca.setDisabledTextColor(new java.awt.Color(180, 0, 0));
         jtMarca.setOpaque(false);
         jtMarca.setSelectedTextColor(new java.awt.Color(180, 0, 0));
@@ -146,7 +146,7 @@ public class Vacunas extends javax.swing.JInternalFrame {
         jPBackground.add(jtMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 230, 40));
 
         jtNroSerie.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jtNroSerie.setBorder(null);
+        jtNroSerie.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.red, java.awt.Color.black));
         jtNroSerie.setOpaque(false);
         jtNroSerie.setSelectedTextColor(new java.awt.Color(180, 0, 0));
         jtNroSerie.setSelectionColor(new java.awt.Color(255, 255, 255));

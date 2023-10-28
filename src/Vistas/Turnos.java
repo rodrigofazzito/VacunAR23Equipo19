@@ -105,6 +105,7 @@ public class Turnos extends javax.swing.JInternalFrame {
         jPanel1.add(jFondoVacunar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, 450, 120));
 
         jBCancelar.setBackground(new java.awt.Color(180, 0, 0));
+        jBCancelar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jBCancelar.setForeground(new java.awt.Color(255, 255, 255));
         jBCancelar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jBCancelar.setText("CANCELAR");
@@ -125,6 +126,7 @@ public class Turnos extends javax.swing.JInternalFrame {
         jPanel1.add(jBCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 130, 40));
 
         jBAsistido1.setBackground(new java.awt.Color(180, 0, 0));
+        jBAsistido1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jBAsistido1.setForeground(java.awt.Color.white);
         jBAsistido1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jBAsistido1.setText("ASISTIDO");

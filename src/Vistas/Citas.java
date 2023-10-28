@@ -225,8 +225,9 @@ public class Citas extends javax.swing.JInternalFrame {
         jTvacunatorio.setBorder(null);
         jPanel1.add(jTvacunatorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 310, 40));
 
-        jNota.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jPanel1.add(jNota, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 350, 30));
+        jNota.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jNota.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.red, java.awt.Color.black));
+        jPanel1.add(jNota, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 420, 30));
 
         jBAsistido1.setBackground(new java.awt.Color(180, 0, 0));
         jBAsistido1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -272,7 +273,7 @@ public class Citas extends javax.swing.JInternalFrame {
         jCalendar.setTodayButtonVisible(true);
         jCalendar.setWeekOfYearVisible(false);
         jCalendar.setWeekdayForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(jCalendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, 210));
+        jPanel1.add(jCalendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, 230));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
