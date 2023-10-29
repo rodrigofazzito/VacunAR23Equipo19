@@ -126,8 +126,6 @@ public class CitaVacunacion {
 
     @Override
     public String toString() {
-        return "CitaVacunacion{" + "Codcita=" + Codcita + ", ciudadano=" + ciudadano + ", vacuna=" + vacuna + ", dosis=" + dosis + ", HoraCita=" + HoraCita + ", CentroVacuna=" + CentroVacuna + ", fechaColoca=" + fechaColoca + ", cancelada=" + cancelada + '}';
-    }
-
-    
+       return  CentroVacuna + " , " + dosis+" dosis aplicadas";
+    } 
 }

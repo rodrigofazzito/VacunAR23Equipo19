@@ -17,6 +17,7 @@ import java.sql.Connection;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import javax.swing.DefaultComboBoxModel;
@@ -38,7 +39,7 @@ public class Citas extends javax.swing.JInternalFrame {
      VacunaData vacData;
      Vacuna vacuna;
      DefaultListModel modelo =  new DefaultListModel();
-
+     String dni = null;
   
     
     public Citas() {
@@ -50,9 +51,9 @@ public class Citas extends javax.swing.JInternalFrame {
         vacData = new VacunaData();
         citaData = new CitaVacunaData();
         cita = new CitaVacunacion();
-        ArmarLista();
         cargarCombo();
-        
+        jCalendar.setMinSelectableDate(new Date());
+        limpiarCampos();
         
         
     }
@@ -116,16 +117,21 @@ public class Citas extends javax.swing.JInternalFrame {
         jLabel1.setText("DNI:");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, -1, 40));
 
+        jTdni.setBackground(new java.awt.Color(255, 255, 255));
         jTdni.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jTdni.setForeground(new java.awt.Color(180, 0, 0));
         jTdni.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTdni.setBorder(null);
+        jTdni.setToolTipText("Ingrese dni");
+        jTdni.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTdni.setCaretColor(new java.awt.Color(255, 255, 255));
         jTdni.setNextFocusableComponent(jCargarCita);
         jTdni.setSelectionColor(new java.awt.Color(180, 0, 0));
         jTdni.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTdniKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTdniKeyTyped(evt);
             }
         });
         jPanel1.add(jTdni, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 70, 228, 40));
@@ -136,8 +142,10 @@ public class Citas extends javax.swing.JInternalFrame {
         jLabel2.setText("Vacuna:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 84, 33));
 
+        jComboVacuna.setBackground(new java.awt.Color(255, 255, 255));
         jComboVacuna.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jComboVacuna.setForeground(new java.awt.Color(180, 0, 0));
+        jComboVacuna.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jComboVacuna.setNextFocusableComponent(jX);
         jPanel1.add(jComboVacuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, 175, 33));
 
@@ -152,6 +160,8 @@ public class Citas extends javax.swing.JInternalFrame {
         });
         jPanel1.add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 410, -1, 30));
 
+        jList2.setBackground(new java.awt.Color(255, 255, 255));
+        jList2.setBorder(new javax.swing.border.MatteBorder(null));
         jList2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jList2.setForeground(new java.awt.Color(180, 0, 0));
         jScrollPane1.setViewportView(jList2);
@@ -220,12 +230,15 @@ public class Citas extends javax.swing.JInternalFrame {
         jLabel4.setText("Vacunatorio: ");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
+        jTvacunatorio.setBackground(new java.awt.Color(255, 255, 255));
         jTvacunatorio.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jTvacunatorio.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTvacunatorio.setBorder(null);
+        jTvacunatorio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jTvacunatorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 310, 40));
 
+        jNota.setBackground(new java.awt.Color(255, 255, 255));
         jNota.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jNota.setForeground(new java.awt.Color(0, 0, 0));
         jNota.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.red, java.awt.Color.black));
         jPanel1.add(jNota, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 420, 30));
 
@@ -308,16 +321,16 @@ public class Citas extends javax.swing.JInternalFrame {
         // Tremarcado de boton X
         jX.setBackground(new Color(180, 0, 0));
         jX.setForeground(Color.WHITE);
-        
+
     }//GEN-LAST:event_jXMouseExited
 
     private void jCargarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCargarCitaActionPerformed
-        
-        ciuData.buscarCiudadano(Integer.parseInt(jTdni.getText()));
+        ciuData.buscarCiudadano(Integer.parseInt(dni));
+        if(jTvacunatorio.getText().length() > 4){
         cita.setCentroVacuna(jTvacunatorio.getText());
         cita.setCiudadano(ciu);
         cita.setDosis(+1);
-        cita.setVacuna((Vacuna)jComboVacuna.getSelectedItem());
+        cita.setVacuna((Vacuna) jComboVacuna.getSelectedItem());
         ciu.setNota(JOptionPane.showInputDialog("Escriba su nota"));
         java.util.Date fecha = jCalendar.getDate();
         LocalDate Fech = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
@@ -325,40 +338,55 @@ public class Citas extends javax.swing.JInternalFrame {
         cita.setHoraCita(String.valueOf(jSpinner.getValue()));
         citaData.GuardarCita(cita);
         JOptionPane.showMessageDialog(null, "La cita se cargo correctamente");
+        }else{
+            JOptionPane.showMessageDialog(null, "ingrese un vacunatorio existente");
+        }
         limpiarCampos();
-        
     }//GEN-LAST:event_jCargarCitaActionPerformed
 
     private void jTdniKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTdniKeyPressed
         // buscar con tecla enter
-        List <CitaVacunacion> citas = citaData.listaCitas();
-        int dosis = 0;
-        for(CitaVacunacion cit : citas){
-            dosis = cit.getDosis();
-        }
         char c = (char) evt.getKeyCode();
         if (c == evt.VK_ENTER) {
-           ciu = ciuData.buscarCiudadano(Integer.parseInt(jTdni.getText()));
-           citaData.obtenerCita(Integer.parseInt(jTdni.getText()));
-           if(dosis >= 1){
-               modelo.addElement(dosis+" dosis");
-               if(dosis == 3){
-                   jCargarCita.setEnabled(false);
-               }
-           }else{
-               modelo.addElement("Sin primera dosis");
-           }
-           modelo.addElement(ciu.getNombreComp());
-           modelo.addElement(ciu.getEmail());
-           modelo.addElement(ciu.getCelular());
-           if(ciu.isEsencial() == true){
-               modelo.addElement("Persona escencial");
-               jNota.setText("Dar turno proximo");
-           }else{
-               jNota.setText("Turno a mes siguiente");
-               setFechaMas();
-           }
+            dni = jTdni.getText();
+            limpiarCampos();
+            if (dni.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Ingrese un dni");
+            } else {
+                if (dni.length() == 8) {
+                    if (ciuData.buscarCiudadano(Integer.parseInt(dni)) != null) {
+                        jCheckBox2.setEnabled(true);
+                        cita = citaData.obtenerCita(Integer.parseInt(dni));
+                        ciu = ciuData.buscarCiudadano(Integer.parseInt(dni));
+                        if (cita.getDosis() >= 1){
+                            modelo.addElement(cita.getDosis() + " dosis");
+                            if (cita.getDosis() == 3) {
+                                jCargarCita.setEnabled(false);
+                            }
+                        } else {
+                            modelo.addElement("Sin primera dosis");
+                        }
+                        modelo.addElement(cita.getFechaColoca());
+                        modelo.addElement(ciu.getNombreComp());
+                        modelo.addElement(ciu.getEmail());
+                        modelo.addElement(ciu.getCelular());
+                        if (ciu.isEsencial() == true) {
+                            modelo.addElement("Persona escencial");
+                            jNota.setText("Dar turno proximo");
+                        } else {
+                            jNota.setText("Turno a mes siguiente");
+                            setFechaMas();
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "no se a encontrado paciente con ese dni");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Ingrese un Dni correcto");
+                }
+            }
+            jList2.setModel(modelo);
         }
+        
     }//GEN-LAST:event_jTdniKeyPressed
 
     private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
@@ -397,6 +425,12 @@ public class Citas extends javax.swing.JInternalFrame {
         limpiarCampos();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jTdniKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTdniKeyTyped
+        char c = evt.getKeyChar();
+   if (!Character.isDigit(c) ) {
+    evt.consume();}
+    }//GEN-LAST:event_jTdniKeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jBAsistido1;
@@ -423,10 +457,7 @@ public class Citas extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTvacunatorio;
     private javax.swing.JLabel jX;
     // End of variables declaration//GEN-END:variables
- public void ArmarLista(){
-       
-       jList2.setModel(modelo);
-   }
+
    public void setFecha(){
        Calendar c = Calendar.getInstance();
        c.setTime(jCalendar.getDate());

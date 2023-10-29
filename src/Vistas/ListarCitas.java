@@ -209,23 +209,23 @@ private void armarCabecera() {
         modelo.addColumn("Marca");
         modelo.addColumn("Persona");
         modelo.addColumn("Hora");
-        modelo.addColumn("Cancelada");
+        modelo.addColumn("Estado");
         jTablaCita.setModel(modelo);
         jTablaCita.setDefaultEditor(Object.class, null);
     }
 private void CargarLista(){
-    List<CitaVacunacion> citas = CitaData.listaCitas();
+        List<CitaVacunacion> citas = CitaData.listaCitas();
     for(CitaVacunacion cit : citas){
         String x = "";
+        x = "Pendiente";
         if(cit.isCancelada() == true){
             x = "Cita Cancelada";
-        }else{
-            x = "Pendiente";
+        }else if(cit.getHoraCita().equalsIgnoreCase("Asistido")){
+                x= "Asistido";
+            }else{
+                x = "Pendiente";
+            }
+           modelo.addRow(new Object[]{cit.getFechaColoca(),cit.getVacuna().getMarca(),cit.getCiudadano().getNombreComp(),cit.getHoraCita(),x});
         }
-        modelo.addRow(new Object[]{cit.getFechaColoca(),cit.getVacuna().getMarca(),cit.getCiudadano().getNombreComp(),cit.getHoraCita(),x});
-        
-        
-    }
-
 }
 }

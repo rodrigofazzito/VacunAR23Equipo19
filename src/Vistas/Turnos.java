@@ -13,6 +13,7 @@ import Entidades.CitaVacunacion;
 import Entidades.Ciudadano;
 import java.awt.Color;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import java.util.List;
 import javax.swing.DefaultListModel;
@@ -35,6 +36,7 @@ public class Turnos extends javax.swing.JInternalFrame {
     public Turnos() {
         initComponents();
         jCalendario.setDate(null); 
+        jCalendario.setMinSelectableDate(new Date());
     }
     
     @SuppressWarnings("unchecked")
@@ -166,6 +168,7 @@ public class Turnos extends javax.swing.JInternalFrame {
         jPanel1.add(jListTurnos, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, 480, 200));
 
         jCalendario.setDateFormatString("yyyy-MM-dd");
+        jCalendario.setMaxSelectableDate(new java.util.Date(1797048079000L));
         jCalendario.setMinSelectableDate(new java.util.Date(-62135755138000L));
         jCalendario.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -263,12 +266,13 @@ public class Turnos extends javax.swing.JInternalFrame {
         ciu = new Ciudadano();
         CharSequence Sdni = (jListTurnos.getSelectedValue().subSequence(0, 8));
         int dni = Integer.parseInt((String) Sdni);
-        List<CitaVacunacion> citas = citaData.obtenerCita(dni);
-        for (CitaVacunacion cit : citas) {
-            cit.setCancelada(true);
-            citaData.cancelarCita(cit);
-            JOptionPane.showMessageDialog(null, "La cita se cancelo");
-        }
+        cita = citaData.obtenerCita(dni);
+        cita.setCancelada(true);
+        citaData.cancelarCita(cita);
+        cita.setHoraCita("Cancelada");
+        cita.setVacuna(null);
+        citaData.modificarCita(cita);
+        JOptionPane.showMessageDialog(null, "La cita se cancelo");
         Model.remove(jListTurnos.getSelectedIndex());
     }//GEN-LAST:event_jBCancelarMouseClicked
 
@@ -283,18 +287,18 @@ public class Turnos extends javax.swing.JInternalFrame {
         ciu = new Ciudadano();
         CharSequence Sdni = (jListTurnos.getSelectedValue().subSequence(0, 8));
         int dni = Integer.parseInt((String) Sdni);
-        List<CitaVacunacion> citas = citaData.obtenerCita(dni);
-        for (CitaVacunacion cit : citas) {
-            if(cit.getDosis() < 3){
-                cit.setHoraCita("Asistido");
-                citaData.modificarCita(cit);
-                cit.getVacuna().setColocada(true);
-                vacData.modificarColocada(cit.getVacuna());
-                citaData.modificardosis(cit);
+        cita = citaData.obtenerCita(dni);
+            if(cita.getDosis() < 3){
+                cita.setHoraCita("Asistido");
+                citaData.modificarCita(cita);
+                cita.getVacuna().setColocada(true);
+                vacData.modificarColocada(cita.getVacuna());
+                citaData.modificardosis(cita);
+                cita.setHoraCita("Asistido");
+                citaData.modificarCita(cita);
             }else{
                 JOptionPane.showMessageDialog(null, "Ya tiene todas las dosis dadas");
             }
-        }
         Model.remove(jListTurnos.getSelectedIndex());
         
     }//GEN-LAST:event_jBAsistido1MouseClicked

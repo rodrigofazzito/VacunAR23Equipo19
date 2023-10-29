@@ -82,6 +82,7 @@ public class CitaVacunaData {
          ps.setString(1,cita.getHoraCita());
          ps.setString(2,cita.getCentroVacuna());
          ps.setDate(3, Date.valueOf(cita.getFechaColoca()));
+         ps.setInt(4, cita.getCodcita());
          ps.executeUpdate();
      } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "No se pudo acceder a la tabla cita");
@@ -112,15 +113,15 @@ public class CitaVacunaData {
         }
         return cita;
     }
-    public List<CitaVacunacion> obtenerCita(int dni){
+    public CitaVacunacion obtenerCita (int dni){
         String sql = "select * from citavacunacion where persona = ?";
-        ArrayList<CitaVacunacion> citas = new ArrayList();
+        CitaVacunacion cita = null;
         try{
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, dni);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                CitaVacunacion cita = new CitaVacunacion();
+                cita = new CitaVacunacion();
                 cita.setCodcita(rs.getInt("codCita"));
                 cita.setCiudadano(ciuData.buscarCiudadano(rs.getInt("persona")));
                 cita.setDosis(rs.getInt("dosis"));
@@ -129,13 +130,12 @@ public class CitaVacunaData {
                 cita.setFechaColoca(rs.getDate("fechaHoraColoca").toLocalDate());
                 cita.setVacuna(vacData.buscarVacuna(rs.getLong("nroSerie")));
                 cita.setCancelada(rs.getBoolean("cancelada"));
-                citas.add(cita);
             }
             ps.close();
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "No se pudo acceder a la tabla cita");
         }
-        return citas;
+       return cita;
     }
     public List<CitaVacunacion> listaAplicadasCitaVacunacion(String centroNombre, boolean colocada) {
     String sql = "SELECT v.marca, c.nroSerie, c.persona FROM citavacunacion c "
