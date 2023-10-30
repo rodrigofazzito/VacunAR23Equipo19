@@ -339,6 +339,7 @@ public class Citas extends javax.swing.JInternalFrame {
     private void jCargarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCargarCitaActionPerformed
         ciuData.buscarCiudadano(Integer.parseInt(dni));
         if(jTvacunatorio.getText().length() > 4){
+            cita = new CitaVacunacion();
         cita.setCentroVacuna(jTvacunatorio.getText());
         cita.setCiudadano(ciu);
         cita.setDosis(+1);
@@ -370,20 +371,20 @@ public class Citas extends javax.swing.JInternalFrame {
                         jCheckBox2.setEnabled(true);
                         cita = citaData.obtenerCita(Integer.parseInt(dni));
                         ciu = ciuData.buscarCiudadano(Integer.parseInt(dni));
-                        if(cita.getFechaColoca() != null){
-                            jCargarCita.setEnabled(false);
-                            jComboVacuna.setEnabled(false);
-                            ZonedDateTime zonedDateTime = cita.getFechaColoca().atStartOfDay(ZoneId.systemDefault());
-                            Instant instant = zonedDateTime.toInstant();
-                            Date date = Date.from(instant);
-                            jCalendar.setMinSelectableDate(date);
-                            Calendar cast = Calendar.getInstance();
-                            cast.setTime(jCalendar.getDate());
-                            cast.add(Calendar.DAY_OF_MONTH,1);
-                            jCalendar.setDate(cast.getTime());
-                            jTvacunatorio.setText(cita.getCentroVacuna());
-                        }
-                        if (cita.getDosis() >= 1){
+                        if (citaData.obtenerCita(Integer.parseInt(dni)) != null) {
+                            if (cita.getFechaColoca() != null) {
+                                jCargarCita.setEnabled(false);
+                                jComboVacuna.setEnabled(false);
+                                ZonedDateTime zonedDateTime = cita.getFechaColoca().atStartOfDay(ZoneId.systemDefault());
+                                Instant instant = zonedDateTime.toInstant();
+                                Date date = Date.from(instant);
+                                jCalendar.setMinSelectableDate(date);
+                                Calendar cast = Calendar.getInstance();
+                                cast.setTime(jCalendar.getDate());
+                                cast.add(Calendar.DAY_OF_MONTH, 1);
+                                jCalendar.setDate(cast.getTime());
+                                jTvacunatorio.setText(cita.getCentroVacuna());
+                                if (cita.getDosis() >= 1) {
                             modelo.addElement(cita.getDosis() + " dosis");
                             if (cita.getDosis() == 3) {
                                 jCargarCita.setEnabled(false);
@@ -392,9 +393,14 @@ public class Citas extends javax.swing.JInternalFrame {
                         } else {
                             modelo.addElement("Sin primera dosis");
                         }
-                        if(cita.getHoraCita().length()== 5){
-                        jSpinner.getModel().setValue(cita.getHoraCita());}
-                        modelo.addElement(cita.getFechaColoca());
+                        if (cita.getHoraCita().length() == 5) {
+                            jSpinner.getModel().setValue(cita.getHoraCita());
+                        }
+                         modelo.addElement(cita.getFechaColoca()); 
+                            }
+                        }
+                        
+
                         modelo.addElement(ciu.getNombreComp());
                         modelo.addElement(ciu.getEmail());
                         modelo.addElement(ciu.getCelular());
@@ -413,9 +419,9 @@ public class Citas extends javax.swing.JInternalFrame {
                 }
             }
             jList2.setModel(modelo);
-            }
+        }
 
-        
+
     }//GEN-LAST:event_jTdniKeyPressed
 
     private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
