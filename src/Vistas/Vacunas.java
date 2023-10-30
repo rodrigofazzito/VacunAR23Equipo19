@@ -26,15 +26,16 @@ public class Vacunas extends javax.swing.JInternalFrame {
  };
  
     public Vacunas() {
-        initComponents();
+   initComponents();
         armarCabecera();
         cargarComboBox();
         comboBoxMedidas();
+       comboBoxVacunas();
+       cargarVacunasNoColocadas();
         ((JTextFieldDateEditor)(jdcFechaVencimiento.getDateEditor())).setEditable(false); // Deshabilitar edición de fecha , solo deja que el usuario seleccione en el calendario
     inicializarBotones();
     jdcFechaVencimiento.setMinSelectableDate(new java.util.Date());
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -49,18 +50,18 @@ public class Vacunas extends javax.swing.JInternalFrame {
         jVencimiento = new javax.swing.JLabel();
         jNSerie = new javax.swing.JLabel();
         jLaboratorio = new javax.swing.JLabel();
-        jtMarca = new javax.swing.JTextField();
         jtNroSerie = new javax.swing.JTextField();
         jdcFechaVencimiento = new com.toedter.calendar.JDateChooser();
         jX = new javax.swing.JLabel();
         jFondoVacunar = new javax.swing.JLabel();
         jBanerLogoVacunar = new javax.swing.JLabel();
-        jcMedida = new javax.swing.JComboBox<>();
         jMarca = new javax.swing.JLabel();
         jcbListaLaboratorio = new javax.swing.JComboBox<>();
         jbLimpiar = new javax.swing.JButton();
         jbModificarVacuna = new javax.swing.JButton();
         jbBuscar = new javax.swing.JButton();
+        jcbVpredefinidas = new javax.swing.JComboBox<>();
+        jcbMedia = new javax.swing.JComboBox<>();
 
         setAlignmentX(200.0F);
         setAlignmentY(40.0F);
@@ -132,19 +133,6 @@ public class Vacunas extends javax.swing.JInternalFrame {
         jLaboratorio.setText("Laboratorio:");
         jPBackground.add(jLaboratorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 110, 40));
 
-        jtMarca.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jtMarca.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.red, new java.awt.Color(0, 0, 0)));
-        jtMarca.setDisabledTextColor(new java.awt.Color(180, 0, 0));
-        jtMarca.setOpaque(false);
-        jtMarca.setSelectedTextColor(new java.awt.Color(180, 0, 0));
-        jtMarca.setSelectionColor(new java.awt.Color(255, 255, 255));
-        jtMarca.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtMarcaKeyTyped(evt);
-            }
-        });
-        jPBackground.add(jtMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 230, 40));
-
         jtNroSerie.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jtNroSerie.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.red, java.awt.Color.black));
         jtNroSerie.setOpaque(false);
@@ -195,14 +183,6 @@ public class Vacunas extends javax.swing.JInternalFrame {
         jBanerLogoVacunar.setOpaque(true);
         jPBackground.add(jBanerLogoVacunar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
 
-        jcMedida.setBackground(new java.awt.Color(255, 255, 255));
-        jcMedida.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jcMedida.setForeground(new java.awt.Color(180, 0, 0));
-        jcMedida.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0.3", "0.5", "0.9" }));
-        jcMedida.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(180, 0, 0), 1, true), "", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.ABOVE_BOTTOM, new java.awt.Font("Arial", 1, 12), new java.awt.Color(180, 0, 0))); // NOI18N
-        jcMedida.setOpaque(false);
-        jPBackground.add(jcMedida, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 170, 60, 40));
-
         jMarca.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jMarca.setForeground(new java.awt.Color(180, 0, 0));
         jMarca.setText("Marca:");
@@ -249,6 +229,10 @@ public class Vacunas extends javax.swing.JInternalFrame {
         });
         jPBackground.add(jbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 80, 60, 60));
 
+        jPBackground.add(jcbVpredefinidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 190, 40));
+
+        jPBackground.add(jcbMedia, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 170, 170, 40));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -285,12 +269,13 @@ public class Vacunas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jXMouseExited
 
     private void jbGuardarVacunaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarVacunaActionPerformed
-       try {
+      
+  try {
     Vacuna vacu = new Vacuna();
     String num = jtNroSerie.getText().trim();// Eliminar espacios en blanco
 
-    if (jtMarca.getText().isEmpty() || num.isEmpty()) {
-        JOptionPane.showMessageDialog(null, "No se deben dejar campos vacíos");
+    if (num.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "No ingresó número de serie");
     
     } else if (num.length() != 11 || !num.matches("\\d{11}")) {// El método matches verifica si una cadena completa coincide con una expresión regular. 
                     ///////////////////////////////////////////dentro de ella ingreso el string "\\d{11}" que verifica que la cadena contenga 11 dígitos numéricos.
@@ -303,32 +288,37 @@ public class Vacunas extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "El número de serie ya existe en la base de datos");
         
         } else {
+            jcbListaLaboratorio.setEnabled(true);
+           
             if (jdcFechaVencimiento.getDate() == null) {
+                 
                 JOptionPane.showMessageDialog(null, "seleccióne una fecha  en el calendario");
             } else {
-                if (jtMarca.getText().length()<30) {
-                     vacu.setMarca(jtMarca.getText());
-                }else{
-                  JOptionPane.showMessageDialog(null, "ingrese una marca menos de 15 caracter");
-                  return;
-                }
+                jcbVpredefinidas.setEnabled(true);
+               String vacunaSeleccionada=(String)jcbVpredefinidas.getSelectedItem();
+               vacu.setMarca(vacunaSeleccionada);
                
-                String medidaSeleccionada = (String) jcMedida.getSelectedItem();
+               jcbMedia.setEnabled(true);
+                String medidaSeleccionada = (String) jcbMedia.getSelectedItem();
                 double medida = Double.parseDouble(medidaSeleccionada);
                 vacu.setMedida(medida);
+                
+                 jdcFechaVencimiento.setEnabled(true);
                 java.util.Date fecha = jdcFechaVencimiento.getDate();
                 LocalDate Fech = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
                 vacu.setFechaCaduca(Fech);
+                
                 vacu.setColocada(false);
+                
                 vacu.setNumSerie(Long.parseLong(num));
                 Laboratorio laboratorioSeleccionado = (Laboratorio) jcbListaLaboratorio.getSelectedItem();
                 vacu.setLaboratorio(laboratorioSeleccionado);
+                
                 v.GuardarVacuna(vacu);
-                Limpiar();
+                jbLimpiarActionPerformed(evt);
+                
                 JOptionPane.showMessageDialog(null, "Vacuna cargada con éxito!");
-                // Agregar la nueva vacuna al modelo de la tabla
-                DefaultTableModel modelo = (DefaultTableModel) jtablaVacuna.getModel();
-                modelo.addRow(new Object[]{vacu.getNumSerie(), vacu.getMarca(), vacu.getMedida(), vacu.getFechaCaduca()});
+      
             }
         }
     }
@@ -344,70 +334,54 @@ public class Vacunas extends javax.swing.JInternalFrame {
     evt.consume();}
     }//GEN-LAST:event_jtNroSerieKeyTyped
 
-    private void jtMarcaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtMarcaKeyTyped
-        char c = evt.getKeyChar();
-   if (Character.isDigit(c) ) {
-    evt.consume();}
-    }//GEN-LAST:event_jtMarcaKeyTyped
-
     private void jbModificarVacunaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarVacunaActionPerformed
-  if (jtMarca.getText().isEmpty()) {
-             JOptionPane.showMessageDialog(null,"No se puede modificar, hay campos vacíos");
-             
-             }else{ String numSerieTexto = jtNroSerie.getText().trim();
-              
-                 if (numSerieTexto.length() == 11) {
-        try {
-           
-            Long numSerie = Long.parseLong(numSerieTexto);
+ if (jtNroSerie.getText().length() == 11) {
+        String numSerieTexto = jtNroSerie.getText().trim();
 
-            VacunaData v = new VacunaData();
-            Vacuna vacuna = v.buscarVacuna(numSerie);
+        if (numSerieTexto.length() == 11) {
+            try {
+                Long numSerie = Long.parseLong(numSerieTexto);
 
-            if (vacuna != null) {
-                
-                // Actualiza los atributos de la vacuna con los nuevos valores
-                if (jtMarca.getText().length()<30) {
-                    vacuna.setMarca(jtMarca.getText());
-                }else{
-                  JOptionPane.showMessageDialog(null, "ingrese una marca menos de 15 caracter");
-                  return;
+                VacunaData v = new VacunaData();
+                Vacuna vacuna = v.buscarVacuna(numSerie);
+
+                if (vacuna != null) {
+                    // Actualiza los atributos de la vacuna con los nuevos valores
+                    String marcaSeleccionada = (String) jcbVpredefinidas.getSelectedItem();
+                    vacuna.setMarca(marcaSeleccionada);
+                    String medidaSeleccionada = (String) jcbMedia.getSelectedItem();
+                    double medida = Double.parseDouble(medidaSeleccionada);
+                    vacuna.setMedida(medida);
+                    java.util.Date fecha = jdcFechaVencimiento.getDate();
+                    if (fecha == null) {
+                        JOptionPane.showMessageDialog(null, "Seleccione una fecha en el calendario.");
+                    } else {
+                        LocalDate Fech = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                        vacuna.setFechaCaduca(Fech);
+                        Laboratorio laboratorio = (Laboratorio) jcbListaLaboratorio.getSelectedItem();
+                        vacuna.setLaboratorio(laboratorio);
+
+                        // Llama al método modificarVacuna para actualizar la vacuna en la base de datos
+                        v.modificarVacuna(vacuna);
+                        jbLimpiarActionPerformed(evt);
+
+                        // Actualiza los valores de los JComboBox
+                        jcbVpredefinidas.setSelectedItem(vacuna.getMarca());
+                        jcbMedia.setSelectedItem(String.valueOf(vacuna.getMedida()));
+                        jcbListaLaboratorio.setSelectedItem(vacuna.getLaboratorio());
+
+                        JOptionPane.showMessageDialog(null, "Vacuna modificada con éxito.");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se encontró una vacuna con ese número de serie.");
                 }
-                
-                String medidaSeleccionada = (String) jcMedida.getSelectedItem();
-                double medida = Double.parseDouble(medidaSeleccionada);
-                vacuna.setMedida(medida);
-                java.util.Date fecha = jdcFechaVencimiento.getDate();
-                if (fecha==null) {
-                  JOptionPane.showMessageDialog(null, "selecciones una fecha en calendario");
-                }else{LocalDate Fech = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-                vacuna.setFechaCaduca(Fech);
-                Laboratorio laboratorio = (Laboratorio) jcbListaLaboratorio.getSelectedItem();
-                vacuna.setLaboratorio(laboratorio);
-
-                // Llama al método modificarVacuna para actualizar la vacuna en la base de datos
-                v.modificarVacuna(vacuna);
-
-                // Actualiza los valores de los JComboBox
-                jcMedida.setSelectedItem(String.valueOf(vacuna.getMedida()));
-                jcbListaLaboratorio.setSelectedItem(vacuna.getLaboratorio());
-
-                JOptionPane.showMessageDialog(null, "Vacuna modificada con éxito.");
-                }
-                
-            } else {
-                JOptionPane.showMessageDialog(null, "No se encontró una vacuna con ese número de serie.");
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "El número de serie debe ser un valor numérico válido.");
             }
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "El número de serie debe ser un valor numérico válido.");
+        } else {
+            JOptionPane.showMessageDialog(null, "Ingrese un número de serie válido (debe tener 11 caracteres numéricos).");
         }
-    } else {
-        JOptionPane.showMessageDialog(null, "Ingrese un número de serie válido (debe tener 11 caracteres numéricos).");
-    }
-
-         activarOdesactivarBotonGuardarOModificar();}
-    
-                                                   
+    }                              
     }//GEN-LAST:event_jbModificarVacunaActionPerformed
 
     private void jtNroSerieKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNroSerieKeyReleased
@@ -415,23 +389,28 @@ public class Vacunas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtNroSerieKeyReleased
 
     private void jbLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimpiarActionPerformed
-            jtMarca.setText("");  // Limpiar campo de texto
-    jtNroSerie.setText("");  // Limpiar campo de texto
-    jdcFechaVencimiento.setDate(null);  // Limpiar campo de fecha
+            //reiniciar todos 
+        jtNroSerie.setEnabled(true);
+        jcbListaLaboratorio.setEnabled(true);
+        
+    jtNroSerie.setText("");  
+    jdcFechaVencimiento.setDate(null); 
 
     // Restablecer JComboBox a su valor predeterminado
-    jcMedida.setSelectedItem("0.3");  // Valor predeterminado
-    jcbListaLaboratorio.setSelectedIndex(0);  // Seleccione el primer elemento
-
-    // Limpia la tabla si también estás mostrando datos en una tabla
-    DefaultTableModel modelo = (DefaultTableModel) jtablaVacuna.getModel();
-    modelo.setRowCount(0);  // Eliminar todas las filas de la tabla
+    jcbVpredefinidas.setSelectedIndex(0);  
+    jcbMedia.setSelectedIndex(0);  
+    jcbListaLaboratorio.setSelectedIndex(0);  
+   
+    
+    inicializarBotones();
+   
     }//GEN-LAST:event_jbLimpiarActionPerformed
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
-      String numSerieTexto = jtNroSerie.getText().trim();
+       
+    String numSerieTexto = jtNroSerie.getText().trim();
 
-    if (numSerieTexto.length() == 11) {
+    if (numSerieTexto.length() == 11 && numSerieTexto.matches("\\d+")) {
         try {
             Long numSerie = Long.parseLong(numSerieTexto);
 
@@ -439,9 +418,14 @@ public class Vacunas extends javax.swing.JInternalFrame {
             Vacuna vacuna = v.buscarVacuna(numSerie);
 
             if (vacuna != null) {
+                
                 // Se encontró una vacuna con el número de serie proporcionado
-                jtMarca.setText(vacuna.getMarca());
-                jcMedida.setSelectedItem(String.valueOf(vacuna.getMedida()));
+                
+                jtNroSerie.setEnabled(false);
+                jcbListaLaboratorio.setEnabled(false);
+                jcbVpredefinidas.setSelectedItem(vacuna.getMarca()); // Actualiza la marca predefinida
+                jcbMedia.setSelectedItem(String.valueOf(vacuna.getMedida()));
+                jcbListaLaboratorio.setSelectedItem(vacuna.getLaboratorio());
 
                 // Busca el laboratorio correspondiente en el ComboBox
                 for (int i = 0; i < jcbListaLaboratorio.getItemCount(); i++) {
@@ -453,6 +437,27 @@ public class Vacunas extends javax.swing.JInternalFrame {
                 }
 
                 jdcFechaVencimiento.setDate(Date.valueOf(vacuna.getFechaCaduca()));
+                
+                // Limpia la tabla antes de agregar datos
+                DefaultTableModel modelo = (DefaultTableModel) jtablaVacuna.getModel();
+               
+                
+                // Comprueba si la vacuna está colocada
+                if (vacuna.isColocada()) {
+                    // Si está colocada, no se muestra en la tabla
+                    JOptionPane.showMessageDialog(null, "La vacuna está colocada, no se muestra en la tabla.");
+                    inicializarBotones();
+                    return;
+                } else {
+                    // Si no está colocada, se muestra en la tabla
+                    Object[] rowData = {
+                        vacuna.getNumSerie(),
+                        vacuna.getMarca(),
+                        vacuna.getMedida(),
+                        vacuna.getFechaCaduca()
+                    };
+                    modelo.addRow(rowData);
+                }
             } else {
                 JOptionPane.showMessageDialog(null, "No se encontró una vacuna con ese número de serie.");
             }
@@ -462,6 +467,9 @@ public class Vacunas extends javax.swing.JInternalFrame {
     } else {
         JOptionPane.showMessageDialog(null, "Ingrese un número de serie válido (debe tener 11 caracteres numéricos).");
     }
+
+
+
 
     }//GEN-LAST:event_jbBuscarActionPerformed
 
@@ -482,10 +490,10 @@ public class Vacunas extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbGuardarVacuna;
     private javax.swing.JButton jbLimpiar;
     private javax.swing.JButton jbModificarVacuna;
-    private javax.swing.JComboBox<String> jcMedida;
     private javax.swing.JComboBox<Laboratorio> jcbListaLaboratorio;
+    private javax.swing.JComboBox<String> jcbMedia;
+    private javax.swing.JComboBox<String> jcbVpredefinidas;
     private com.toedter.calendar.JDateChooser jdcFechaVencimiento;
-    private javax.swing.JTextField jtMarca;
     private javax.swing.JTextField jtNroSerie;
     private javax.swing.JTable jtablaVacuna;
     // End of variables declaration//GEN-END:variables
@@ -497,7 +505,7 @@ private void armarCabecera() {
         jtablaVacuna.setModel(modelo);
         jtablaVacuna.setDefaultEditor(Object.class, null);
     }
-    private void cargarComboBox() {
+    private void cargarComboBox(){
     LaboratorioData labData=new LaboratorioData();
    
     List<Laboratorio>laboratorios=labData.listaLaboratorio();
@@ -508,29 +516,56 @@ private void armarCabecera() {
         }
         jcbListaLaboratorio.setModel(comboBoxModel);
 }
-    
-   private void Limpiar(){
-          jtMarca.setText("");
-           jcMedida.setSelectedIndex(0);
-           jtNroSerie.setText("");
-           jcbListaLaboratorio.setSelectedIndex(0);
-            jdcFechaVencimiento.setDate(null);
-          
-   }
+
 private void comboBoxMedidas() {
-    String[] medidas = {"0.3", "0.5", "0.9"};
-    DefaultComboBoxModel<String> comboBoxModel = new DefaultComboBoxModel<>();
-
-    for (String medida : medidas) {
-        comboBoxModel.addElement(medida);
-    }
-
-    jcMedida.setModel(comboBoxModel);
+    jcbMedia.addItem("medidas");
+ jcbMedia.addItem("0.3");
+        jcbMedia.addItem("0.5");
+        jcbMedia.addItem("0.9");
 }
+private void comboBoxVacunas() {
+    DefaultComboBoxModel<String> comboBoxModel = new DefaultComboBoxModel<>();
+    comboBoxModel.addElement("vacunas");
+    comboBoxModel.addElement("Pfizer-BioNTech");
+    comboBoxModel.addElement("Moderna");
+    comboBoxModel.addElement("Johnson & Johnson (Janssen)");
+    comboBoxModel.addElement("AstraZeneca");
+    comboBoxModel.addElement("Sinopharm");
+    comboBoxModel.addElement("Sinovac");
+    comboBoxModel.addElement("Covaxin");
+    comboBoxModel.addElement("Sputnik V");
+
+    jcbVpredefinidas.setModel(comboBoxModel);
+}
+ private void cargarVacunasNoColocadas() {
+    VacunaData v = new VacunaData();
+    List<Vacuna> vacunas = v.listaVacunas(); // Obtener todas las vacunas
+
+    modelo.setRowCount(0); // Limpia la tabla antes de cargar los datos
+
+    for (Vacuna vacuna : vacunas) {
+        if (!vacuna.isColocada()) {
+            // Solo agrega las vacunas que no están colocadas
+            Object[] rowData = {
+                vacuna.getNumSerie(),
+                vacuna.getMarca(),
+                vacuna.getMedida(),
+                vacuna.getFechaCaduca()
+            };
+            modelo.addRow(rowData);
+        }
+    }
+}
+
 
 private void inicializarBotones(){
 jbGuardarVacuna.setEnabled(false);
 jbModificarVacuna.setEnabled(false);
+jcbVpredefinidas.setEnabled(false);
+jdcFechaVencimiento.setEnabled(false);
+jcbMedia.setEnabled(false);
+
+
 }
 private void activarOdesactivarBotonGuardarOModificar() {
     try {
@@ -546,10 +581,19 @@ private void activarOdesactivarBotonGuardarOModificar() {
                     // vacuna encontrada, desactivamos el botón Guardar y activamos el botón Modificar
                     jbGuardarVacuna.setEnabled(false);
                     jbModificarVacuna.setEnabled(true);
+                     jcbVpredefinidas.setEnabled(false);
+                      jcbMedia.setEnabled(true);
+                      jdcFechaVencimiento.setEnabled(true);
+                    
                 } else {
                     // No se encontró vacuna, activamos el botón Guardar y desactivamos el botón Modificar
                     jbGuardarVacuna.setEnabled(true);
                     jbModificarVacuna.setEnabled(false);
+                    jtNroSerie.setEnabled(true);
+                     jcbVpredefinidas.setEnabled(true);
+                      jcbMedia.setEnabled(true);
+                      jcbListaLaboratorio.setEnabled(true);
+                      jdcFechaVencimiento.setEnabled(true);
                 }
             }
         } catch (NumberFormatException e) {
