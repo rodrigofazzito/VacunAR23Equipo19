@@ -270,7 +270,6 @@ public class Turnos extends javax.swing.JInternalFrame {
         cita.setCancelada(true);
         citaData.cancelarCita(cita);
         cita.setHoraCita("Cancelada");
-        cita.setVacuna(null);
         citaData.modificarCita(cita);
         JOptionPane.showMessageDialog(null, "La cita se cancelo");
         Model.remove(jListTurnos.getSelectedIndex());

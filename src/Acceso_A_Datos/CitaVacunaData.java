@@ -76,13 +76,14 @@ public class CitaVacunaData {
         return citas;
     }
     public CitaVacunacion modificarCita(CitaVacunacion cita){
-     String sql = "Update citavacunacion set fechaHoraCita = ?,centroVacunacion = ?,fechaHoraColoca = ? where codCita = ?";
+     String sql = "Update citavacunacion set fechaHoraCita = ?,centroVacunacion = ?,fechaHoraColoca = ?,cancelada = ? where codCita = ?";
      try{
          PreparedStatement ps = con.prepareStatement(sql);
          ps.setString(1,cita.getHoraCita());
          ps.setString(2,cita.getCentroVacuna());
          ps.setDate(3, Date.valueOf(cita.getFechaColoca()));
-         ps.setInt(4, cita.getCodcita());
+         ps.setBoolean(4, cita.isCancelada());
+         ps.setInt(5, cita.getCodcita());
          ps.executeUpdate();
      } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "No se pudo acceder a la tabla cita");

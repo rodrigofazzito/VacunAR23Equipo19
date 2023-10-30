@@ -14,8 +14,10 @@ import Entidades.Ciudadano;
 import Entidades.Vacuna;
 import java.awt.Color;
 import java.sql.Connection;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -23,7 +25,7 @@ import java.util.Locale;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
-import javax.swing.SpinnerListModel;
+
 
 
 /**
@@ -54,6 +56,7 @@ public class Citas extends javax.swing.JInternalFrame {
         cargarCombo();
         jCalendar.setMinSelectableDate(new Date());
         limpiarCampos();
+        
         
         
     }
@@ -90,6 +93,7 @@ public class Citas extends javax.swing.JInternalFrame {
         jBAsistido1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jCalendar = new com.toedter.calendar.JCalendar();
+        jBmodificar = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -277,7 +281,7 @@ public class Citas extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 400, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 400, -1, -1));
 
         jCalendar.setBackground(new java.awt.Color(255, 255, 255));
         jCalendar.setDecorationBackgroundColor(new java.awt.Color(180, 0, 0));
@@ -287,6 +291,14 @@ public class Citas extends javax.swing.JInternalFrame {
         jCalendar.setWeekOfYearVisible(false);
         jCalendar.setWeekdayForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(jCalendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, 230));
+
+        jBmodificar.setText("Modificar");
+        jBmodificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBmodificarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jBmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 410, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -358,14 +370,30 @@ public class Citas extends javax.swing.JInternalFrame {
                         jCheckBox2.setEnabled(true);
                         cita = citaData.obtenerCita(Integer.parseInt(dni));
                         ciu = ciuData.buscarCiudadano(Integer.parseInt(dni));
+                        if(cita.getFechaColoca() != null){
+                            jCargarCita.setEnabled(false);
+                            jComboVacuna.setEnabled(false);
+                            ZonedDateTime zonedDateTime = cita.getFechaColoca().atStartOfDay(ZoneId.systemDefault());
+                            Instant instant = zonedDateTime.toInstant();
+                            Date date = Date.from(instant);
+                            jCalendar.setMinSelectableDate(date);
+                            Calendar cast = Calendar.getInstance();
+                            cast.setTime(jCalendar.getDate());
+                            cast.add(Calendar.DAY_OF_MONTH,1);
+                            jCalendar.setDate(cast.getTime());
+                            jTvacunatorio.setText(cita.getCentroVacuna());
+                        }
                         if (cita.getDosis() >= 1){
                             modelo.addElement(cita.getDosis() + " dosis");
                             if (cita.getDosis() == 3) {
                                 jCargarCita.setEnabled(false);
+                                jBmodificar.setEnabled(false);
                             }
                         } else {
                             modelo.addElement("Sin primera dosis");
                         }
+                        if(cita.getHoraCita().length()== 5){
+                        jSpinner.getModel().setValue(cita.getHoraCita());}
                         modelo.addElement(cita.getFechaColoca());
                         modelo.addElement(ciu.getNombreComp());
                         modelo.addElement(ciu.getEmail());
@@ -385,7 +413,8 @@ public class Citas extends javax.swing.JInternalFrame {
                 }
             }
             jList2.setModel(modelo);
-        }
+            }
+
         
     }//GEN-LAST:event_jTdniKeyPressed
 
@@ -431,11 +460,32 @@ public class Citas extends javax.swing.JInternalFrame {
     evt.consume();}
     }//GEN-LAST:event_jTdniKeyTyped
 
+    private void jBmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBmodificarActionPerformed
+        // boton modificar
+        ciuData.buscarCiudadano(Integer.parseInt(dni));
+        if(jTvacunatorio.getText().length() > 4){
+        cita.setCentroVacuna(jTvacunatorio.getText());
+        cita.setCiudadano(ciu);
+        ciu.setNota(JOptionPane.showInputDialog("Escriba su nota"));
+        java.util.Date fecha = jCalendar.getDate();
+        LocalDate Fech = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        cita.setFechaColoca(Fech);
+        cita.setCancelada(false);
+        cita.setHoraCita(String.valueOf(jSpinner.getValue()));
+        citaData.modificarCita(cita);
+        JOptionPane.showMessageDialog(null, "La cita se cargo correctamente");
+        }else{
+            JOptionPane.showMessageDialog(null, "ingrese un vacunatorio existente");
+        }
+        limpiarCampos();
+    }//GEN-LAST:event_jBmodificarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jBAsistido1;
     private javax.swing.JLabel jBanerLogoVacunar;
     private javax.swing.JLabel jBannerPaciente;
+    private javax.swing.JButton jBmodificar;
     private javax.swing.JButton jButton1;
     private com.toedter.calendar.JCalendar jCalendar;
     private javax.swing.JButton jCargarCita;
@@ -463,7 +513,6 @@ public class Citas extends javax.swing.JInternalFrame {
        c.setTime(jCalendar.getDate());
        c.add(Calendar.MONTH, 2);
        jCalendar.setDate(c.getTime());
-       
    }
    
    public void setFechaMenos(){
@@ -488,6 +537,10 @@ public class Citas extends javax.swing.JInternalFrame {
        modelo.clear();
        jTvacunatorio.setText("");
        jComboVacuna.setSelectedIndex(0);
+       jSpinner.getModel().setValue("07:15");
+       jComboVacuna.setEnabled(true);
+       jCalendar.setMinSelectableDate(new Date());
+       
    }
    public void setFechaMas(){
        Calendar c = Calendar.getInstance();
