@@ -315,7 +315,8 @@ public class Vacunas extends javax.swing.JInternalFrame {
                 vacu.setLaboratorio(laboratorioSeleccionado);
                 
                 v.GuardarVacuna(vacu);
-                jbLimpiarActionPerformed(evt);
+                DefaultTableModel modelo = (DefaultTableModel) jtablaVacuna.getModel();
+            modelo.setRowCount(0);
                 
                 JOptionPane.showMessageDialog(null, "Vacuna cargada con éxito!");
       
@@ -363,7 +364,8 @@ public class Vacunas extends javax.swing.JInternalFrame {
 
                         // Llama al método modificarVacuna para actualizar la vacuna en la base de datos
                         v.modificarVacuna(vacuna);
-                        jbLimpiarActionPerformed(evt);
+                        DefaultTableModel modelo = (DefaultTableModel) jtablaVacuna.getModel();
+            modelo.setRowCount(0);
 
                         // Actualiza los valores de los JComboBox
                         jcbVpredefinidas.setSelectedItem(vacuna.getMarca());
@@ -401,6 +403,7 @@ public class Vacunas extends javax.swing.JInternalFrame {
     jcbMedia.setSelectedIndex(0);  
     jcbListaLaboratorio.setSelectedIndex(0);  
    
+    cargarVacunasNoColocadas();
     
     inicializarBotones();
    
@@ -440,7 +443,7 @@ public class Vacunas extends javax.swing.JInternalFrame {
                 
                 // Limpia la tabla antes de agregar datos
                 DefaultTableModel modelo = (DefaultTableModel) jtablaVacuna.getModel();
-               
+            modelo.setRowCount(0);
                 
                 // Comprueba si la vacuna está colocada
                 if (vacuna.isColocada()) {

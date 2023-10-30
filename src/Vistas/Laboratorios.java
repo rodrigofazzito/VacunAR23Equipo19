@@ -243,21 +243,32 @@ public Laboratorios() {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jGuardarActionPerformed
-        if (jCuit.getText().isEmpty() || jNombre.getText().isEmpty() || jPais.getText().isEmpty()|| jDireccion.getText().isEmpty()|| jStock.getText().isEmpty()) {
-           JOptionPane.showMessageDialog(null, " Debe llenar todos los campos");
-        }
-        else{
-            lab.setCuit(Long.parseLong(jCuit.getText()));
+   if (jCuit.getText().isEmpty() || jNombre.getText().isEmpty() || jPais.getText().isEmpty() || jDireccion.getText().isEmpty() || jStock.getText().isEmpty()) {
+          JOptionPane.showMessageDialog(null, "Debe llenar todos los campos");
+       }
+          if (Long.parseLong(jCuit.getText()) == 11 && jNombre.getText().length() < 80 && jPais.getText().length() < 80 && jDireccion.getText().length() < 80 ) {
+          lab.setCuit(Long.parseLong(jCuit.getText()));
             lab.setNomLaboratorio(jNombre.getText());
             lab.setPais(jPais.getText());
             lab.setDomComercial(jDireccion.getText());
             lab.setStockVacuna(Integer.parseInt(jStock.getText()));
             
-            
             labD.GuardarLaboratorio(lab);
             jLimpiarActionPerformed(evt);
-       }
-        
+      } 
+
+        if (jNombre.getText().length() >= 80) {
+            
+        JOptionPane.showMessageDialog(null, "El nombre de Laboratorio debe ser menor a 80 caracteres");
+        }
+        if (jPais.getText().length() >= 80) {
+           JOptionPane.showMessageDialog(null, "El Pais de Laboratorio debe ser menor a 80 caracteres"); 
+        }
+        if (jDireccion.getText().length() >= 80 ) {
+            JOptionPane.showMessageDialog(null, "La direccion de Laboratorio debe ser menor a 80 caracteres"); 
+        }
+
+         jLimpiarActionPerformed(evt); 
         
     }//GEN-LAST:event_jGuardarActionPerformed
 
@@ -299,6 +310,10 @@ public Laboratorios() {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Buscar Laboratorio
+        if (Long.parseLong(jCuit.getText()) == 11) {
+            JOptionPane.showMessageDialog(null,"El numero de serie debe ser igual a 11 digitos");
+        }
+        else{
         long cuit = Long.parseLong(jCuit.getText());
     LaboratorioData LabD = new LaboratorioData();
     List<Laboratorio> lab = LabD.BuscarLaboratorioCuit(cuit);
@@ -307,6 +322,7 @@ public Laboratorios() {
         modelo.addRow(new Object[]{laboratorio.getCuit(),laboratorio.getNomLaboratorio(),laboratorio.getPais(),laboratorio.getDomComercial(),laboratorio.getStockVacuna()});
     }
     jtLaboratorio.setModel(modelo); 
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jXMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jXMouseClicked
