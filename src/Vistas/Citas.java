@@ -531,7 +531,8 @@ public class Citas extends javax.swing.JInternalFrame {
        DefaultComboBoxModel<Vacuna> comboBoxModel = new DefaultComboBoxModel<>();
        List <Vacuna> vacunas= vacData.listaVacunas();
        for(Vacuna vac : vacunas){
-           comboBoxModel.addElement(vac);
+           if(vac.isColocada()== false){
+           comboBoxModel.addElement(vac);}
        }
        jComboVacuna.setModel(comboBoxModel);
    }
